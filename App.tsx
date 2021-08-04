@@ -1,8 +1,8 @@
 import React from 'react';
-import MainScreen from './android/src/Navigation/MainStack';
+import { RootNavigation } from './android/src/Navigation/RootNavigation';
 
 const App = () => {
-    return <MainScreen />;
+    return <RootNavigation />;
 };
 
 export default App;
