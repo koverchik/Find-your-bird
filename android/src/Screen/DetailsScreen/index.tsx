@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { styles } from './style';
+import { styles as stylesButton } from '../HomeScreen/style';
 
 export const DetailsScreen = () => {
     return (
