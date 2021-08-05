@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DetailsScreen } from '../Screen/DetailsScreen';
 import { HomeScreen } from '../Screen/HomeScreen';
 import { HomeStackScreens } from './types';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from './RootStackPrams';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
-export const HomeNavigation = () => {
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen

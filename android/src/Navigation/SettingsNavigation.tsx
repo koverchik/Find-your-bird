@@ -4,7 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { SettingsScreen } from '../Screen/SettingsScreen';
 import { SettingsStackScreens } from './types';
 
-const Stack = createStackNavigator();
+type SettingsStackParamList = {
+    Settings: undefined;
+};
+const Stack = createStackNavigator<SettingsStackParamList>();
 
 export const SettingsNavigation = () => {
     return (

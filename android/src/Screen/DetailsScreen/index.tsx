@@ -1,9 +1,11 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { FC } from 'react';
+import { View, Text } from 'react-native';
 import { styles } from './style';
-import { styles as stylesButton } from '../HomeScreen/style';
+import { DetailsScreenProps } from './types';
 
-export const DetailsScreen = () => {
+export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
+    const { navigation, route } = props;
+
     return (
         <View style={styles.container}>
             <Text>Details for you!</Text>

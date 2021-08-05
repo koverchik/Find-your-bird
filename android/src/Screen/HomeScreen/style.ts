@@ -3,7 +3,7 @@ import { StyleSheet, ViewStyle } from 'react-native';
 type DetailsStyles = {
     container: ViewStyle;
     button: ViewStyle;
-    text: ViewStyle;
+    text: Text;
 };
 
 export const styles = StyleSheet.create<DetailsStyles>({
