@@ -5,7 +5,7 @@ import { HomeStackScreens } from '../../Navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenProps, StackNavigationPropNavigation } from './type';
 
-export const HomeScreen: FC<HomeScreenProps> = (props) => {
+export const HomeScreen: FC<HomeScreenProps> = () => {
     const navigation = useNavigation<StackNavigationPropNavigation>();
 
     const onPress = () =>

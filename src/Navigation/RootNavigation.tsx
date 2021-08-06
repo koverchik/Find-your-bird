@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { SettingsNavigation } from './SettingsNavigation';
 import { HomeNavigation } from './HomeNavigation';
 import { TabNavigationScreen } from './types';
 import { TabNavigatorParamList } from './RootStackPrams';
-import SplashScreen from 'react-native-splash-screen';
 
 const Tab = createBottomTabNavigator<TabNavigatorParamList>();
 export const RootNavigation = () => {
-    useEffect(() => {
-        SplashScreen.hide();
-    });
-
     return (
         <NavigationContainer>
             <Tab.Navigator
