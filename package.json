@@ -8,6 +8,7 @@
         "start": "react-native start",
         "test": "jest",
         "lint": "eslint .",
+        "clean": "cd android && ./gradlew clean && cd .. ",
         "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}"
     },
     "dependencies": {
@@ -21,6 +22,7 @@
         "react-native-reanimated": "^2.2.0",
         "react-native-safe-area-context": "^3.2.0",
         "react-native-screens": "^3.4.0",
+        "react-native-splash-screen": "^3.2.0",
         "react-native-vector-icons": "^8.1.0"
     },
     "devDependencies": {
