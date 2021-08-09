@@ -13,7 +13,7 @@ const App = () => {
 
     return isSplashAnimation ? (
         <LottieView
-            source={require('./assets/animation.json')}
+            source={require('@assets/animation.json')}
             autoPlay
             loop={false}
             onAnimationFinish={() => {
