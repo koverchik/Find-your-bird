@@ -18,7 +18,8 @@
                 "alias": {
                     "@navigation": "./src/Navigation",
                     "@screen": "./src/Screen",
-                    "@assets": "./assets"
+                    "@assets": "./assets",
+                    "@root": "./src"
                 }
             }
         ]

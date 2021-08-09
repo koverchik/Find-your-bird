@@ -16,11 +16,23 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
             <Stack.Screen
                 name={HomeStackScreens.Home}
                 component={HomeScreen}
-                options={{ title: 'Home screen' }}
+                options={{
+                    title: 'Home screen',
+                    headerStyle: {
+                        backgroundColor: '#ff80ac'
+                    },
+                    headerTintColor: '#fff'
+                }}
             />
             <Stack.Screen
                 name={HomeStackScreens.Details}
                 component={DetailsScreen}
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#ff80ac'
+                    },
+                    headerTintColor: '#fff'
+                }}
             />
         </Stack.Navigator>
     );

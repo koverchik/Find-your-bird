@@ -4,7 +4,8 @@
         "paths": {
             "@navigation/*": ["./src/Navigation/*"],
             "@screen/*": ["./src/Screen/*"],
-            "@assets/*": ["./assets/*"]
+            "@assets/*": ["./assets/*"],
+            "@root/*": ["./src/*"]
         }
     },
     "exclude": ["node_modules", "dist"]

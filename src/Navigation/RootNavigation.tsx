@@ -1,20 +1,20 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { SettingsNavigation } from './SettingsNavigation';
 import { HomeNavigation } from './HomeNavigation';
 import { TabNavigationScreen } from './types';
 import { TabNavigatorParamList } from './RootStackPrams';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-const Tab = createBottomTabNavigator<TabNavigatorParamList>();
+const Tab = createMaterialBottomTabNavigator<TabNavigatorParamList>();
 export const RootNavigation = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator
                 initialRouteName={TabNavigationScreen.HomeTab}
-                screenOptions={{
-                    headerShown: false
-                }}
+                activeColor="#f0edf6"
+                inactiveColor="#3e2465"
+                barStyle={{ backgroundColor: '#ff80ac' }}
             >
                 <Tab.Screen
                     name={TabNavigationScreen.HomeTab}
