@@ -7,12 +7,16 @@ import { HomeStackScreens } from './types';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './RootStackPrams';
 import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
+import { useTheme } from '../Theme/Theme.context';
+import { red100 } from 'react-native-paper/lib/typescript/styles/colors';
 
 const Stack = createStackNavigator<RootStackParamList>();
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
     const Styles = useThemeAwareObject(createStyles);
+    const { theme } = useTheme();
+
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -20,20 +24,18 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
                 component={HomeScreen}
                 options={{
                     title: 'Home screen',
-                    headerStyle: {
-                        backgroundColor: Styles.container.backgroundColor
-                    },
-                    headerTintColor: '#fff'
+                    headerStyle: Styles.container,
+                    headerTintColor: theme.color.primary,
+                    headerTitleAlign: 'center'
                 }}
             />
             <Stack.Screen
                 name={HomeStackScreens.Details}
                 component={DetailsScreen}
                 options={{
-                    headerStyle: {
-                        backgroundColor: Styles.container.backgroundColor
-                    },
-                    headerTintColor: '#fff'
+                    headerStyle: Styles.container,
+                    headerTintColor: theme.color.primary,
+                    headerTitleAlign: 'center'
                 }}
             />
         </Stack.Navigator>

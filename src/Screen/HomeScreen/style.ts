@@ -14,7 +14,6 @@ export const createStyles = (theme: Theme) => {
             justifyContent: 'center',
             backgroundColor: theme.color.primary,
             flexDirection: 'column',
-            width: '100%',
             height: '100%'
         },
         text: {
@@ -22,7 +21,7 @@ export const createStyles = (theme: Theme) => {
         },
         button: {
             padding: 15,
-            backgroundColor: theme.color.surface
+            backgroundColor: theme.color.bright
         }
     });
     return styles;

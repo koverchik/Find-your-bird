@@ -7,7 +7,6 @@ export const createStyles = (theme: Theme) => {
             alignItems: 'center',
             backgroundColor: theme.color.primary,
             flexDirection: 'column',
-            width: '100%',
             height: '100%'
         },
         settingsText: {
@@ -20,9 +19,9 @@ export const createStyles = (theme: Theme) => {
         },
         settingsItem: {
             width: '100%',
-            display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
+            alignItems: 'center',
             padding: 10,
             marginTop: 20,
             backgroundColor: theme.color.surface

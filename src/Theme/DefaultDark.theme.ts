@@ -5,8 +5,8 @@ const DEFAULT_DARK_COLOR_THEME: ColorTheme = {
     onPrimary: '#fff',
     surface: '#393939',
     onSurface: '#dadada',
-    background: '#ad637d',
-    primaryDark: '#602a3d'
+    background: '#d9aebd',
+    bright: '#602a3d'
 };
 
 const DEFAULT_DARK_SPACING_THEME: SpacingTheme = {
@@ -16,6 +16,5 @@ const DEFAULT_DARK_SPACING_THEME: SpacingTheme = {
 export const DEFAULT_DARK_THEME_ID = 'default-dark';
 export const DEFAULT_DARK_THEME: Theme = {
     id: DEFAULT_DARK_THEME_ID,
-    color: DEFAULT_DARK_COLOR_THEME,
-    spacing: DEFAULT_DARK_SPACING_THEME
+    color: DEFAULT_DARK_COLOR_THEME
 };

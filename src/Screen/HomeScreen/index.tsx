@@ -11,6 +11,7 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
     const Styles = useThemeAwareObject(createStyles);
     const onPress = () =>
         navigation.navigate(HomeStackScreens.Details, { userId: 12 });
+
     return (
         <View style={Styles.container}>
             <TouchableOpacity style={Styles.button} onPress={onPress}>

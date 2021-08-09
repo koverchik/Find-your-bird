@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { DEFAULT_DARK_THEME, DEFAULT_DARK_THEME_ID } from './DefaultDark.theme';
 import {
     DEFAULT_LIGHT_THEME,
@@ -38,7 +37,8 @@ export const ThemeProvider = React.memo<Props>((props) => {
             return currentTheme;
         });
     }, []);
-    const SetThemeCallback = React.useCallback((newTheme: Theme) => {
+
+    const setThemeCallback = React.useCallback((newTheme: Theme) => {
         setTheme((currentTheme: Theme) => {
             if (currentTheme.id === newTheme.id) {
                 return currentTheme;
@@ -48,17 +48,17 @@ export const ThemeProvider = React.memo<Props>((props) => {
         });
     }, []);
 
-    const MemoizedValue = React.useMemo(() => {
+    const memoizedValue = React.useMemo(() => {
         const value: ProvidedValue = {
             theme,
-            setTheme: SetThemeCallback,
+            setTheme: setThemeCallback,
             toggleTheme: ToggleThemeCallback
         };
         return value;
-    }, [theme, SetThemeCallback, ToggleThemeCallback]);
+    }, [theme, setThemeCallback, ToggleThemeCallback]);
 
     return (
-        <Context.Provider value={MemoizedValue}>
+        <Context.Provider value={memoizedValue}>
             {props.children}
         </Context.Provider>
     );
