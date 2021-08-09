@@ -1,13 +1,14 @@
 import { ColorTheme, SpacingTheme, Theme } from './Theme.interface';
 // Define our dark theme colors
 const DEFAULT_DARK_COLOR_THEME: ColorTheme = {
-    primary: '#ff80ac',
+    primary: '#000',
     onPrimary: '#fff',
-    surface: '#545454',
-    onSurface: '#fff',
-    background: '#3f3f3f',
-    primaryDark: ''
+    surface: '#393939',
+    onSurface: '#dadada',
+    background: '#2a2a2a',
+    primaryDark: '#602a3d'
 };
+
 const DEFAULT_DARK_SPACING_THEME: SpacingTheme = {
     base: 8,
     double: 16

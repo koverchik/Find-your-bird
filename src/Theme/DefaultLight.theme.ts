@@ -1,13 +1,14 @@
 import { ColorTheme, SpacingTheme, Theme } from './Theme.interface';
 
 const DEFAULT_LIGHT_COLOR_THEME: ColorTheme = {
-    primary: '#000000',
-    onPrimary: '#fff',
-    surface: '#fff',
-    onSurface: '#000',
-    background: '#dedede',
-    primaryDark: ''
+    primary: '#fff',
+    onPrimary: '#000',
+    surface: '#dadada',
+    onSurface: '#393939',
+    background: '#602a3d',
+    primaryDark: '#2a2a2a'
 };
+
 const DEFAULT_LIGHT_SPACING_THEME: SpacingTheme = {
     base: 8,
     double: 16
