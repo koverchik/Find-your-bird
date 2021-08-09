@@ -5,6 +5,7 @@ import { HomeStackScreens } from '../../Navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenProps, StackNavigationPropNavigation } from './type';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+
 export const HomeScreen: FC<HomeScreenProps> = () => {
     const navigation = useNavigation<StackNavigationPropNavigation>();
     const Styles = useThemeAwareObject(createStyles);

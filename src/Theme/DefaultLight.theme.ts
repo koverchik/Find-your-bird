@@ -5,7 +5,7 @@ const DEFAULT_LIGHT_COLOR_THEME: ColorTheme = {
     onPrimary: '#000',
     surface: '#dadada',
     onSurface: '#393939',
-    background: '#602a3d',
+    background: '#ff80ac',
     primaryDark: '#2a2a2a'
 };
 

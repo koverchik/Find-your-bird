@@ -1,16 +1,18 @@
 import React, { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DetailsScreen } from '../Screen/DetailsScreen';
+import { createStyles } from './style';
 import { HomeScreen } from '../Screen/HomeScreen';
 import { HomeStackScreens } from './types';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './RootStackPrams';
+import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
 
 const Stack = createStackNavigator<RootStackParamList>();
-
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
+    const Styles = useThemeAwareObject(createStyles);
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -19,7 +21,7 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
                 options={{
                     title: 'Home screen',
                     headerStyle: {
-                        backgroundColor: '#ff80ac'
+                        backgroundColor: Styles.container.backgroundColor
                     },
                     headerTintColor: '#fff'
                 }}
@@ -29,7 +31,7 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
                 component={DetailsScreen}
                 options={{
                     headerStyle: {
-                        backgroundColor: '#ff80ac'
+                        backgroundColor: Styles.container.backgroundColor
                     },
                     headerTintColor: '#fff'
                 }}

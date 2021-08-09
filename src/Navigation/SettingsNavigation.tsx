@@ -3,7 +3,8 @@ import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SettingsScreen } from '../Screen/SettingsScreen';
 import { SettingsStackScreens } from './types';
-import { color } from 'react-native-reanimated';
+import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
+import { createStyles } from './style';
 
 type SettingsStackParamList = {
     Settings: undefined;
@@ -11,6 +12,7 @@ type SettingsStackParamList = {
 const Stack = createStackNavigator<SettingsStackParamList>();
 
 export const SettingsNavigation = () => {
+    const Styles = useThemeAwareObject(createStyles);
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -18,7 +20,7 @@ export const SettingsNavigation = () => {
                 component={SettingsScreen}
                 options={{
                     headerStyle: {
-                        backgroundColor: '#ff80ac'
+                        backgroundColor: Styles.container.backgroundColor
                     },
                     headerTintColor: '#fff'
                 }}
