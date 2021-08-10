@@ -14,7 +14,7 @@ export const createStyles = (theme: Theme) => {
       justifyContent: 'center',
       backgroundColor: theme.color.primary,
       flexDirection: 'column',
-      height: '100%',
+      flex: 1,
     },
     text: {
       color: theme.color.onPrimary,

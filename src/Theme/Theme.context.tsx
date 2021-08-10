@@ -3,11 +3,11 @@ import { DEFAULT_DARK_THEME, DEFAULT_DARK_THEME_ID } from './DefaultDark.theme';
 import { DEFAULT_LIGHT_THEME, DEFAULT_LIGHT_THEME_ID } from './DefaultLight.theme';
 import { Theme } from './Theme.interface';
 
-interface ProvidedValue {
+type ProvidedValue = {
   theme: Theme;
   toggleTheme: () => void;
   setTheme: (theme: Theme) => void;
-}
+};
 
 const Context = React.createContext<ProvidedValue>({
   theme: DEFAULT_LIGHT_THEME,
@@ -15,10 +15,10 @@ const Context = React.createContext<ProvidedValue>({
   toggleTheme: () => {},
 });
 
-interface Props {
+type Props = {
   initial: Theme;
   children?: React.ReactNode;
-}
+};
 
 export const ThemeProvider = React.memo<Props>((props) => {
   const [theme, setTheme] = React.useState<Theme>(props.initial);
@@ -27,11 +27,9 @@ export const ThemeProvider = React.memo<Props>((props) => {
     setTheme((currentTheme) => {
       if (currentTheme.id === DEFAULT_LIGHT_THEME_ID) {
         return DEFAULT_DARK_THEME;
-      }
-      if (currentTheme.id === DEFAULT_DARK_THEME_ID) {
+      } else {
         return DEFAULT_LIGHT_THEME;
       }
-      return currentTheme;
     });
   }, []);
 

@@ -7,13 +7,15 @@ import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { DEFAULT_LIGHT_THEME_ID } from '../../Theme/DefaultLight.theme';
 import { useTheme } from '../../Theme/Theme.context';
 
-export const SettingsScreen = React.memo<SettingsScreenProps>(() => {
+export const SettingsScreen: FC<SettingsScreenProps> = () => {
   const { theme, toggleTheme } = useTheme();
   const [isDarkEnabled, setIsEnabled] = useState(theme.id === DEFAULT_LIGHT_THEME_ID);
+
   const toggleSwitch = () => {
     toggleTheme();
     setIsEnabled(!isDarkEnabled);
   };
+
   const themeName = isDarkEnabled ? 'Light' : 'Dark';
   const Styles = useThemeAwareObject(createStyles);
 
@@ -37,4 +39,4 @@ export const SettingsScreen = React.memo<SettingsScreenProps>(() => {
       </View>
     </View>
   );
-});
+};
