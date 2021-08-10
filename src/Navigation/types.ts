@@ -3,16 +3,16 @@ import { RouteProp } from '@react-navigation/native';
 
 export enum HomeStackScreens {
   Home = 'Home',
-  Details = 'Details'
+  Details = 'Details',
 }
 
 export enum SettingsStackScreens {
-  Settings = 'Settings'
+  Settings = 'Settings',
 }
 
 export enum TabNavigationScreen {
   HomeTab = 'HomeTab',
-  SettingsTab = 'SettingsTab'
+  SettingsTab = 'SettingsTab',
 }
 
 export type TabBarIconProps = {

@@ -9,9 +9,7 @@ import { useTheme } from '../../Theme/Theme.context';
 
 export const SettingsScreen = React.memo<SettingsScreenProps>(() => {
   const { theme, toggleTheme } = useTheme();
-  const [isDarkEnabled, setIsEnabled] = useState(
-    theme.id === DEFAULT_LIGHT_THEME_ID
-  );
+  const [isDarkEnabled, setIsEnabled] = useState(theme.id === DEFAULT_LIGHT_THEME_ID);
   const toggleSwitch = () => {
     toggleTheme();
     setIsEnabled(!isDarkEnabled);
@@ -21,7 +19,7 @@ export const SettingsScreen = React.memo<SettingsScreenProps>(() => {
 
   const trackColor = {
     false: theme.color.background,
-    true: theme.color.onSurface
+    true: theme.color.onSurface,
   };
   const thumbColor = isDarkEnabled ? theme.color.bright : theme.color.primary;
 

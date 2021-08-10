@@ -7,8 +7,8 @@ export const createStyles = (theme: Theme) => {
       flex: 1,
       alignItems: 'center',
       backgroundColor: theme.color.primary,
-      flexDirection: 'column'
-    }
+      flexDirection: 'column',
+    },
   });
   return styles;
 };

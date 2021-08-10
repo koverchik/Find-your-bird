@@ -25,7 +25,7 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
           title: 'Home screen',
           headerStyle: Styles.container,
           headerTintColor: theme.color.primary,
-          headerTitleAlign: 'center'
+          headerTitleAlign: 'center',
         }}
       />
       <Stack.Screen
@@ -34,7 +34,7 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
         options={{
           headerStyle: Styles.container,
           headerTintColor: theme.color.primary,
-          headerTitleAlign: 'center'
+          headerTitleAlign: 'center',
         }}
       />
     </Stack.Navigator>

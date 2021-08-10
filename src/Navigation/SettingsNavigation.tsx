@@ -23,7 +23,7 @@ export const SettingsNavigation = () => {
         options={{
           headerStyle: Styles.container,
           headerTintColor: theme.color.primary,
-          headerTitleAlign: 'center'
+          headerTitleAlign: 'center',
         }}
       />
     </Stack.Navigator>

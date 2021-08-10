@@ -26,12 +26,12 @@ export const RootNavigation = () => {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused }) => {
             return <TabBarIcon route={route} focused={focused} />;
-          }
+          },
         })}
       >
         <Tab.Screen
           options={{
-            tabBarLabel: 'Home'
+            tabBarLabel: 'Home',
           }}
           name={TabNavigationScreen.HomeTab}
           component={HomeNavigation}
@@ -40,7 +40,7 @@ export const RootNavigation = () => {
           name={TabNavigationScreen.SettingsTab}
           component={SettingsNavigation}
           options={{
-            tabBarLabel: 'Settings'
+            tabBarLabel: 'Settings',
           }}
         />
       </Tab.Navigator>

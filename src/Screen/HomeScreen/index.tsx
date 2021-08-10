@@ -9,8 +9,7 @@ import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
   const Styles = useThemeAwareObject(createStyles);
-  const onPress = () =>
-    navigation.navigate(HomeStackScreens.Details, { userId: 12 });
+  const onPress = () => navigation.navigate(HomeStackScreens.Details, { userId: 12 });
 
   return (
     <View style={Styles.container}>

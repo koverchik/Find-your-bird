@@ -1,9 +1,6 @@
 import React from 'react';
 import { DEFAULT_DARK_THEME, DEFAULT_DARK_THEME_ID } from './DefaultDark.theme';
-import {
-  DEFAULT_LIGHT_THEME,
-  DEFAULT_LIGHT_THEME_ID
-} from './DefaultLight.theme';
+import { DEFAULT_LIGHT_THEME, DEFAULT_LIGHT_THEME_ID } from './DefaultLight.theme';
 import { Theme } from './Theme.interface';
 
 interface ProvidedValue {
@@ -15,7 +12,7 @@ interface ProvidedValue {
 const Context = React.createContext<ProvidedValue>({
   theme: DEFAULT_LIGHT_THEME,
   setTheme: () => {},
-  toggleTheme: () => {}
+  toggleTheme: () => {},
 });
 
 interface Props {
@@ -52,14 +49,12 @@ export const ThemeProvider = React.memo<Props>((props) => {
     const value: ProvidedValue = {
       theme,
       setTheme: setThemeCallback,
-      toggleTheme: ToggleThemeCallback
+      toggleTheme: ToggleThemeCallback,
     };
     return value;
   }, [theme, setThemeCallback, ToggleThemeCallback]);
 
-  return (
-    <Context.Provider value={memoizedValue}>{props.children}</Context.Provider>
-  );
+  return <Context.Provider value={memoizedValue}>{props.children}</Context.Provider>;
 });
 
 export const useTheme = () => React.useContext(Context);

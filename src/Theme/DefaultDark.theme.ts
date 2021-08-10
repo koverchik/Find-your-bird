@@ -1,4 +1,4 @@
-import { ColorTheme, SpacingTheme, Theme } from './Theme.interface';
+import { ColorTheme, Theme } from './Theme.interface';
 
 const DEFAULT_DARK_COLOR_THEME: ColorTheme = {
   primary: '#000',
@@ -6,11 +6,11 @@ const DEFAULT_DARK_COLOR_THEME: ColorTheme = {
   surface: '#393939',
   onSurface: '#dadada',
   background: '#d9aebd',
-  bright: '#602a3d'
+  bright: '#602a3d',
 };
 
 export const DEFAULT_DARK_THEME_ID = 'default-dark';
 export const DEFAULT_DARK_THEME: Theme = {
   id: DEFAULT_DARK_THEME_ID,
-  color: DEFAULT_DARK_COLOR_THEME
+  color: DEFAULT_DARK_COLOR_THEME,
 };
