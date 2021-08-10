@@ -6,27 +6,27 @@ import { DEFAULT_LIGHT_THEME } from './src/Theme/DefaultLight.theme';
 import { ThemeProvider } from './src/Theme/Theme.context';
 
 const App = React.memo(() => {
-    const [isSplashAnimation, setIsSplashAnimation] = useState(false);
+  const [isSplashAnimation, setIsSplashAnimation] = useState(false);
 
-    useEffect(() => {
-        SplashScreen.hide();
-        setIsSplashAnimation(true);
-    }, []);
+  useEffect(() => {
+    SplashScreen.hide();
+    setIsSplashAnimation(true);
+  }, []);
 
-    return isSplashAnimation ? (
-        <LottieView
-            source={require('@assets/animation.json')}
-            autoPlay
-            loop={false}
-            onAnimationFinish={() => {
-                setIsSplashAnimation(false);
-            }}
-        />
-    ) : (
-        <ThemeProvider initial={DEFAULT_LIGHT_THEME}>
-            <RootNavigation />
-        </ThemeProvider>
-    );
+  return isSplashAnimation ? (
+    <LottieView
+      source={require('@assets/animation.json')}
+      autoPlay
+      loop={false}
+      onAnimationFinish={() => {
+        setIsSplashAnimation(false);
+      }}
+    />
+  ) : (
+    <ThemeProvider initial={DEFAULT_LIGHT_THEME}>
+      <RootNavigation />
+    </ThemeProvider>
+  );
 });
 
 export default App;

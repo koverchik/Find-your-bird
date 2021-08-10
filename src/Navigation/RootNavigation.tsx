@@ -13,37 +13,37 @@ import { TabBarIcon } from './tabBarIcon';
 const Tab = createMaterialBottomTabNavigator<TabNavigatorParamList>();
 
 export const RootNavigation = () => {
-    const { theme } = useTheme();
-    const Styles = useThemeAwareObject(createStyles);
+  const { theme } = useTheme();
+  const Styles = useThemeAwareObject(createStyles);
 
-    return (
-        <NavigationContainer>
-            <Tab.Navigator
-                initialRouteName={TabNavigationScreen.HomeTab}
-                activeColor={theme.color.onPrimary}
-                inactiveColor={theme.color.primary}
-                barStyle={{ backgroundColor: Styles.container.backgroundColor }}
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused }) => {
-                        return <TabBarIcon route={route} focused={focused} />;
-                    }
-                })}
-            >
-                <Tab.Screen
-                    options={{
-                        tabBarLabel: 'Home'
-                    }}
-                    name={TabNavigationScreen.HomeTab}
-                    component={HomeNavigation}
-                />
-                <Tab.Screen
-                    name={TabNavigationScreen.SettingsTab}
-                    component={SettingsNavigation}
-                    options={{
-                        tabBarLabel: 'Settings'
-                    }}
-                />
-            </Tab.Navigator>
-        </NavigationContainer>
-    );
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName={TabNavigationScreen.HomeTab}
+        activeColor={theme.color.onPrimary}
+        inactiveColor={theme.color.primary}
+        barStyle={{ backgroundColor: Styles.container.backgroundColor }}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused }) => {
+            return <TabBarIcon route={route} focused={focused} />;
+          }
+        })}
+      >
+        <Tab.Screen
+          options={{
+            tabBarLabel: 'Home'
+          }}
+          name={TabNavigationScreen.HomeTab}
+          component={HomeNavigation}
+        />
+        <Tab.Screen
+          name={TabNavigationScreen.SettingsTab}
+          component={SettingsNavigation}
+          options={{
+            tabBarLabel: 'Settings'
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 };
