@@ -1,0 +1,14 @@
+{
+  "components": {
+    "buttonDitails": "Детали",
+    "theme": "Тема",
+    "kindThemeLight": "светлая",
+    "kindThemeDark": "темная",
+    "textForDetailsScreen": "Детали"
+  },
+  "title": {
+    "HomeScreen": "Домашняя",
+    "DetailsScreen": "Детали",
+    "SettingsScreen": "Настройки"
+  }
+}

@@ -6,6 +6,7 @@ import { SettingsStackScreens } from './types';
 import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 import { useTheme } from '../Theme/Theme.context';
+import { useTranslation } from 'react-i18next';
 type SettingsStackParamList = {
   Settings: undefined;
 };
@@ -14,13 +15,14 @@ const Stack = createStackNavigator<SettingsStackParamList>();
 export const SettingsNavigation = () => {
   const { theme } = useTheme();
   const Styles = useThemeAwareObject(createStyles);
-
+  const { t } = useTranslation();
   return (
     <Stack.Navigator>
       <Stack.Screen
         name={SettingsStackScreens.Settings}
         component={SettingsScreen}
         options={{
+          title: t('title:SettingsScreen'),
           headerStyle: Styles.container,
           headerTintColor: theme.color.primary,
           headerTitleAlign: 'center',

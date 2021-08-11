@@ -3,20 +3,20 @@ import { View, Text, Switch } from 'react-native';
 import { createStyles } from './style';
 import { SettingsScreenProps } from './type';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
-
 import { DEFAULT_LIGHT_THEME_ID } from '../../Theme/DefaultLight.theme';
 import { useTheme } from '../../Theme/Theme.context';
+import { useTranslation } from 'react-i18next';
 
 export const SettingsScreen: FC<SettingsScreenProps> = () => {
   const { theme, toggleTheme } = useTheme();
   const [isDarkEnabled, setIsEnabled] = useState(theme.id === DEFAULT_LIGHT_THEME_ID);
-
+  const { t } = useTranslation();
   const toggleSwitch = () => {
     toggleTheme();
     setIsEnabled(!isDarkEnabled);
   };
 
-  const themeName = isDarkEnabled ? 'Light' : 'Dark';
+  const themeName = isDarkEnabled ? t('components:kindThemeLight') : t('components:kindThemeDark');
   const Styles = useThemeAwareObject(createStyles);
 
   const trackColor = {
@@ -28,7 +28,7 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
   return (
     <View style={Styles.container}>
       <View style={Styles.settingsItem}>
-        <Text style={Styles.settingsText}>Theme</Text>
+        <Text style={Styles.settingsText}>{t('components:theme')}</Text>
         <Text style={Styles.settingsText}>{themeName}</Text>
         <Switch
           trackColor={trackColor}

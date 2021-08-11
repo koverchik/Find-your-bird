@@ -4,6 +4,7 @@ import SplashScreen from 'react-native-splash-screen';
 import LottieView from 'lottie-react-native';
 import { DEFAULT_LIGHT_THEME } from './src/Theme/DefaultLight.theme';
 import { ThemeProvider } from './src/Theme/Theme.context';
+import './src/Locales/i18n';
 
 const App = React.memo(() => {
   const [isSplashAnimation, setIsSplashAnimation] = useState(false);

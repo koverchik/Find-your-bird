@@ -9,13 +9,14 @@ import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 import { useTheme } from '../Theme/Theme.context';
 import { TabBarIcon } from './tabBarIcon';
+import { useTranslation } from 'react-i18next';
 
 const Tab = createMaterialBottomTabNavigator<TabNavigatorParamList>();
 
 export const RootNavigation = () => {
   const { theme } = useTheme();
   const Styles = useThemeAwareObject(createStyles);
-
+  const { t } = useTranslation();
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -31,7 +32,7 @@ export const RootNavigation = () => {
       >
         <Tab.Screen
           options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: t('title:HomeScreen'),
           }}
           name={TabNavigationScreen.HomeTab}
           component={HomeNavigation}
@@ -40,7 +41,7 @@ export const RootNavigation = () => {
           name={TabNavigationScreen.SettingsTab}
           component={SettingsNavigation}
           options={{
-            tabBarLabel: 'Settings',
+            tabBarLabel: t('title:SettingsScreen'),
           }}
         />
       </Tab.Navigator>

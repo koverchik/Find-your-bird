@@ -1,0 +1,14 @@
+{
+  "components": {
+    "buttonDitails": "Details",
+    "theme": "Theme",
+    "kindThemeLight": "light",
+    "kindThemeDark": "dark",
+    "textForDetailsScreen": "Details"
+  },
+  "title": {
+    "HomeScreen": "Home",
+    "DetailsScreen": "Details",
+    "SettingsScreen": "Settings"
+  }
+}
