@@ -38,7 +38,7 @@ export const createStyles = (theme: Theme) => {
     },
     button: {
       alignItems: 'center',
-      width: 200,
+      width: 150,
       padding: 15,
       backgroundColor: theme.color.bright,
       alignSelf: 'center',
