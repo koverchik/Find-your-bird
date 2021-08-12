@@ -1,10 +1,12 @@
-import { StyleSheet, ViewStyle } from 'react-native';
+import { SafeAreaView, StyleSheet, ViewStyle } from 'react-native';
+
 import { Theme } from '../../Theme/Theme.interface';
 
 type DetailsStyles = {
   container: ViewStyle;
   button: ViewStyle;
   text: Text;
+  input: Text;
 };
 
 export const createStyles = (theme: Theme) => {
@@ -23,6 +25,7 @@ export const createStyles = (theme: Theme) => {
       padding: 15,
       backgroundColor: theme.color.bright,
     },
+    input: { height: 40, margin: 12, borderWidth: 1, padding: 10 },
   });
   return styles;
 };

@@ -16,6 +16,7 @@ export const SettingsNavigation = () => {
   const { theme } = useTheme();
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
+
   return (
     <Stack.Navigator>
       <Stack.Screen

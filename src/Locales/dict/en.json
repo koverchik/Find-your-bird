@@ -1,6 +1,7 @@
 {
   "components": {
     "buttonDitails": "Details",
+    "buttonLogIn": "Log in",
     "theme": "Theme",
     "kindThemeLight": "light",
     "kindThemeDark": "dark",
@@ -10,5 +11,10 @@
     "HomeScreen": "Home",
     "DetailsScreen": "Details",
     "SettingsScreen": "Settings"
+  },
+  "Inputs": {
+    "FirstName": "First name",
+    "LastName": "Last name",
+    "Email": "E-mail"
   }
 }

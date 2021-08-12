@@ -1,6 +1,7 @@
 {
   "components": {
     "buttonDitails": "Детали",
+    "buttonLogIn": "Войти",
     "theme": "Тема",
     "kindThemeLight": "светлая",
     "kindThemeDark": "темная",
@@ -10,5 +11,10 @@
     "HomeScreen": "Домашняя",
     "DetailsScreen": "Детали",
     "SettingsScreen": "Настройки"
+  },
+  "Inputs": {
+    "FirstName": "Имя",
+    "LastName": "Фамилия",
+    "Email": "Почта"
   }
 }
