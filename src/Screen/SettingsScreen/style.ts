@@ -7,9 +7,16 @@ export const createStyles = (theme: Theme) => {
       backgroundColor: theme.color.primary,
       flexDirection: 'column',
       flex: 1,
+
+      justifyContent: 'flex-start',
     },
     settingsText: {
       color: theme.color.onPrimary,
+    },
+    wrapperProfile: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginTop: 20,
     },
     settingsTextHeder: {
       color: theme.color.onPrimary,
@@ -22,7 +29,20 @@ export const createStyles = (theme: Theme) => {
       alignItems: 'center',
       padding: 10,
       marginTop: 20,
+
       backgroundColor: theme.color.surface,
+    },
+    tinyLogo: {
+      width: 50,
+      height: 50,
+    },
+    button: {
+      alignItems: 'center',
+      width: 200,
+      padding: 15,
+      backgroundColor: theme.color.bright,
+      alignSelf: 'center',
+      marginTop: 20,
     },
   });
   return styles;

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { View, Text, Switch } from 'react-native';
+import { View, Text, Switch, Image, TouchableOpacity } from 'react-native';
 import { createStyles } from './style';
 import { SettingsScreenProps } from './type';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
@@ -24,9 +24,24 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
     true: theme.color.onSurface,
   };
   const thumbColor = isDarkEnabled ? theme.color.bright : theme.color.primary;
-
+  const onPressGoOut = () => {
+    console.log('hello');
+  };
   return (
     <View style={Styles.container}>
+      <View style={Styles.wrapperProfile}>
+        <Image
+          style={Styles.tinyLogo}
+          source={{
+            uri: 'https://reactnative.dev/img/tiny_logo.png',
+          }}
+        />
+        <View>
+          <Text>Name</Text>
+          <Text>Last name</Text>
+          <Text>Emai</Text>
+        </View>
+      </View>
       <View style={Styles.settingsItem}>
         <Text style={Styles.settingsText}>{t('components:theme')}</Text>
         <Text style={Styles.settingsText}>{themeName}</Text>
@@ -37,6 +52,9 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
           value={isDarkEnabled}
         />
       </View>
+      <TouchableOpacity style={Styles.button} onPress={onPressGoOut}>
+        <Text style={Styles.settingsText}>{t('components:buttonLogOut')}</Text>
+      </TouchableOpacity>
     </View>
   );
 };

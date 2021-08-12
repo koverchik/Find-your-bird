@@ -2,6 +2,7 @@
   "components": {
     "buttonDitails": "Details",
     "buttonLogIn": "Log in",
+    "buttonLogOut": "Logout",
     "theme": "Theme",
     "kindThemeLight": "light",
     "kindThemeDark": "dark",

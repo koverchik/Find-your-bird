@@ -2,6 +2,7 @@
   "components": {
     "buttonDitails": "Детали",
     "buttonLogIn": "Войти",
+    "buttonLogOut": "Выйти",
     "theme": "Тема",
     "kindThemeLight": "светлая",
     "kindThemeDark": "темная",
