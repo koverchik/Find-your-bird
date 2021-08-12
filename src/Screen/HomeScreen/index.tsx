@@ -8,7 +8,7 @@ import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '../../Redux/hooks';
 import { getAuth } from '../../Redux/selectors/getAuth';
-import { Auth } from './auth';
+import { Auth } from '../Auth/auth';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();

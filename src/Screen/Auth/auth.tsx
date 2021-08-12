@@ -12,35 +12,41 @@ export const Auth: FC = () => {
 
   const { t } = useTranslation();
 
-  const [firstName, onChangeFirstName] = React.useState('');
-  const [lastName, onChangeLastName] = React.useState('');
-  const [email, onChangeEmail] = React.useState('');
-
+  const [profile, onChangeProfile] = React.useState({ firstName: '', lastName: '', email: '' });
   const dispatch: AppDispatch = useDispatch();
 
   const onPressLogIn = () => {
-    dispatch(SignIn(firstName, lastName, email));
+    dispatch(SignIn(profile.firstName, profile.lastName, profile.email));
   };
 
+  const getFildFirstName = (text: string) => {
+    return { ...profile, firstName: text };
+  };
+  const getFildLastName = (text: string) => {
+    return { ...profile, lastName: text };
+  };
+  const getFildEmail = (text: string) => {
+    return { ...profile, email: text };
+  };
   return (
     <View style={Styles.container}>
       <SafeAreaView>
         <TextInput
           style={Styles.input}
-          onChangeText={onChangeFirstName}
-          value={firstName}
+          onChangeText={(text) => onChangeProfile(getFildFirstName(text))}
+          value={profile.firstName}
           placeholder={t('Inputs:FirstName')}
         />
         <TextInput
           style={Styles.input}
-          onChangeText={onChangeLastName}
-          value={lastName}
+          onChangeText={(text) => onChangeProfile(getFildLastName(text))}
+          value={profile.lastName}
           placeholder={t('Inputs:LastName')}
         />
         <TextInput
           style={Styles.input}
-          onChangeText={onChangeEmail}
-          value={email}
+          onChangeText={(text) => onChangeProfile(getFildEmail(text))}
+          value={profile.email}
           placeholder={t('Inputs:Email')}
         />
       </SafeAreaView>

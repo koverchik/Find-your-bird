@@ -7,6 +7,8 @@ import { ThemeProvider } from './src/Theme/Theme.context';
 import './src/Locales/i18n';
 import { store } from './src/Redux/store';
 import { Provider } from 'react-redux';
+import { useAppSelector } from './src/Redux/hooks';
+import { getAuth } from './src/Redux/selectors/getAuth';
 
 const App = React.memo(() => {
   const [isSplashAnimation, setIsSplashAnimation] = useState(false);
