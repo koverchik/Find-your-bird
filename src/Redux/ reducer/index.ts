@@ -1,4 +1,4 @@
-import { C } from '../action/index';
+import { AuthActionType, AuthTypes } from '../action/types';
 import { InitialStateType } from './types';
 
 export const initialState: InitialStateType = {
@@ -7,20 +7,17 @@ export const initialState: InitialStateType = {
   email: '',
 };
 
-export const singIn = (
-  state = initialState,
-  action: { type: string; payload: { name: string; lastName: string; email: string } },
-) => {
-  // Reducers usually look at the type of action that happened
-  // to decide how to update the state
+export const singIn = (state = initialState, action: AuthActionType) => {
   switch (action.type) {
-    case C.SING_IN:
+    case AuthTypes.SING_IN:
       return {
         ...state,
         firstName: action.payload.name,
         lastName: action.payload.lastName,
         email: action.payload.email,
       };
+    case AuthTypes.SING_OUT:
+      return initialState;
     default:
       return state;
   }

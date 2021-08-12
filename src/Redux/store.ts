@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { singIn } from './ reducer/index';
 
 const rootReducer = combineReducers({ auth: singIn });
+
 export const store = configureStore({ reducer: rootReducer });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

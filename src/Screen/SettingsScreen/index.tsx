@@ -6,6 +6,11 @@ import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { DEFAULT_LIGHT_THEME_ID } from '../../Theme/DefaultLight.theme';
 import { useTheme } from '../../Theme/Theme.context';
 import { useTranslation } from 'react-i18next';
+import { AppDispatch, store } from '../../Redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { SignOut } from '../../Redux/action';
+import { useAppSelector } from '../../Redux/hooks';
+import { getAuth } from '../../Redux/selectors/getAuth';
 
 export const SettingsScreen: FC<SettingsScreenProps> = () => {
   const { theme, toggleTheme } = useTheme();
@@ -23,9 +28,15 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
     false: theme.color.background,
     true: theme.color.onSurface,
   };
+
+  const { firstName, lastName, email } = useAppSelector(getAuth);
+
   const thumbColor = isDarkEnabled ? theme.color.bright : theme.color.primary;
+
+  const dispatch: AppDispatch = useDispatch();
+
   const onPressGoOut = () => {
-    console.log('hello');
+    dispatch(SignOut());
   };
   return (
     <View style={Styles.container}>
@@ -37,9 +48,9 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
           }}
         />
         <View>
-          <Text>Name</Text>
-          <Text>Last name</Text>
-          <Text>Emai</Text>
+          <Text style={Styles.settingsText}>{firstName}</Text>
+          <Text style={Styles.settingsText}>{lastName}</Text>
+          <Text style={Styles.settingsText}>{email}</Text>
         </View>
       </View>
       <View style={Styles.settingsItem}>
