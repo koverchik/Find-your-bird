@@ -17,6 +17,7 @@ export const RootNavigation = () => {
   const { theme } = useTheme();
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
+  
   return (
     <NavigationContainer>
       <Tab.Navigator

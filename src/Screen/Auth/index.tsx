@@ -19,33 +19,30 @@ export const Auth: FC = () => {
     dispatch(SignIn(profile.firstName, profile.lastName, profile.email));
   };
 
-  const getFildFirstName = (text: string) => {
-    return { ...profile, firstName: text };
+  const getFiedFirstName = (field: string) => (text: string) => {
+    onChangeProfile(() => {
+      return { ...profile, [field]: text };
+    });
   };
-  const getFildLastName = (text: string) => {
-    return { ...profile, lastName: text };
-  };
-  const getFildEmail = (text: string) => {
-    return { ...profile, email: text };
-  };
+
   return (
     <View style={Styles.container}>
       <SafeAreaView>
         <TextInput
           style={Styles.input}
-          onChangeText={(text) => onChangeProfile(getFildFirstName(text))}
+          onChangeText={getFiedFirstName('firstName')}
           value={profile.firstName}
           placeholder={t('Inputs:FirstName')}
         />
         <TextInput
           style={Styles.input}
-          onChangeText={(text) => onChangeProfile(getFildLastName(text))}
+          onChangeText={getFiedFirstName('lastName')}
           value={profile.lastName}
           placeholder={t('Inputs:LastName')}
         />
         <TextInput
           style={Styles.input}
-          onChangeText={(text) => onChangeProfile(getFildEmail(text))}
+          onChangeText={getFiedFirstName('email')}
           value={profile.email}
           placeholder={t('Inputs:Email')}
         />

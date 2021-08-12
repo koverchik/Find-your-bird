@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { RootNavigation } from './src/Navigation/RootNavigation';
 import SplashScreen from 'react-native-splash-screen';
 import LottieView from 'lottie-react-native';
-import { DEFAULT_LIGHT_THEME } from './src/Theme/DefaultLight.theme';
-import { ThemeProvider } from './src/Theme/Theme.context';
 import './src/Locales/i18n';
 import { store } from './src/Redux/store';
 import { Provider } from 'react-redux';
-import { useAppSelector } from './src/Redux/hooks';
-import { getAuth } from './src/Redux/selectors/getAuth';
+import { WrapperRootNavigation } from './src/Screen/WrapperRootNavigation';
 
 const App = React.memo(() => {
   const [isSplashAnimation, setIsSplashAnimation] = useState(false);
@@ -29,9 +25,7 @@ const App = React.memo(() => {
     />
   ) : (
     <Provider store={store}>
-      <ThemeProvider initial={DEFAULT_LIGHT_THEME}>
-        <RootNavigation />
-      </ThemeProvider>
+      <WrapperRootNavigation />
     </Provider>
   );
 });
