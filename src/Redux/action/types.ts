@@ -3,23 +3,15 @@ export enum AuthTypes {
   SING_OUT = 'SING_OUT',
 }
 
-export type SignInAction = (
-  firstName: string,
-  lastName: string,
-  email: string,
-) => {
-  type: AuthTypes;
-  payload: payload;
+export type SignInAction = {
+  type: AuthTypes.SING_IN;
+  payload: payloadType;
 };
 
-export type SignOutAction = () => {
-  type: AuthTypes;
-  payload: any;
+export type SignOutAction = {
+  type: AuthTypes.SING_OUT;
 };
 
-export type payload = { name: string; lastName: string; email: string };
+export type payloadType = { name: string; lastName: string; email: string };
 
-export type AuthActionType = {
-  type: AuthTypes;
-  payload: payload;
-};
+export type AuthActionType = SignInAction | SignOutAction;

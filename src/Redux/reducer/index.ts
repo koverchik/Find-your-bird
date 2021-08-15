@@ -1,4 +1,4 @@
-import { AuthActionType, AuthTypes } from '../action/types';
+import { AuthActionType, AuthTypes, SignOutAction } from '../action/types';
 import { InitialStateType } from './types';
 
 export const initialState: InitialStateType = {
