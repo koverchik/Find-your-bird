@@ -4,7 +4,8 @@ import { Theme } from '../../Theme/Theme.interface';
 
 type DetailsStyles = {
   container: ViewStyle;
-  button: ViewStyle;
+  buttonDisable: ViewStyle;
+  buttonActive: ViewStyle;
   text: Text;
   input: Text;
 };
@@ -21,10 +22,17 @@ export const createStyles = (theme: Theme) => {
     text: {
       color: theme.color.onPrimary,
     },
-    button: {
+    buttonDisable: {
       margin: 30,
       padding: 15,
       backgroundColor: theme.color.bright,
+      width: 150,
+      alignItems: 'center',
+    },
+    buttonActive: {
+      margin: 30,
+      padding: 15,
+      backgroundColor: theme.color.surface,
       width: 150,
       alignItems: 'center',
     },

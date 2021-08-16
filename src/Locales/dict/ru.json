@@ -3,6 +3,7 @@
     "buttonDitails": "Детали",
     "buttonLogIn": "Войти",
     "buttonLogOut": "Выйти",
+    "buttonClose": "Закрыть",
     "theme": "Тема",
     "kindThemeLight": "светлая",
     "kindThemeDark": "темная",
@@ -17,5 +18,13 @@
     "FirstName": "Имя",
     "LastName": "Фамилия",
     "Email": "Почта"
+  },
+  "allert": {
+    "titleError": "Ошибка",
+    "messages": {
+      "errorFirstName": "Введите имя",
+      "errorLastName": "Введите фамилию",
+      "errorEmail": "Укажите адрес почты в формате: example@example.ex"
+    }
   }
 }

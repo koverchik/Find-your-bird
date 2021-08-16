@@ -1,4 +1,4 @@
-import { ColorTheme, SpacingTheme, Theme } from './Theme.interface';
+import { ColorTheme, Theme } from './Theme.interface';
 
 const DEFAULT_LIGHT_COLOR_THEME: ColorTheme = {
   primary: '#fff',

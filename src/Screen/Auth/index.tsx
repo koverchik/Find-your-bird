@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView, TextInput, Alert } from 'react-native';
 import { createStyles } from './style';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../Redux/store';
-import { SignIn } from '../../Redux/action/index';
-import { AuthTypes, SignInPaylod } from '../../Redux/action/types';
+import { signIn } from '../../Redux/action/index';
+import { SignInPaylod } from '../../Redux/action/types';
+import { regex } from '../../Constants/regex';
 
 export const Auth: FC = () => {
   const Styles = useThemeAwareObject(createStyles);
@@ -21,16 +22,16 @@ export const Auth: FC = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const onPressLogIn = () => {
-    dispatch(
-      SignIn({
-        type: AuthTypes.SING_IN,
-        payload: {
-          firstName: profile.firstName,
-          lastName: profile.lastName,
-          email: profile.email,
+    if (regex.email.test(profile.email)) {
+      dispatch(signIn(profile));
+    } else {
+      Alert.alert(`${t('allert:titleError')}`, `${t('allert:messages:errorEmail')}`, [
+        {
+          text: `${t('components:buttonClose')}`,
+          style: 'cancel',
         },
-      }),
-    );
+      ]);
+    }
   };
 
   const getFiedFirstName = (field: string) => (text: string) => {
@@ -61,7 +62,15 @@ export const Auth: FC = () => {
           placeholder={t('Inputs:Email')}
         />
       </SafeAreaView>
-      <TouchableOpacity style={Styles.button} onPress={onPressLogIn}>
+      <TouchableOpacity
+        style={
+          profile.lastName != '' && profile.firstName != ''
+            ? Styles.buttonDisable
+            : Styles.buttonActive
+        }
+        onPress={onPressLogIn}
+        disabled={profile.lastName != '' && profile.firstName != '' ? false : true}
+      >
         <Text style={Styles.text}>{t('components:buttonLogIn')}</Text>
       </TouchableOpacity>
     </View>

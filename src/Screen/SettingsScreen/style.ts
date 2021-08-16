@@ -7,8 +7,7 @@ export const createStyles = (theme: Theme) => {
       backgroundColor: theme.color.primary,
       flexDirection: 'column',
       flex: 1,
-
-      justifyContent: 'flex-start',
+      justifyContent: 'space-between',
     },
     settingsText: {
       color: theme.color.onPrimary,
@@ -17,6 +16,13 @@ export const createStyles = (theme: Theme) => {
       flexDirection: 'row',
       justifyContent: 'space-around',
       marginTop: 20,
+      marginLeft: 30,
+    },
+    wrappersUserData: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      marginLeft: 20,
     },
     settingsTextHeder: {
       color: theme.color.onPrimary,
@@ -42,7 +48,7 @@ export const createStyles = (theme: Theme) => {
       padding: 15,
       backgroundColor: theme.color.bright,
       alignSelf: 'center',
-      marginTop: 20,
+      marginBottom: 20,
     },
   });
   return styles;

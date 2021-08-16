@@ -3,6 +3,7 @@
     "buttonDitails": "Details",
     "buttonLogIn": "Log in",
     "buttonLogOut": "Logout",
+    "buttonClose": "Close",
     "theme": "Theme",
     "kindThemeLight": "light",
     "kindThemeDark": "dark",
@@ -17,5 +18,13 @@
     "FirstName": "First name",
     "LastName": "Last name",
     "Email": "E-mail"
+  },
+  "allert": {
+    "titleError": "Error",
+    "messages": {
+      "errorFirstName": "Enter first name",
+      "errorLastName": "Enter last name",
+      "errorEmail": "Enter your email address in the format: example@example.ex"
+    }
   }
 }
