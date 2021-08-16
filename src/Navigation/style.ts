@@ -8,5 +8,6 @@ export const createStyles = (theme: Theme) => {
       backgroundColor: theme.color.background,
     },
   });
+
   return styles;
 };

@@ -13,7 +13,7 @@ export const singIn = (state = initialState, action: AuthActionType) => {
     case AuthTypes.SING_IN:
       return {
         ...state,
-        firstName: action.payload.name,
+        firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         email: action.payload.email,
         loggenIn: true,

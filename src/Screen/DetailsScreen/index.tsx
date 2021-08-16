@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
+
   return (
     <View style={Styles.container}>
       <Text>{t('components:textForDetailsScreen')}</Text>

@@ -38,6 +38,7 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
   const onPressGoOut = () => {
     dispatch(SignOut());
   };
+
   return (
     <View style={Styles.container}>
       <View style={Styles.wrapperProfile}>

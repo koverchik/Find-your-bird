@@ -17,6 +17,7 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
   const Styles = useThemeAwareObject(createStyles);
   const { theme } = useTheme();
   const { t } = useTranslation();
+  
   return (
     <Stack.Navigator>
       <Stack.Screen

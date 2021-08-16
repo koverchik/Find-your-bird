@@ -1,7 +1,7 @@
-import { payloadType, SignInAction, SignOutAction } from './types';
+import { SignInAction } from './types';
 import { AuthTypes } from './types';
 
-export const SignIn = (payload: SignInAction) => {
+export const SignIn = ({ payload }: SignInAction) => {
   return {
     type: AuthTypes.SING_IN,
     payload,
