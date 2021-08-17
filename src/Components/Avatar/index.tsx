@@ -9,8 +9,9 @@ import { useAppSelector } from '../../Redux/hooks';
 import { getAuth } from '../../Redux/selectors/getAuth';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { SVGAvatar } from '../SVGAvatar/index';
+import { AvatarProps } from './type';
 
-export const Avatar: FC = () => {
+export const Avatar: FC<AvatarProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
 
   const { userIcon } = useAppSelector(getAuth);
@@ -37,7 +38,7 @@ export const Avatar: FC = () => {
       {userIcon ? (
         <Image source={{ uri: userIcon }} style={Styles.iconUser} />
       ) : (
-        <SVGAvatar height={80} width={80} />
+        <SVGAvatar height={80} width={80} color={props.color} />
       )}
     </TouchableOpacity>
   );

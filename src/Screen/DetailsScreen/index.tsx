@@ -5,7 +5,7 @@ import { DetailsScreenProps } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 
-export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
+export const DetailsScreen: FC<DetailsScreenProps> = () => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
 
