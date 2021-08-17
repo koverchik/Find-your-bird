@@ -5,6 +5,7 @@ export const initialState: InitialStateType = {
   lastName: '',
   firstName: '',
   email: '',
+  userIcon: '',
   loggenIn: false,
 };
 
@@ -20,6 +21,11 @@ export const singIn = (state = initialState, action: AuthActionType) => {
       };
     case AuthTypes.SING_OUT:
       return initialState;
+    case AuthTypes.UPLOAD_ICON:
+      return {
+        ...state,
+        userIcon: action.payload,
+      };
     default:
       return state;
   }

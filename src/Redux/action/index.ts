@@ -13,3 +13,10 @@ export const signOut = () => {
     type: AuthTypes.SING_OUT,
   };
 };
+
+export const uploadIcon = (payload: string) => {
+  return {
+    type: AuthTypes.UPLOAD_ICON,
+    payload,
+  };
+};

@@ -1,12 +1,13 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@navigation/*": ["./src/Navigation/*"],
-            "@screen/*": ["./src/Screen/*"],
-            "@assets/*": ["./assets/*"],
-            "@root/*": ["./src/*"]
-        }
-    },
-    "exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@navigation/*": ["./src/Navigation/*"],
+      "@screen/*": ["./src/Screen/*"],
+      "@assets/*": ["./assets/*"],
+      "@root/*": ["./src/*"],
+      "@components/*": ["./src/Components/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
 }

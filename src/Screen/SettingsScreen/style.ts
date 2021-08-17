@@ -38,10 +38,6 @@ export const createStyles = (theme: Theme) => {
 
       backgroundColor: theme.color.surface,
     },
-    tinyLogo: {
-      width: 50,
-      height: 50,
-    },
     button: {
       alignItems: 'center',
       width: 150,
@@ -49,10 +45,6 @@ export const createStyles = (theme: Theme) => {
       backgroundColor: theme.color.bright,
       alignSelf: 'center',
       marginBottom: 20,
-    },
-    iconUser: {
-      height: 70,
-      width: 70,
     },
   });
   return styles;
