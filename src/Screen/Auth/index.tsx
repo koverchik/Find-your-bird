@@ -39,7 +39,7 @@ export const Auth: FC = () => {
       return { ...profile, [field]: text };
     });
   };
-
+  const disabledButton = profile.lastName || profile.firstName ? false : true;
   return (
     <View style={Styles.container}>
       <SafeAreaView>
@@ -69,7 +69,7 @@ export const Auth: FC = () => {
             : Styles.buttonActive
         }
         onPress={onPressLogIn}
-        disabled={profile.lastName != '' && profile.firstName != '' ? false : true}
+        disabled={disabledButton}
       >
         <Text style={Styles.text}>{t('components:buttonLogIn')}</Text>
       </TouchableOpacity>

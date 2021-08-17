@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { signOut } from '../../Redux/action';
 import { useAppSelector } from '../../Redux/hooks';
 import { getAuth } from '../../Redux/selectors/getAuth';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 export const SettingsScreen: FC<SettingsScreenProps> = () => {
   const { theme, toggleTheme } = useTheme();
@@ -39,16 +40,39 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
     dispatch(signOut());
   };
 
+  const [image, setImage] = useState<string>();
+  const onPressIconUser = () => {
+    launchImageLibrary(
+      {
+        mediaType: 'photo',
+      },
+      (response) => {
+        if (response.assets) {
+          const source = response.assets[0].uri;
+          if (source) {
+            setImage(source);
+          }
+        }
+      },
+    );
+  };
   return (
     <View style={Styles.container}>
       <View>
         <View style={Styles.wrapperProfile}>
-          <Image
-            style={Styles.tinyLogo}
-            source={{
-              uri: 'https://reactnative.dev/img/tiny_logo.png',
-            }}
-          />
+          <TouchableOpacity onPress={onPressIconUser}>
+            {image ? (
+              <Image source={{ uri: image }} style={Styles.iconUser} />
+            ) : (
+              <Image
+                style={Styles.tinyLogo}
+                source={{
+                  uri: 'https://reactnative.dev/img/tiny_logo.png',
+                }}
+              />
+            )}
+          </TouchableOpacity>
+
           <View style={Styles.wrappersUserData}>
             <Text style={Styles.settingsText}>{`${t('Inputs:FirstName')}: ${firstName}`}</Text>
             <Text style={Styles.settingsText}>{`${t('Inputs:LastName')}: ${lastName}`}</Text>

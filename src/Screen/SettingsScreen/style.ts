@@ -50,6 +50,10 @@ export const createStyles = (theme: Theme) => {
       alignSelf: 'center',
       marginBottom: 20,
     },
+    iconUser: {
+      height: 70,
+      width: 70,
+    },
   });
   return styles;
 };
