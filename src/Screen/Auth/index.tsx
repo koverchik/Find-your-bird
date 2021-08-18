@@ -3,11 +3,10 @@ import { View, Text, TouchableOpacity, SafeAreaView, TextInput, Alert } from 're
 import { createStyles } from './style';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../Redux/store';
 import { signIn } from '../../Redux/action/index';
 import { SignInPaylod } from '../../Redux/action/types';
 import { regex } from '../../Constants/regex';
+import { useAppDispatch } from '../../Redux/hooks';
 
 export const Auth: FC = () => {
   const Styles = useThemeAwareObject(createStyles);
@@ -19,7 +18,7 @@ export const Auth: FC = () => {
     lastName: '',
     email: '',
   });
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onPressLogIn = () => {
     if (regex.email.test(profile.email)) {

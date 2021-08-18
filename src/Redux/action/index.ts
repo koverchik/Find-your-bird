@@ -1,16 +1,32 @@
-import { SignInPaylod } from './types';
+import { SignInAction, SignInPaylod, SignOutAction } from './types';
 import { AuthTypes } from './types';
 
-export const signIn = (payload: SignInPaylod) => {
+export type SingInActionType = (payload: SignInPaylod) => SignInAction;
+export type signOutType = () => SignOutAction;
+
+export const signIn: SingInActionType = (payload) => {
   return {
     type: AuthTypes.SING_IN,
     payload,
   };
 };
 
-export const signOut = () => {
+export const signInSuccess = (payload: SignInPaylod) => {
+  return {
+    type: AuthTypes.SING_IN_SUCCCESS,
+    payload,
+  };
+};
+
+export const signOut: signOutType = () => {
   return {
     type: AuthTypes.SING_OUT,
+  };
+};
+
+export const signOutSuccess = () => {
+  return {
+    type: AuthTypes.SING_OUT_SUCCESS,
   };
 };
 
