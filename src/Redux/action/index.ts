@@ -1,8 +1,13 @@
-import { SignInAction, SignInPaylod, SignOutAction } from './types';
+import {
+  SignInPaylod,
+  SignInSuccessType,
+  SignOutSuccessType,
+  SignOutType,
+  SingInActionType,
+  uploadIconSuccessType,
+  UploadIconType,
+} from './types';
 import { AuthTypes } from './types';
-
-export type SingInActionType = (payload: SignInPaylod) => SignInAction;
-export type signOutType = () => SignOutAction;
 
 export const signIn: SingInActionType = (payload) => {
   return {
@@ -11,28 +16,35 @@ export const signIn: SingInActionType = (payload) => {
   };
 };
 
-export const signInSuccess = (payload: SignInPaylod) => {
+export const signInSuccess: SignInSuccessType = (payload: SignInPaylod) => {
   return {
     type: AuthTypes.SING_IN_SUCCCESS,
     payload,
   };
 };
 
-export const signOut: signOutType = () => {
+export const signOut: SignOutType = () => {
   return {
     type: AuthTypes.SING_OUT,
   };
 };
 
-export const signOutSuccess = () => {
+export const signOutSuccess: SignOutSuccessType = () => {
   return {
     type: AuthTypes.SING_OUT_SUCCESS,
   };
 };
 
-export const uploadIcon = (payload: string) => {
+export const uploadIcon: UploadIconType = (payload) => {
   return {
     type: AuthTypes.UPLOAD_ICON,
+    payload,
+  };
+};
+
+export const uploadIconSuccess: uploadIconSuccessType = (payload) => {
+  return {
+    type: AuthTypes.UPLOAD_ICON_SUCCESS,
     payload,
   };
 };
