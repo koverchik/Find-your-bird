@@ -23,7 +23,7 @@ export const Auth: FC = () => {
   const onPressLogIn = () => {
     if (regex.email.test(profile.email)) {
       dispatch(signIn(profile));
-    } else {
+    } else if (profile.lastName != '' && profile.firstName != '') {
       Alert.alert(`${t('allert:titleError')}`, `${t('allert:messages:errorEmail')}`, [
         {
           text: `${t('components:buttonClose')}`,

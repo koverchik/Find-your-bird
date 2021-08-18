@@ -1,3 +1,5 @@
+import { Asset } from 'react-native-image-picker/lib/typescript/types';
+
 export enum AuthTypes {
   SING_IN = 'SING_IN',
   SING_IN_SUCCCESS = 'SING_IN_SUCCCESS',
@@ -16,16 +18,17 @@ export type SignOutAction = {
   type: AuthTypes.SING_OUT;
 };
 
-export type UploadImages = {
+export type UploadImagesAction = {
   type: AuthTypes.UPLOAD_ICON;
-  payload: { iconUser: string };
+  payload: string;
 };
 
 export type SignInPaylod = { firstName: string; lastName: string; email: string };
 
-export type AuthActionType = SignInAction | SignOutAction | UploadImages;
+export type AuthActionType = SignInAction | SignOutAction | UploadImagesAction;
 
 export type SingInActionType = (payload: SignInPaylod) => SignInAction;
+
 export type SignOutType = () => SignOutAction;
 
 export type SignInSuccessType = (payload: SignInPaylod) => {
@@ -42,7 +45,7 @@ export type UploadIconType = (payload: string) => {
   payload: string;
 };
 
-export type uploadIconSuccessType = (payload: string) => {
+export type UploadIconSuccessType = (payload: string) => {
   type: AuthTypes.UPLOAD_ICON_SUCCESS;
   payload: string;
 };

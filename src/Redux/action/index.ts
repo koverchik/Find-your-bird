@@ -4,7 +4,7 @@ import {
   SignOutSuccessType,
   SignOutType,
   SingInActionType,
-  uploadIconSuccessType,
+  UploadIconSuccessType,
   UploadIconType,
 } from './types';
 import { AuthTypes } from './types';
@@ -42,7 +42,7 @@ export const uploadIcon: UploadIconType = (payload) => {
   };
 };
 
-export const uploadIconSuccess: uploadIconSuccessType = (payload) => {
+export const uploadIconSuccess: UploadIconSuccessType = (payload) => {
   return {
     type: AuthTypes.UPLOAD_ICON_SUCCESS,
     payload,
