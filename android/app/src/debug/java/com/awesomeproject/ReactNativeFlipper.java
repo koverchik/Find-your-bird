@@ -9,6 +9,7 @@ package com.awesomeproject;
 import android.content.Context;
 import com.facebook.flipper.android.AndroidFlipperClient;
 import com.facebook.flipper.android.utils.FlipperUtils;
+import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin;
 import com.facebook.flipper.core.FlipperClient;
 import com.facebook.flipper.plugins.crashreporter.CrashReporterPlugin;
 import com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin;
@@ -34,6 +35,7 @@ public class ReactNativeFlipper {
       client.addPlugin(new DatabasesFlipperPlugin(context));
       client.addPlugin(new SharedPreferencesFlipperPlugin(context));
       client.addPlugin(CrashReporterPlugin.getInstance());
+      client.addPlugin(NavigationFlipperPlugin.getInstance());
 
       NetworkFlipperPlugin networkFlipperPlugin = new NetworkFlipperPlugin();
       NetworkingModule.setCustomClientBuilder(
