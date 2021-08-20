@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, TextInput } from 'react-native';
 import { createStyles } from './style';
 import { HomeStackScreens, SettingsStackScreens } from '../../Navigation/types';

@@ -30,7 +30,9 @@ export const RootNavigation = () => {
         initialRouteName={TabNavigationScreen.HomeTab}
         activeColor={theme.color.onPrimary}
         inactiveColor={theme.color.primary}
-        barStyle={{ backgroundColor: Styles.container.backgroundColor }}
+        barStyle={{
+          backgroundColor: Styles.container.backgroundColor,
+        }}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused }) => {
             return <TabBarIcon route={route} focused={focused} />;
