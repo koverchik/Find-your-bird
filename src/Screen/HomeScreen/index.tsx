@@ -35,13 +35,33 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
       <MapView
         provider={PROVIDER_GOOGLE}
         style={Styles.map}
+        showsCompass={true}
+        showsScale={true}
+        zoomTapEnabled={true}
         initialRegion={coordinates}
+        zoomControlEnabled={true}
         onRegionChangeComplete={(e) => setCoordinates(e)}
         onRegionChange={(e) => setCoordinates(e)}
       >
-        <Circle key={'idx'} center={coordinates} radius={150} fillColor="#AAA" />
         {/* <Marker draggable onPress={(e) => console.log(e.nativeEvent)} /> */}
       </MapView>
+      <View style={Styles.circle} />
+      <View
+        style={[
+          Styles.left,
+          {
+            transform: [{ rotate: '45deg' }],
+          },
+        ]}
+      />
+      <View
+        style={[
+          Styles.right,
+          {
+            transform: [{ rotate: '135deg' }],
+          },
+        ]}
+      />
       {/* <TouchableOpacity style={Styles.button} onPress={onPress}>
         <Text style={Styles.text}>{t('components:buttonDitails')}</Text>
       </TouchableOpacity> */}
