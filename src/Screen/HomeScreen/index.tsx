@@ -1,11 +1,20 @@
 import React, { FC, useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, TextInput } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+  Dimensions,
+} from 'react-native';
 import { createStyles } from './style';
 import { HomeStackScreens, SettingsStackScreens } from '../../Navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenProps, StackNavigationPropNavigation } from './type';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
+import MapView, { Circle, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
@@ -13,12 +22,29 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
 
   const onPress = () => navigation.navigate(HomeStackScreens.Details, { userId: 12 });
   const { t } = useTranslation();
+  const screen = Dimensions.get('window');
+  const [coordinates, setCoordinates] = useState({
+    latitude: 53.5078788,
+    longitude: 27.0877321,
+    latitudeDelta: 0.009,
+    longitudeDelta: 0.009,
+  });
 
   return (
     <View style={Styles.container}>
-      <TouchableOpacity style={Styles.button} onPress={onPress}>
+      <MapView
+        provider={PROVIDER_GOOGLE}
+        style={Styles.map}
+        initialRegion={coordinates}
+        onRegionChangeComplete={(e) => setCoordinates(e)}
+        onRegionChange={(e) => setCoordinates(e)}
+      >
+        <Circle key={'idx'} center={coordinates} radius={150} fillColor="#AAA" />
+        {/* <Marker draggable onPress={(e) => console.log(e.nativeEvent)} /> */}
+      </MapView>
+      {/* <TouchableOpacity style={Styles.button} onPress={onPress}>
         <Text style={Styles.text}>{t('components:buttonDitails')}</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

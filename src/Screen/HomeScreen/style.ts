@@ -5,20 +5,32 @@ import { Theme } from '../../Theme/Theme.interface';
 type DetailsStyles = {
   container: ViewStyle;
   button: ViewStyle;
+  map: ViewStyle;
   text: Text;
 };
 
 export const createStyles = (theme: Theme) => {
   const styles = StyleSheet.create<DetailsStyles>({
     container: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      justifyContent: 'flex-end',
       alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: theme.color.primary,
-      flexDirection: 'column',
-      flex: 1,
     },
     text: {
       color: theme.color.onPrimary,
+    },
+    map: {
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
     },
     button: {
       margin: 40,
