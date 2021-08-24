@@ -1,6 +1,4 @@
-import { SafeAreaView, StyleSheet, ViewStyle } from 'react-native';
-import { black } from 'react-native-paper/lib/typescript/styles/colors';
-
+import { Dimensions, SafeAreaView, StyleSheet, ViewStyle } from 'react-native';
 import { Theme } from '../../Theme/Theme.interface';
 
 type DetailsStyles = {
@@ -8,8 +6,8 @@ type DetailsStyles = {
   button: ViewStyle;
   map: ViewStyle;
   circle: ViewStyle;
-  left: ViewStyle;
-  right: ViewStyle;
+  absoluteLeft: ViewStyle;
+  absoluteRight: ViewStyle;
   text: Text;
 };
 
@@ -46,7 +44,8 @@ export const createStyles = (theme: Theme) => {
       zIndex: 3,
       borderRadius: 10,
     },
-    left: {
+
+    absoluteLeft: {
       position: 'absolute',
       left: '50%',
       top: 0,
@@ -54,7 +53,7 @@ export const createStyles = (theme: Theme) => {
       height: '100%',
       backgroundColor: theme.color.bright,
     },
-    right: {
+    absoluteRight: {
       position: 'absolute',
       right: '50%',
       top: 0,

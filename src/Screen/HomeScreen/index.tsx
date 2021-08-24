@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TextInput,
   Dimensions,
+  Slider,
 } from 'react-native';
 import { createStyles } from './style';
 import { HomeStackScreens, SettingsStackScreens } from '../../Navigation/types';
@@ -14,7 +15,9 @@ import { useNavigation } from '@react-navigation/native';
 import { HomeScreenProps, StackNavigationPropNavigation } from './type';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import MapView, { Circle, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
+import { IconMarker } from '../../Components/Marker/index';
+import { Slider as SliderCustom } from '../../Components/Slider/index';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
@@ -42,26 +45,27 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
         zoomControlEnabled={true}
         onRegionChangeComplete={(e) => setCoordinates(e)}
         onRegionChange={(e) => setCoordinates(e)}
-      >
-        {/* <Marker draggable onPress={(e) => console.log(e.nativeEvent)} /> */}
-      </MapView>
-      <View style={Styles.circle} />
-      <View
+      ></MapView>
+      {/* <View style={Styles.circle} /> */}
+      <SliderCustom />
+      <IconMarker />
+
+      {/* <View
         style={[
-          Styles.left,
+          Styles.absoluteLeft,
           {
-            transform: [{ rotate: '45deg' }],
+            transform: [{ rotate: '0deg' }],
           },
         ]}
       />
       <View
         style={[
-          Styles.right,
+          Styles.absoluteRight,
           {
-            transform: [{ rotate: '135deg' }],
+            transform: [{ rotate: '90deg' }],
           },
         ]}
-      />
+      /> */}
       {/* <TouchableOpacity style={Styles.button} onPress={onPress}>
         <Text style={Styles.text}>{t('components:buttonDitails')}</Text>
       </TouchableOpacity> */}
