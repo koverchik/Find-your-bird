@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,8 @@ import {
   TextInput,
   Dimensions,
   Slider,
+  Animated,
+  PanResponder,
 } from 'react-native';
 import { createStyles } from './style';
 import { HomeStackScreens, SettingsStackScreens } from '../../Navigation/types';
@@ -19,6 +21,7 @@ import MapView, { Circle, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 import { IconMarker } from '../../Components/Marker/index';
 import { Slider as SliderCustom } from '../../Components/Slider/index';
 import Geolocation from 'react-native-geolocation-service';
+import { SLIDER_RANGE } from '../../Constants/general';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
@@ -29,16 +32,43 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
   const screen = Dimensions.get('window');
 
   const [coordinates, setCoordinates] = useState({
-    latitude: 53.5078788,
-    longitude: 27.0877321,
+    latitude: 153.5078788,
+    longitude: 127.0877321,
     latitudeDelta: 0.009,
     longitudeDelta: 0.009,
   });
+
+  const [numberOnSlider, setNumberOnSlider] = useState(0);
+  const pan = useRef(new Animated.ValueXY()).current;
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderGrant: () => {
+        pan.setOffset({
+          x: pan.x._value,
+          y: pan.y._value,
+        });
+      },
+      onPanResponderMove: (e, gesture) => {
+        const { moveY, dy } = gesture;
+        if (moveY > SLIDER_RANGE[0] && moveY < SLIDER_RANGE[1]) {
+          pan.y.setValue(dy);
+          setNumberOnSlider(
+            Math.round((1000 / (SLIDER_RANGE[1] - SLIDER_RANGE[0])) * (SLIDER_RANGE[1] - moveY)),
+          );
+        }
+      },
+      onPanResponderRelease: () => {
+        pan.flattenOffset();
+      },
+    }),
+  ).current;
+
   useEffect(() => {
     Geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        console.log(position);
         setCoordinates((prev) => {
           return {
             ...prev,
@@ -47,7 +77,7 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
           };
         });
       },
-      (error) => {
+      () => {
         setCoordinates((prev) => {
           return {
             ...prev,
@@ -70,26 +100,10 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
         showsScale={true}
         zoomTapEnabled={true}
         zoomControlEnabled={true}
+        showsUserLocation={true}
       ></MapView>
-      <SliderCustom />
+      <SliderCustom pan={pan} numberOnSlider={numberOnSlider} panResponder={panResponder} />
       <IconMarker />
-
-      {/* <View
-        style={[
-          Styles.absoluteLeft,
-          {
-            transform: [{ rotate: '0deg' }],
-          },
-        ]}
-      />
-      <View
-        style={[
-          Styles.absoluteRight,
-          {
-            transform: [{ rotate: '90deg' }],
-          },
-        ]}
-      /> */}
       {/* <TouchableOpacity style={Styles.button} onPress={onPress}>
         <Text style={Styles.text}>{t('components:buttonDitails')}</Text>
       </TouchableOpacity> */}
