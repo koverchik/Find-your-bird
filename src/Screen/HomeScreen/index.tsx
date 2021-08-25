@@ -38,6 +38,7 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
       <MapView
         provider={PROVIDER_GOOGLE}
         style={Styles.map}
+        showsUserLocation={true}
         showsCompass={true}
         showsScale={true}
         zoomTapEnabled={true}
@@ -46,7 +47,6 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
         onRegionChangeComplete={(e) => setCoordinates(e)}
         onRegionChange={(e) => setCoordinates(e)}
       ></MapView>
-      {/* <View style={Styles.circle} /> */}
       <SliderCustom />
       <IconMarker />
 

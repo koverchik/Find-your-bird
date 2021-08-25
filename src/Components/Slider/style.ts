@@ -28,6 +28,20 @@ export const createStyles = (theme: Theme) => {
       bottom: 0,
       right: 23,
     },
+    numbersWrapper: {
+      width: 40,
+      height: 20,
+      position: 'absolute',
+      left: -50,
+      backgroundColor: theme.color.bright,
+      alignItems: 'center',
+      flex: 1,
+      justifyContent: 'center',
+      borderRadius: 10,
+    },
+    numbers: {
+      color: 'white',
+    },
     circle: {
       position: 'absolute',
       bottom: '5%',
