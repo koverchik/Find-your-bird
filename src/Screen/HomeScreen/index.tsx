@@ -15,9 +15,10 @@ import { useNavigation } from '@react-navigation/native';
 import { HomeScreenProps, StackNavigationPropNavigation } from './type';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Circle, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 import { IconMarker } from '../../Components/Marker/index';
 import { Slider as SliderCustom } from '../../Components/Slider/index';
+import Geolocation from 'react-native-geolocation-service';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
@@ -26,26 +27,49 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
   const onPress = () => navigation.navigate(HomeStackScreens.Details, { userId: 12 });
   const { t } = useTranslation();
   const screen = Dimensions.get('window');
+
   const [coordinates, setCoordinates] = useState({
     latitude: 53.5078788,
     longitude: 27.0877321,
     latitudeDelta: 0.009,
     longitudeDelta: 0.009,
   });
+  useEffect(() => {
+    Geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        console.log(position);
+        setCoordinates((prev) => {
+          return {
+            ...prev,
+            latitude,
+            longitude,
+          };
+        });
+      },
+      (error) => {
+        setCoordinates((prev) => {
+          return {
+            ...prev,
+            latitude: 43.772507,
+            longitude: 50.356763,
+          };
+        });
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
+    );
+  }, []);
 
   return (
     <View style={Styles.container}>
       <MapView
+        region={coordinates}
         provider={PROVIDER_GOOGLE}
         style={Styles.map}
-        showsUserLocation={true}
         showsCompass={true}
         showsScale={true}
         zoomTapEnabled={true}
-        initialRegion={coordinates}
         zoomControlEnabled={true}
-        onRegionChangeComplete={(e) => setCoordinates(e)}
-        onRegionChange={(e) => setCoordinates(e)}
       ></MapView>
       <SliderCustom />
       <IconMarker />

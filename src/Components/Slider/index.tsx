@@ -28,7 +28,7 @@ export const Slider = () => {
         const { moveY, dy } = gesture;
         if (moveY > SLIDER_RANGE[0] && moveY < SLIDER_RANGE[1]) {
           pan.y.setValue(dy);
-          console.log(dy);
+          // console.log(dy);
 
           setNumberOnSlider(
             Math.round((1000 / (SLIDER_RANGE[1] - SLIDER_RANGE[0])) * (SLIDER_RANGE[1] - moveY)),
