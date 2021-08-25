@@ -6,7 +6,7 @@ export const createStyles = (theme: Theme) => {
     container: {
       position: 'absolute',
       top: 0,
-      right: 0,
+      left: 0,
       width: 50,
       height: '80%',
     },
@@ -32,7 +32,7 @@ export const createStyles = (theme: Theme) => {
       width: 40,
       height: 20,
       position: 'absolute',
-      left: -50,
+      right: -50,
       backgroundColor: theme.color.bright,
       alignItems: 'center',
       flex: 1,

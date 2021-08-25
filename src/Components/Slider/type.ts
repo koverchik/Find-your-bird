@@ -1,7 +1,7 @@
-import { Animated, PanResponder } from 'react-native';
+import { Animated, PanResponder, PanResponderInstance } from 'react-native';
 
 export type SliderProps = {
   pan: Animated.ValueXY;
   numberOnSlider: number;
-  panResponder: PanResponder;
+  panResponder: PanResponderInstance;
 };
