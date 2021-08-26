@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { uploadIcon } from '../../Redux/action';
 import { useAppSelector } from '../../Redux/hooks';
 import { getAuth } from '../../Redux/selectors/getAuth';
-import { Asset, launchImageLibrary } from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import { SVGAvatar } from '../SVGAvatar/index';
 import { AvatarProps } from './type';
 

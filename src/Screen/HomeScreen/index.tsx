@@ -52,12 +52,16 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
       },
       onPanResponderMove: (e, gesture) => {
         const { moveY, dy } = gesture;
+
         if (moveY > SLIDER_RANGE[0] && moveY < SLIDER_RANGE[1]) {
           pan.y.setValue(dy);
           setNumberOnSlider(
             Math.round((1000 / (SLIDER_RANGE[1] - SLIDER_RANGE[0])) * (SLIDER_RANGE[1] - moveY)),
           );
         }
+      },
+      onPanResponderReject: () => {
+        pan.flattenOffset();
       },
       onPanResponderRelease: () => {
         pan.flattenOffset();
@@ -68,6 +72,8 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
   useEffect(() => {
     Geolocation.getCurrentPosition(
       (position) => {
+        console.log();
+
         const { latitude, longitude } = position.coords;
         setCoordinates((prev) => {
           return {

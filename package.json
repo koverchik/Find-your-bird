@@ -10,6 +10,7 @@
         "lint": "eslint .",
         "clean": "cd android && ./gradlew clean && cd .. ",
         "debug": "open 'rndebugger://set-debugger-loc?host=localhost&port=8081'",
+        "android-devices": "npx react-native run-android",
         "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}"
     },
     "dependencies": {
@@ -19,7 +20,6 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/react-native-fontawesome": "^0.2.7",
         "@react-native-async-storage/async-storage": "^1.15.5",
-        "@react-native-community/geolocation": "^2.0.2",
         "@react-native-community/masked-view": "^0.1.11",
         "@react-navigation/bottom-tabs": "^6.0.1",
         "@react-navigation/material-bottom-tabs": "^6.0.3",
