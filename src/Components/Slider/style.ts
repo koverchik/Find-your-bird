@@ -1,56 +1,34 @@
 import { StyleSheet } from 'react-native';
-import { Theme } from '../../Theme/Theme.interface';
 
-export const createStyles = (theme: Theme) => {
+export const createStyles = () => {
   const styles = StyleSheet.create({
     container: {
       position: 'absolute',
       top: 0,
-      left: 0,
+      right: 0,
       width: 50,
       height: '80%',
     },
-    line: {
+    slider: {
+      width: 350,
+      height: 40,
+      transform: [{ rotate: '-90deg' }],
       position: 'absolute',
-      top: '5%',
-      right: 25,
-      height: '90%',
-      width: 5,
-      backgroundColor: theme.color.background,
+      top: 230,
+      right: -145,
     },
     maxValue: {
       position: 'absolute',
-      top: 0,
+      top: 60,
       right: 15,
     },
-    minValue: {
+    value: {
       position: 'absolute',
       bottom: 0,
-      right: 23,
-    },
-    numbersWrapper: {
-      width: 40,
-      height: 20,
-      position: 'absolute',
-      right: -50,
-      backgroundColor: theme.color.bright,
-      alignItems: 'center',
-      flex: 1,
-      justifyContent: 'center',
-      borderRadius: 10,
+      right: 25,
     },
     numbers: {
       color: 'white',
-    },
-    circle: {
-      position: 'absolute',
-      bottom: '5%',
-      right: 18,
-      width: 20,
-      height: 20,
-      backgroundColor: theme.color.bright,
-      zIndex: 3,
-      borderRadius: 10,
     },
   });
   return styles;
