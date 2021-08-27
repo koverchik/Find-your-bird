@@ -19,8 +19,10 @@ export const createStyles = () => {
     },
     maxValue: {
       position: 'absolute',
+
+      width: 80,
       top: 60,
-      right: 15,
+      left: -15,
     },
     value: {
       position: 'absolute',

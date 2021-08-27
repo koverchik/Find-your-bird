@@ -27,5 +27,8 @@
       "errorLastName": "Введите фамилию",
       "errorEmail": "Укажите адрес почты в формате: example@example.ex"
     }
+  },
+  "general": {
+    "km": "км"
   }
 }

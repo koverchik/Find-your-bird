@@ -17,11 +17,11 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
 
   const onPress = () => navigation.navigate(HomeStackScreens.Details, { userId: 12 });
   const { t } = useTranslation();
-
+  const [currentValueRadius, setCurrentValueRadius] = useState(0);
   const [coordinates, setCoordinates] = useState({
     latitude: 153.5078788,
     longitude: 127.0877321,
-    latitudeDelta: 0.009,
+    latitudeDelta: 2,
     longitudeDelta: 0.009,
   });
 
@@ -61,8 +61,23 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
         zoomTapEnabled={true}
         zoomControlEnabled={true}
         showsUserLocation={true}
-      ></MapView>
-      <SliderCustom />
+        maxZoomLevel={20}
+        onRegionChangeComplete={(e) => {
+          setCoordinates(e);
+        }}
+      >
+        <Circle
+          center={coordinates}
+          radius={currentValueRadius * 1000}
+          fillColor={'rgba(248, 66, 130, 0.3)'}
+          strokeColor={'rgba(248, 66, 130, 0.3)'}
+        />
+      </MapView>
+
+      <SliderCustom
+        currentValueRadius={currentValueRadius}
+        fcCurrentValueRadius={setCurrentValueRadius}
+      />
       <IconMarker />
       {/* <TouchableOpacity style={Styles.button} onPress={onPress}>
         <Text style={Styles.text}>{t('components:buttonDitails')}</Text>

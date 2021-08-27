@@ -4,14 +4,14 @@ import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 import { SliderProps } from './type';
 import Slider from '@react-native-community/slider';
+import { useTranslation } from 'react-i18next';
 
-export const SliderCustom = () => {
+export const SliderCustom: FC<SliderProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
-
-  const [number, setNumber] = useState(0);
+  const { t } = useTranslation();
   return (
     <View style={Styles.container}>
-      <Text style={Styles.maxValue}>1000</Text>
+      <Text style={Styles.maxValue}> 1000 {t('general:km')}</Text>
       <Slider
         style={Styles.slider}
         minimumValue={0}
@@ -20,10 +20,10 @@ export const SliderCustom = () => {
         maximumTrackTintColor="#000000"
         thumbTintColor="#f84281"
         onValueChange={(value) => {
-          setNumber(Math.round(value));
+          props.fcCurrentValueRadius(Math.round(value));
         }}
       />
-      <Text style={Styles.value}>{number}</Text>
+      <Text style={Styles.value}>{props.currentValueRadius}</Text>
     </View>
   );
 };

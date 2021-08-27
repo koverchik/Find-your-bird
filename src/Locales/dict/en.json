@@ -27,5 +27,8 @@
       "errorLastName": "Enter last name",
       "errorEmail": "Enter your email address in the format: example@example.ex"
     }
+  },
+  "general": {
+    "km": "km"
   }
 }

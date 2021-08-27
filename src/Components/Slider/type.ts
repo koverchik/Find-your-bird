@@ -1,7 +1,6 @@
 import { Animated, PanResponder, PanResponderInstance } from 'react-native';
 
 export type SliderProps = {
-  pan: Animated.ValueXY;
-  numberOnSlider: number;
-  panResponder: PanResponderInstance;
+  currentValueRadius: number;
+  fcCurrentValueRadius: (value: number) => void;
 };
