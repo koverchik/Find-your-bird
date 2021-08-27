@@ -79,9 +79,9 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
         fcCurrentValueRadius={setCurrentValueRadius}
       />
       <IconMarker />
-      {/* <TouchableOpacity style={Styles.button} onPress={onPress}>
-        <Text style={Styles.text}>{t('components:buttonDitails')}</Text>
-      </TouchableOpacity> */}
+      <TouchableOpacity style={Styles.button} onPress={onPress}>
+        <Text style={Styles.text}>{t('components:search')}</Text>
+      </TouchableOpacity>
     </View>
   );
 };

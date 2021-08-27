@@ -32,6 +32,7 @@ export const createStyles = () => {
     numbers: {
       color: 'white',
     },
+
   });
   return styles;
 };

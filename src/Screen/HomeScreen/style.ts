@@ -20,7 +20,8 @@ export const createStyles = (theme: Theme) => {
       alignItems: 'center',
     },
     text: {
-      color: theme.color.onPrimary,
+      color: 'white',
+      textAlign: 'center',
     },
     map: {
       width: '100%',
@@ -36,7 +37,9 @@ export const createStyles = (theme: Theme) => {
       padding: 15,
       backgroundColor: theme.color.bright,
       width: 150,
-      alignItems: 'center',
+      position: 'absolute',
+      bottom: -20,
+      left: 90,
     },
   });
   return styles;

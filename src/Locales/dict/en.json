@@ -8,7 +8,8 @@
     "theme": "Theme",
     "kindThemeLight": "light",
     "kindThemeDark": "dark",
-    "textForDetailsScreen": "Details"
+    "textForDetailsScreen": "Details",
+    "search": "Search"
   },
   "title": {
     "HomeScreen": "Home",
