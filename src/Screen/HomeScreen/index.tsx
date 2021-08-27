@@ -16,8 +16,8 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
   const Styles = useThemeAwareObject(createStyles);
 
   const onPress = () =>
-    navigation.navigate(HomeStackScreens.Details, {
-      coordinates: coordinates,
+    navigation.navigate(HomeStackScreens.Airports, {
+      coordinates: { latitude: coordinates.latitude, longitude: coordinates.longitude },
       radius: currentValueRadius,
     });
 

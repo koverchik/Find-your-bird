@@ -14,7 +14,8 @@
   "title": {
     "HomeScreen": "Home",
     "DetailsScreen": "Details",
-    "SettingsScreen": "Settings"
+    "SettingsScreen": "Settings",
+    "AirportsScreen": "Airports"
   },
   "Inputs": {
     "FirstName": "First name",

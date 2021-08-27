@@ -14,7 +14,8 @@
   "title": {
     "HomeScreen": "Домашняя",
     "DetailsScreen": "Детали",
-    "SettingsScreen": "Настройки"
+    "SettingsScreen": "Настройки",
+    "AirportsScreen": "Aэропорты"
   },
   "Inputs": {
     "FirstName": "Имя",

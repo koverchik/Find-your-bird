@@ -2,7 +2,8 @@ import { Region } from 'react-native-maps';
 
 export type RootStackParamList = {
   Home: undefined;
-  Details: { radius: number; coordinates: Region };
+  Airports: { radius: number; coordinates: { latitude: number; longitude: number } };
+  Details: { radius: number; coordinates: { latitude: number; longitude: number } };
 };
 
 export type TabNavigatorParamList = {

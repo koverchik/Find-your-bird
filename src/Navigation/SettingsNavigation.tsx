@@ -7,6 +7,7 @@ import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 import { useTheme } from '../Theme/Theme.context';
 import { useTranslation } from 'react-i18next';
+
 type SettingsStackParamList = {
   Settings: undefined;
 };

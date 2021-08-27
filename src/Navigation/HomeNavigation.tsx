@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DetailsScreen } from '../Screen/DetailsScreen';
+import { AirportsScreen } from '../Screen/AirportsScreen';
 import { createStyles } from './style';
 import { HomeScreen } from '../Screen/HomeScreen';
 import { HomeStackScreens } from './types';
@@ -17,7 +18,7 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
   const Styles = useThemeAwareObject(createStyles);
   const { theme } = useTheme();
   const { t } = useTranslation();
-  
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -35,6 +36,16 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
         component={DetailsScreen}
         options={{
           title: t('title:DetailsScreen'),
+          headerStyle: Styles.container,
+          headerTintColor: theme.color.primary,
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name={HomeStackScreens.Airports}
+        component={AirportsScreen}
+        options={{
+          title: t('title:AirportsScreen'),
           headerStyle: Styles.container,
           headerTintColor: theme.color.primary,
           headerTitleAlign: 'center',
