@@ -5,9 +5,10 @@ import { DetailsScreenProps } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 
-export const DetailsScreen: FC<DetailsScreenProps> = () => {
+export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
+  console.log(props.route.params);
 
   return (
     <View style={Styles.container}>

@@ -15,7 +15,12 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
   const Styles = useThemeAwareObject(createStyles);
 
-  const onPress = () => navigation.navigate(HomeStackScreens.Details, { userId: 12 });
+  const onPress = () =>
+    navigation.navigate(HomeStackScreens.Details, {
+      coordinates: coordinates,
+      radius: currentValueRadius,
+    });
+
   const { t } = useTranslation();
   const [currentValueRadius, setCurrentValueRadius] = useState(0);
   const [coordinates, setCoordinates] = useState({

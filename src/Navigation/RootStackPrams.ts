@@ -1,6 +1,8 @@
+import { Region } from 'react-native-maps';
+
 export type RootStackParamList = {
   Home: undefined;
-  Details: { userId: number };
+  Details: { radius: number; coordinates: Region };
 };
 
 export type TabNavigatorParamList = {
