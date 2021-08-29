@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
+  console.log(props);
 
   return (
     <View style={Styles.container}>

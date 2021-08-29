@@ -4,6 +4,7 @@ import {
   configureStore,
   getDefaultMiddleware,
 } from '@reduxjs/toolkit';
+import { apiCreate } from './api/API';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import createSagaMiddleware from 'redux-saga';
 import {
@@ -48,5 +49,10 @@ export const store = configureStore({
 export const persistor = persistStore(store);
 
 export type AppDispatch = typeof store.dispatch;
+
+const api = apiCreate();
+api
+  .requestAirportsСoordinates(1000, { latitude: 55, longitude: 37 })
+  .then((data) => console.log(data));
 
 sagaMiddleware.run(rootSaga);
