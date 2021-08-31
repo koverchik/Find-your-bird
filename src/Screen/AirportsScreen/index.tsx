@@ -7,24 +7,22 @@ import { useTranslation } from 'react-i18next';
 import { api } from '../../Redux/store';
 import { ResponseAirports } from '../../Redux/api/type';
 import { AxiosResponse } from 'axios';
-import { useAppDispatch } from '../../Redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 
 import { RootStackParamList } from '../../Navigation/RootStackPrams';
 import { airportsList } from '../../Redux/action';
+import { getAirports, getAuth } from '../../Redux/selectors/getAuth';
 
 export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
-  // const [listAirports, setListAirports] = useState<ResponseAirports[]>([]);
-  const { radius, coordinates } = props.route.params;
   const dispatch = useAppDispatch();
 
-  const payload = {
-    radius,
-    coordinates,
-  };
-
-  dispatch(airportsList(payload));
+  useEffect(() => {
+    dispatch(airportsList(props.route.params));
+  }, []);
+  // const test = useAppSelector(getAirports);
+  // console.log(test);
 
   return (
     <View style={Styles.container}>

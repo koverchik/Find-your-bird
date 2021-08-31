@@ -17,13 +17,13 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { airports as airports, singIn } from './reducer';
+import { airports, singIn } from './reducer';
 import { rootSaga } from './sagas/index';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['auth'],
+  whitelist: ['auth', 'airports'],
 };
 
 const rootReducer = combineReducers({ auth: singIn, airports: airports });
@@ -51,7 +51,5 @@ export const persister = persistStore(store);
 export type AppDispatch = typeof store.dispatch;
 
 export const api = apiCreate();
-// const test = api.getAirportsList(70, { latitude: 38, longitude: -123 });
-// test.then((data) => console.log(data));
 
 sagaMiddleware.run(rootSaga);

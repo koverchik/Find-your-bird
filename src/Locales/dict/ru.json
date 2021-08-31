@@ -1,6 +1,6 @@
 {
   "components": {
-    "buttonDitails": "Детали",
+    "buttonDetails": "Детали",
     "buttonLogIn": "Войти",
     "buttonLogOut": "Выйти",
     "buttonClose": "Закрыть",
@@ -22,7 +22,7 @@
     "LastName": "Фамилия",
     "Email": "Почта"
   },
-  "allert": {
+  "alert": {
     "titleError": "Ошибка",
     "messages": {
       "errorFirstName": "Введите имя",

@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { Theme } from '../../Theme/Theme.interface';
 
-export const createStyles = (theme: Theme) => {
+export const createStyles = () => {
   const styles = StyleSheet.create({
     container: {
       position: 'absolute',

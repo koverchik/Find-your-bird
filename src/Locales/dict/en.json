@@ -1,6 +1,6 @@
 {
   "components": {
-    "buttonDitails": "Details",
+    "buttonDetails": "Details",
     "buttonLogIn": "Log in",
     "buttonLogOut": "Logout",
     "buttonClose": "Close",
@@ -22,7 +22,7 @@
     "LastName": "Last name",
     "Email": "E-mail"
   },
-  "allert": {
+  "alert": {
     "titleError": "Error",
     "messages": {
       "errorFirstName": "Enter first name",

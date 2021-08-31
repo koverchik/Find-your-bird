@@ -1,12 +1,12 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, TextInput } from 'react-native';
+import React, { FC, useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { createStyles } from './style';
-import { HomeStackScreens, SettingsStackScreens } from '../../Navigation/types';
+import { HomeStackScreens } from '../../Navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenProps, StackNavigationPropNavigation } from './type';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import MapView, { Circle, PROVIDER_GOOGLE, Region } from 'react-native-maps';
+import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
 import { IconMarker } from '../../Components/Marker/index';
 import { SliderCustom } from '../../Components/Slider/index';
 import Geolocation from 'react-native-geolocation-service';

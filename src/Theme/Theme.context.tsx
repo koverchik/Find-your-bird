@@ -1,5 +1,5 @@
 import React from 'react';
-import { DEFAULT_DARK_THEME, DEFAULT_DARK_THEME_ID } from './DefaultDark.theme';
+import { DEFAULT_DARK_THEME } from './DefaultDark.theme';
 import { DEFAULT_LIGHT_THEME, DEFAULT_LIGHT_THEME_ID } from './DefaultLight.theme';
 import { Theme } from './Theme.interface';
 
