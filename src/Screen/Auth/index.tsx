@@ -4,7 +4,7 @@ import { createStyles } from './style';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { signIn } from '../../Redux/action/index';
-import { SignInPaylod } from '../../Redux/action/types';
+import { SignInPayload } from '../../Redux/action/types';
 import { regex } from '../../Constants/regex';
 import { useAppDispatch } from '../../Redux/hooks';
 
@@ -13,7 +13,7 @@ export const Auth: FC = () => {
 
   const { t } = useTranslation();
 
-  const [profile, onChangeProfile] = React.useState<SignInPaylod>({
+  const [profile, onChangeProfile] = React.useState<SignInPayload>({
     firstName: '',
     lastName: '',
     email: '',
@@ -33,7 +33,7 @@ export const Auth: FC = () => {
     }
   };
 
-  const getFiedFirstName = (field: string) => (text: string) => {
+  const getFieldFirstName = (field: string) => (text: string) => {
     onChangeProfile(() => {
       return { ...profile, [field]: text };
     });
@@ -44,19 +44,19 @@ export const Auth: FC = () => {
       <SafeAreaView>
         <TextInput
           style={Styles.input}
-          onChangeText={getFiedFirstName('firstName')}
+          onChangeText={getFieldFirstName('firstName')}
           value={profile.firstName}
           placeholder={t('Inputs:FirstName')}
         />
         <TextInput
           style={Styles.input}
-          onChangeText={getFiedFirstName('lastName')}
+          onChangeText={getFieldFirstName('lastName')}
           value={profile.lastName}
           placeholder={t('Inputs:LastName')}
         />
         <TextInput
           style={Styles.input}
-          onChangeText={getFiedFirstName('email')}
+          onChangeText={getFieldFirstName('email')}
           value={profile.email}
           placeholder={t('Inputs:Email')}
         />

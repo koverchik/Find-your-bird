@@ -17,7 +17,10 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
 
   const onPress = () =>
     navigation.navigate(HomeStackScreens.Airports, {
-      coordinates: { latitude: coordinates.latitude, longitude: coordinates.longitude },
+      coordinates: {
+        latitude: Math.round(coordinates.latitude),
+        longitude: Math.round(coordinates.longitude),
+      },
       radius: currentValueRadius,
     });
 

@@ -7,9 +7,9 @@ import { Auth } from '../Auth';
 import { useAppSelector } from '../../Redux/hooks';
 
 export const WrapperRootNavigation: FC = () => {
-  const { loggenIn } = useAppSelector(getAuth);
+  const { loggedIn: loggedIn } = useAppSelector(getAuth);
 
-  return loggenIn ? (
+  return loggedIn ? (
     <ThemeProvider initial={DEFAULT_LIGHT_THEME}>
       <RootNavigation />
     </ThemeProvider>

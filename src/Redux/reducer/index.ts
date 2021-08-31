@@ -1,4 +1,9 @@
-import { AuthActionType, AuthTypes, SignOutAction } from '../action/types';
+import {
+  GetAirportsTypes as GetAirportsTypes,
+  AuthActionType,
+  AuthTypes,
+  AirportsPayloadType as AirportsPayloadType,
+} from '../action/types';
 import { InitialStateType } from './types';
 
 export const initialState: InitialStateType = {
@@ -6,7 +11,13 @@ export const initialState: InitialStateType = {
   firstName: '',
   email: '',
   userIcon: '',
-  loggenIn: false,
+  loggedIn: false,
+};
+
+export const initialStateAirports = {
+  airportsList: [],
+  pending: false,
+  error: null,
 };
 
 export const singIn = (state = initialState, action: AuthActionType) => {
@@ -17,7 +28,7 @@ export const singIn = (state = initialState, action: AuthActionType) => {
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         email: action.payload.email,
-        loggenIn: true,
+        loggedIn: true,
       };
     case AuthTypes.SING_OUT:
       return initialState;
@@ -25,6 +36,32 @@ export const singIn = (state = initialState, action: AuthActionType) => {
       return {
         ...state,
         userIcon: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const airports = (state = initialStateAirports, action: AirportsPayloadType) => {
+  switch (action.type) {
+    case GetAirportsTypes.REQUEST_LIST_AIRPORTS:
+      return {
+        ...state,
+        pending: true,
+      };
+    case GetAirportsTypes.REQUEST_SUCCESS:
+      return {
+        ...state,
+        pending: false,
+        airportsList: action.payload.items,
+        error: null,
+      };
+    case GetAirportsTypes.REQUEST_FAILURE:
+      return {
+        ...state,
+        pending: false,
+        airportsList: [],
+        error: action.payload,
       };
     default:
       return state;

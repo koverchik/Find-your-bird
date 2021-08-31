@@ -3,5 +3,5 @@ export type InitialStateType = {
   firstName: string;
   email: string;
   userIcon: string;
-  loggenIn: boolean;
+  loggedIn: boolean;
 };
