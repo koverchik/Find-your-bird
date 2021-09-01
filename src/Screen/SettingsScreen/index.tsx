@@ -5,7 +5,7 @@ import { useTheme } from '../../Theme/Theme.context';
 import { useTranslation } from 'react-i18next';
 import { signOut } from '../../Redux/action/auth/index';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
-import { getAuth } from '../../Redux/selectors/getAuth';
+import { getAuth } from '../../Redux/selectors';
 import { SettingsScreenView } from './settingsScreenView';
 
 export const SettingsScreen: FC<SettingsScreenProps> = () => {

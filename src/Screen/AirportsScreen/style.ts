@@ -9,6 +9,21 @@ export const createStyles = (theme: Theme) => {
       backgroundColor: theme.color.primary,
       flexDirection: 'column',
     },
+    wrapper: {
+      height: 60,
+      width: '90%',
+      backgroundColor: theme.color.bright,
+      margin: 10,
+      padding: 10,
+    },
+    item: {
+      color: theme.color.primary,
+    },
+    activityIndicator: {
+      alignItems: 'center',
+      flex: 1,
+      flexDirection: 'column',
+    },
   });
   return styles;
 };

@@ -2,15 +2,19 @@ import { GeoCoordinates } from 'react-native-geolocation-service';
 
 export type Coordinates = Pick<GeoCoordinates, 'latitude' | 'longitude'>;
 
-export type ResponseAirports = {
-  countryCode: string;
-  iata: string;
+export type AirportsListTypes = {
   icao: string;
-  location: Coordinates;
-  municipalityName: string;
+  iata: string;
   name: string;
+  shortName: string;
+  municipalityName: string;
+  location: {
+    lat: number;
+    lon: number;
+  };
+  countryCode: string;
 };
 
 export type ResponseItemsAirports = {
-  items: ResponseAirports[];
+  items: AirportsListTypes[];
 };

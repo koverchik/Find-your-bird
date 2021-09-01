@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { MapCircleProps } from 'react-native-maps';
-import { Coordinates, ResponseAirports, ResponseItemsAirports } from './type';
+import { Coordinates, ResponseItemsAirports } from './type';
 
 const BASE_URL = 'https://aerodatabox.p.rapidapi.com/';
 const X_REPAID_API_KEY = '97500c194fmsh9856d08c53dc17fp15f399jsn23de4a6fddd8';
