@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity, SafeAreaView, TextInput, Alert } from 're
 import { createStyles } from './style';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import { signIn } from '../../Redux/action/index';
-import { SignInPayload } from '../../Redux/action/types';
+import { signIn } from '../../Redux/action/auth/index';
+import { SignInPayloadType } from '../../Redux/action/auth/types';
 import { regex } from '../../Constants/regex';
 import { useAppDispatch } from '../../Redux/hooks';
 
@@ -13,7 +13,7 @@ export const Auth: FC = () => {
 
   const { t } = useTranslation();
 
-  const [profile, onChangeProfile] = React.useState<SignInPayload>({
+  const [profile, onChangeProfile] = React.useState<SignInPayloadType>({
     firstName: '',
     lastName: '',
     email: '',

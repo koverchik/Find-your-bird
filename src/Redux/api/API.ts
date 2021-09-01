@@ -3,7 +3,7 @@ import { MapCircleProps } from 'react-native-maps';
 import { Coordinates, ResponseAirports, ResponseItemsAirports } from './type';
 
 const BASE_URL = 'https://aerodatabox.p.rapidapi.com/';
-const X_REPAID_API_KEY = 'e0fbd77dc0msh70b7cc9d74bae53p11d724jsndf01ec533b62';
+const X_REPAID_API_KEY = '97500c194fmsh9856d08c53dc17fp15f399jsn23de4a6fddd8';
 
 export const apiCreate = (baseURL: string = BASE_URL) => {
   const instance = axios.create({

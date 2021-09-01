@@ -4,7 +4,7 @@ import { createStyles } from './style';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { AppDispatch } from '../../Redux/store';
 import { useDispatch } from 'react-redux';
-import { uploadIcon } from '../../Redux/action';
+import { uploadIcon } from '../../Redux/action/auth/index';
 import { useAppSelector } from '../../Redux/hooks';
 import { getAuth } from '../../Redux/selectors/getAuth';
 import { launchImageLibrary } from 'react-native-image-picker';

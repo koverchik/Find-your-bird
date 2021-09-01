@@ -10,8 +10,8 @@ import { AxiosResponse } from 'axios';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 
 import { RootStackParamList } from '../../Navigation/RootStackPrams';
-import { airportsList } from '../../Redux/action';
-import { getAirports, getAuth } from '../../Redux/selectors/getAuth';
+import { airportsList } from '../../Redux/action/airports';
+import { getAirports } from '../../Redux/selectors/getAuth';
 
 export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
@@ -21,8 +21,8 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   useEffect(() => {
     dispatch(airportsList(props.route.params));
   }, []);
-  // const test = useAppSelector(getAirports);
-  // console.log(test);
+  const test = useAppSelector(getAirports);
+  console.log(test);
 
   return (
     <View style={Styles.container}>

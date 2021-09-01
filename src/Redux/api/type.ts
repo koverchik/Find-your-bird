@@ -6,7 +6,7 @@ export type ResponseAirports = {
   countryCode: string;
   iata: string;
   icao: string;
-  location: { latitude: number; longitude: number };
+  location: Coordinates;
   municipalityName: string;
   name: string;
 };

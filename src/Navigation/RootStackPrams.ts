@@ -1,9 +1,10 @@
 import { Region } from 'react-native-maps';
+import { Coordinates } from '../Redux/api/type';
 
 export type RootStackParamList = {
   Home: undefined;
-  Airports: { radius: number; coordinates: { latitude: number; longitude: number } };
-  Details: { radius: number; coordinates: { latitude: number; longitude: number } };
+  Airports: { radius: number; coordinates: Coordinates };
+  Details: { radius: number; coordinates: Coordinates };
 };
 
 export type TabNavigatorParamList = {
