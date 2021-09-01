@@ -1,6 +1,6 @@
 import {
-  AirportsListType,
-  GetAirportsTypes,
+  CitiesListType as CitiesListType,
+  GetCitiesTypes as GetCitiesTypes,
   RequestFailureType,
   RequestSuccessType,
   SignInPayload,
@@ -53,23 +53,23 @@ export const uploadIconSuccess: UploadIconSuccessType = (payload) => {
   };
 };
 
-export const airportsList: AirportsListType = (payload) => {
+export const citiesList: CitiesListType = (payload) => {
   return {
-    type: GetAirportsTypes.REQUEST_LIST_AIRPORTS,
+    type: GetCitiesTypes.REQUEST_LIST_CITIES,
     payload,
   };
 };
 
-export const requestSuccessAirportsList: RequestSuccessType = (payload) => {
+export const requestSuccessCitiesList: RequestSuccessType = (payload) => {
   return {
-    type: GetAirportsTypes.REQUEST_SUCCESS,
+    type: GetCitiesTypes.REQUEST_SUCCESS,
     payload,
   };
 };
 
-export const requestFailureAirportsList: RequestFailureType = (payload) => {
+export const requestFailureCitiesList: RequestFailureType = (payload) => {
   return {
-    type: GetAirportsTypes.REQUEST_FAILURE,
+    type: GetCitiesTypes.REQUEST_FAILURE,
     payload,
   };
 };

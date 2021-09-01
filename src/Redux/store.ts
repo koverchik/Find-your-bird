@@ -17,16 +17,16 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { airports, singIn } from './reducer';
+import { Cities as cities, singIn } from './reducer';
 import { rootSaga } from './sagas/index';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['auth', 'airports'],
+  whitelist: ['auth', 'cities'],
 };
 
-const rootReducer = combineReducers({ auth: singIn, airports: airports });
+const rootReducer = combineReducers({ auth: singIn, cities: cities });
 
 export type RootState = ReturnType<typeof rootReducer>;
 

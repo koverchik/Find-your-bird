@@ -1,5 +1,8 @@
 import { Asset } from 'react-native-image-picker/lib/typescript/types';
-import { ResponseAirports as ResponseAirports, ResponseItemsAirports } from '../api/type';
+import {
+  ResponseCities as ResponseCities,
+  ResponseItemsCities as ResponseItemsCities,
+} from '../api/type';
 
 export enum AuthTypes {
   SING_IN = 'SING_IN',
@@ -8,17 +11,17 @@ export enum AuthTypes {
   SING_OUT_SUCCESS = 'SING_OUT_SUCCESS',
   UPLOAD_ICON = 'UPLOAD_ICON',
   UPLOAD_ICON_SUCCESS = 'UPLOAD_ICON_SUCCESS',
-  REQUEST_LIST_AIRPORTS = 'REQUEST_LIST_AIRPORTS',
+  REQUEST_LIST_Cities = 'REQUEST_LIST_Cities',
 }
 
-export enum GetAirportsTypes {
-  REQUEST_LIST_AIRPORTS = 'REQUEST_LIST_AIRPORTS',
+export enum GetCitiesTypes {
+  REQUEST_LIST_CITIES = 'REQUEST_LIST_Cities',
   REQUEST_SUCCESS = 'REQUEST_SUCCESS',
   REQUEST_FAILURE = 'REQUEST_FAILURE',
 }
 
-export type AirportsAction = {
-  type: GetAirportsTypes.REQUEST_LIST_AIRPORTS;
+export type CitiesAction = {
+  type: GetCitiesTypes.REQUEST_LIST_CITIES;
   payload: any;
 };
 
@@ -62,50 +65,50 @@ export type UploadIconSuccessType = (payload: string) => {
   type: AuthTypes.UPLOAD_ICON_SUCCESS;
   payload: string;
 };
-export type PayloadAirports = {
+export type PayloadCities = {
   radius: number;
   coordinates: { latitude: number; longitude: number };
 };
 
-export type AirportsListType = (payload: PayloadAirports) => {
-  type: GetAirportsTypes.REQUEST_LIST_AIRPORTS;
-  payload: PayloadAirports;
+export type CitiesListType = (payload: PayloadCities) => {
+  type: GetCitiesTypes.REQUEST_LIST_CITIES;
+  payload: PayloadCities;
 };
 
-export type RequestSuccessType = (payload: ResponseItemsAirports) => {
-  type: GetAirportsTypes.REQUEST_SUCCESS;
-  payload: ResponseItemsAirports;
+export type RequestSuccessType = (payload: ResponseItemsCities) => {
+  type: GetCitiesTypes.REQUEST_SUCCESS;
+  payload: ResponseItemsCities;
 };
 
 export type RequestFailureType = (payload: string) => {
-  type: GetAirportsTypes.REQUEST_FAILURE;
+  type: GetCitiesTypes.REQUEST_FAILURE;
   payload: string;
 };
 
-export type GetAirportsActions = AirportsListType | RequestSuccessType | RequestFailureType;
+export type GetCitiesActions = CitiesListType | RequestSuccessType | RequestFailureType;
 
-export type PayloadListAirportsType = {
+export type PayloadListCitiesType = {
   radius: number;
   coordinates: { latitude: number; longitude: number };
 };
 
-export type ListAirportsType = {
-  type: GetAirportsTypes.REQUEST_LIST_AIRPORTS;
-  payload: PayloadListAirportsType;
+export type ListCitiesType = {
+  type: GetCitiesTypes.REQUEST_LIST_CITIES;
+  payload: PayloadListCitiesType;
 };
 
-export type RequestSuccessListAirportsType = {
-  type: GetAirportsTypes.REQUEST_SUCCESS;
-  payload: ResponseItemsAirports;
+export type RequestSuccessListCitiesType = {
+  type: GetCitiesTypes.REQUEST_SUCCESS;
+  payload: ResponseItemsCities;
 };
 
-export type RequestFailureListAirportsType = {
-  type: GetAirportsTypes.REQUEST_FAILURE;
+export type RequestFailureListCitiesType = {
+  type: GetCitiesTypes.REQUEST_FAILURE;
   payload: string;
 };
 
-export type ListAirportsResultRequestType =
-  | RequestSuccessListAirportsType
-  | RequestFailureListAirportsType;
+export type ListCitiesResultRequestType =
+  | RequestSuccessListCitiesType
+  | RequestFailureListCitiesType;
 
-export type AirportsPayloadType = ListAirportsType | ListAirportsResultRequestType;
+export type CitiesPayloadType = ListCitiesType | ListCitiesResultRequestType;

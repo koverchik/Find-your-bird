@@ -14,17 +14,6 @@ import Geolocation from 'react-native-geolocation-service';
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
   const Styles = useThemeAwareObject(createStyles);
-
-  const onPress = () =>
-    navigation.navigate(HomeStackScreens.Airports, {
-      coordinates: {
-        latitude: Math.round(coordinates.latitude),
-        longitude: Math.round(coordinates.longitude),
-      },
-      radius: currentValueRadius,
-    });
-
-  const { t } = useTranslation();
   const [currentValueRadius, setCurrentValueRadius] = useState(0);
   const [coordinates, setCoordinates] = useState({
     latitude: 153.5078788,
@@ -32,6 +21,18 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
     latitudeDelta: 2,
     longitudeDelta: 0.009,
   });
+  const { latitude, longitude } = coordinates;
+
+  const onPress = () =>
+    navigation.navigate(HomeStackScreens.Cities, {
+      coordinates: {
+        latitude: +latitude.toFixed(6),
+        longitude: +longitude.toFixed(6),
+      },
+      radius: currentValueRadius,
+    });
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     Geolocation.getCurrentPosition(
@@ -70,9 +71,7 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
         zoomControlEnabled={true}
         showsUserLocation={true}
         maxZoomLevel={20}
-        onRegionChangeComplete={(e) => {
-          setCoordinates(e);
-        }}
+        onRegionChangeComplete={setCoordinates}
       >
         <Circle
           center={coordinates}

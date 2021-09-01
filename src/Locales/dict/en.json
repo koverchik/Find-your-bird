@@ -15,7 +15,7 @@
     "HomeScreen": "Home",
     "DetailsScreen": "Details",
     "SettingsScreen": "Settings",
-    "AirportsScreen": "Airports"
+    "CitiesScreen": "Cities"
   },
   "Inputs": {
     "FirstName": "First name",

@@ -4,7 +4,7 @@ import { RouteProp } from '@react-navigation/native';
 export enum HomeStackScreens {
   Home = 'Home',
   Details = 'Details',
-  Airports = 'Airports',
+  Cities = 'Cities',
 }
 
 export enum SettingsStackScreens {

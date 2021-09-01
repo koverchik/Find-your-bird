@@ -2,7 +2,7 @@ import { GeoCoordinates } from 'react-native-geolocation-service';
 
 export type Coordinates = Pick<GeoCoordinates, 'latitude' | 'longitude'>;
 
-export type ResponseAirports = {
+export type ResponseCities = {
   countryCode: string;
   iata: string;
   icao: string;
@@ -11,6 +11,6 @@ export type ResponseAirports = {
   name: string;
 };
 
-export type ResponseItemsAirports = {
-  items: ResponseAirports[];
+export type ResponseItemsCities = {
+  data: ResponseCities[];
 };

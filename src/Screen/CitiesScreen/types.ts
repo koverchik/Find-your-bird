@@ -4,7 +4,7 @@ import { RootStackParamList } from '../../Navigation/RootStackPrams';
 import { HomeStackScreens } from '../../Navigation/types';
 import { Region } from 'react-native-maps';
 
-export type AirportsScreenProps = {
+export type CitiesScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, HomeStackScreens.Details>;
   route: RouteProp<RootStackParamList, HomeStackScreens.Details>;
   radius: number;

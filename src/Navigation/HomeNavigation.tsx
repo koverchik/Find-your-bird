@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DetailsScreen } from '../Screen/DetailsScreen';
-import { AirportsScreen } from '../Screen/AirportsScreen';
+import { CitiesScreen as CitiesScreen } from '../Screen/CitiesScreen';
 import { createStyles } from './style';
 import { HomeScreen } from '../Screen/HomeScreen';
 import { HomeStackScreens } from './types';
@@ -42,10 +42,10 @@ export const HomeNavigation: FC<HomeScreenNavigationProp> = () => {
         }}
       />
       <Stack.Screen
-        name={HomeStackScreens.Airports}
-        component={AirportsScreen}
+        name={HomeStackScreens.Cities}
+        component={CitiesScreen}
         options={{
-          title: t('title:AirportsScreen'),
+          title: t('title:CitiesScreen'),
           headerStyle: Styles.container,
           headerTintColor: theme.color.primary,
           headerTitleAlign: 'center',

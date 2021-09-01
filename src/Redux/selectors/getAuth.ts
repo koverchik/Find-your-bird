@@ -4,6 +4,6 @@ export const getAuth = (store: RootState) => {
   return store.auth;
 };
 
-export const getAirports = (store: RootState) => {
-  return store.airports;
+export const getCities = (store: RootState) => {
+  return store.cities;
 };

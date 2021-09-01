@@ -11,11 +11,11 @@ export const SliderCustom: FC<SliderProps> = (props) => {
   const { t } = useTranslation();
   return (
     <View style={Styles.container}>
-      <Text style={Styles.maxValue}> 1000 {t('general:km')}</Text>
+      <Text style={Styles.maxValue}> 100 {t('general:km')}</Text>
       <Slider
         style={Styles.slider}
         minimumValue={0}
-        maximumValue={1000}
+        maximumValue={100}
         minimumTrackTintColor="#d9aebd"
         maximumTrackTintColor="#000000"
         thumbTintColor="#f84281"
