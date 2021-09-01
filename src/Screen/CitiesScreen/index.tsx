@@ -17,20 +17,22 @@ export const CitiesScreen: FC<CitiesScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  console.log(props.route.params);
 
   useEffect(() => {
     dispatch(citiesList(props.route.params));
   }, []);
-  // const test = useAppSelector(getCities);
-  // console.log(test);
+  const { citiesListData } = useAppSelector(getCities);
+  console.log(citiesListData);
 
   return (
     <View style={Styles.container}>
-      <Text> </Text>
-      {/* {listCities.map((data, i) => {
-        return <Text key={'Cities' + i}>{`${data.countryCode}  ${data.municipalityName}`} </Text>;
-      })} */}
+      {citiesListData.map((data, i) => {
+        return (
+          <Text style={Styles.item} key={'Cities' + i}>
+            {`${i + 1}. City: ${data.name}. Region: ${data.region}. Country: ${data.country}. `}
+          </Text>
+        );
+      })}
     </View>
   );
 };

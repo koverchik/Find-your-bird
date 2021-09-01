@@ -5,10 +5,12 @@ export const createStyles = (theme: Theme) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'center',
+      alignItems: 'flex-start',
+      margin: 20,
       backgroundColor: theme.color.primary,
       flexDirection: 'column',
     },
+    item: { margin: 7 },
   });
   return styles;
 };

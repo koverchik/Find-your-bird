@@ -17,7 +17,8 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { Cities as cities, singIn } from './reducer';
+import { auth } from './reducer/auth';
+import { cities } from './reducer/cities';
 import { rootSaga } from './sagas/index';
 
 const persistConfig = {
@@ -26,13 +27,14 @@ const persistConfig = {
   whitelist: ['auth', 'cities'],
 };
 
-const rootReducer = combineReducers({ auth: singIn, cities: cities });
+const rootReducer = combineReducers({ auth: auth, cities: cities });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const sagaMiddleware = createSagaMiddleware();
+
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
