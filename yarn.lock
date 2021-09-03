@@ -6571,10 +6571,10 @@
     "mockdate" "^3.0.2"
     "string-hash-64" "^1.0.3"
 
-"react-native-redash@^16.2.0":
-  "integrity" "sha512-4xRWT6sUTjTM7i7Yd6fEiuylzIPmjYl9XlhL7Tz/NJOPBs+ib6ku7ptF5PRgQIshbQ6kIFwXJWoQ9H71zOMwvA=="
-  "resolved" "https://registry.npmjs.org/react-native-redash/-/react-native-redash-16.2.0.tgz"
-  "version" "16.2.0"
+"react-native-redash@^16.2.1":
+  "integrity" "sha512-0j9lGVqed08ZZ5fYtQKag7JHAigls/pHHaRbcEsvgkK4aFXTTwJ+vzNCm8hakrwD0j0WazQ6NVSoqcFp2PFZOw=="
+  "resolved" "https://registry.npmjs.org/react-native-redash/-/react-native-redash-16.2.1.tgz"
+  "version" "16.2.1"
   dependencies:
     "abs-svg-path" "^0.1.1"
     "normalize-svg-path" "^1.0.1"
