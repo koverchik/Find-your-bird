@@ -1,20 +1,23 @@
-import React, { FC, useEffect, useRef } from 'react';
-import { ActivityIndicator, Animated, Dimensions, FlatList, SafeAreaView } from 'react-native';
+import React, { FC, useEffect } from 'react';
+import {
+  ListRenderItem,
+  ActivityIndicator,
+  Animated,
+  FlatListProps,
+  SafeAreaView,
+} from 'react-native';
 import { createStyles } from './style';
 import { AirportsScreenProps } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
-import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 import { getAirports } from '../../Redux/selectors';
 import { ItemFlatList } from '../../Components/ItemFlatList';
+import { AirportsListTypes } from '../../Redux/api/type';
 import { airportsList } from '../../Redux/action/airports';
 
 export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
-
-  const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
   useEffect(() => {
     dispatch(airportsList(props.route.params));
@@ -26,30 +29,42 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
     useNativeDriver: true,
   });
 
-  return pending ? (
-    <ActivityIndicator
-      size="large"
-      color={Styles.wrapper.backgroundColor}
-      style={Styles.activityIndicator}
-    />
-  ) : (
+  if (pending) {
+    return (
+      <ActivityIndicator
+        size="large"
+        color={Styles.wrapper.backgroundColor}
+        style={Styles.activityIndicator}
+      />
+    );
+  }
+  const keyExtractor: FlatListProps<AirportsListTypes>['keyExtractor'] = (item) => {
+    return item.icao;
+  };
+
+  const renderItem: ListRenderItem<AirportsListTypes> = ({ item, index }) => {
+    const { name, municipalityName, countryCode, iata, icao, location } = item;
+    return (
+      <ItemFlatList
+        index={index}
+        title={name}
+        subtitle={municipalityName}
+        countryCode={countryCode}
+        location={location}
+        icao={icao}
+        iata={iata}
+        y={y}
+      />
+    );
+  };
+
+  return (
     <SafeAreaView style={Styles.container}>
-      <AnimatedFlatList
+      <Animated.FlatList
         bounces={false}
         data={airportsListData}
-        renderItem={({ index, item }) => (
-          <ItemFlatList
-            index={index}
-            title={item.name}
-            subtitle={item.municipalityName}
-            countryCode={item.countryCode}
-            location={item.location}
-            icao={item.icao}
-            iata={item.iata}
-            y={y}
-          />
-        )}
-        keyExtractor={(item) => item.icao}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
         {...{ onScroll }}
       />
     </SafeAreaView>

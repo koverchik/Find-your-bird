@@ -1,9 +1,4 @@
-import {
-  applyMiddleware,
-  combineReducers,
-  configureStore,
-  getDefaultMiddleware,
-} from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { apiCreate } from './api/API';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import createSagaMiddleware from 'redux-saga';

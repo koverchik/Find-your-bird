@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { MapCircleProps } from 'react-native-maps';
 import { Coordinates, ResponseItemsAirports } from './type';
 

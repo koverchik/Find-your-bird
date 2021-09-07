@@ -16,7 +16,6 @@ export const airports = (state = initialStateAirports, action: AirportsPayloadTy
         pending: true,
       };
     case GetAirportsTypes.REQUEST_SUCCESS:
-      console.log(action);
       return {
         ...state,
         pending: false,
