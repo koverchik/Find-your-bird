@@ -1,9 +1,4 @@
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RouteProp } from '@react-navigation/native';
-import { RootStackParamList } from '../../Navigation/RootStackPrams';
-import { HomeStackScreens } from '../../Navigation/types';
-import { Region } from 'react-native-maps';
-import { Coordinates } from '../../Redux/api/type';
+import { Animated } from 'react-native';
 
 export type ItemFlatListType = {
   title: string;
@@ -15,4 +10,6 @@ export type ItemFlatListType = {
   };
   icao: string;
   iata: string;
+  y: Animated.Value;
+  index: number;
 };

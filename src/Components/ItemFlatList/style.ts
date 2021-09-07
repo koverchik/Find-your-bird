@@ -3,9 +3,6 @@ import { Theme } from '../../Theme/Theme.interface';
 
 export const createStyles = (theme: Theme) => {
   const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
     wrapper: {
       borderRadius: 10,
       backgroundColor: theme.color.primary,
@@ -13,6 +10,7 @@ export const createStyles = (theme: Theme) => {
       padding: 10,
       borderWidth: 2,
       flex: 1,
+      height: 200,
       justifyContent: 'space-between',
     },
     titleAirport: {
@@ -24,20 +22,6 @@ export const createStyles = (theme: Theme) => {
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-between',
-    },
-    item: {
-      color: theme.color.primary,
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
-    },
-    activityIndicator: {
-      alignItems: 'center',
-      flex: 1,
-      flexDirection: 'column',
-    },
-    title: {
-      fontSize: 32,
     },
     wrapperButton: {
       alignItems: 'center',

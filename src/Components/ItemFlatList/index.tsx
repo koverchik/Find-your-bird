@@ -1,9 +1,14 @@
 import React, { FC } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
 import { createStyles } from './style';
 import { ItemFlatListType } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
+
+export const MARGIN = 16;
+export const CARD_HEIGHT = 200 + MARGIN * 2;
+const { height: wHeight } = Dimensions.get('window');
+const height = wHeight - 64;
 
 export const ItemFlatList: FC<ItemFlatListType> = ({
   title,
@@ -12,14 +17,48 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
   location,
   icao,
   iata,
+  y,
+  index,
 }) => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
+  const position = Animated.subtract(index * CARD_HEIGHT, y);
+  const isDisappearing = -CARD_HEIGHT;
+  const isTop = 0;
+  const isBottom = height - CARD_HEIGHT;
+  const isAppearing = height;
+  const translateY = Animated.add(
+    Animated.add(
+      y,
+      y.interpolate({
+        inputRange: [0, 0.00001 + index * CARD_HEIGHT],
+        outputRange: [0, -index * CARD_HEIGHT],
+        extrapolateRight: 'clamp',
+      }),
+    ),
+    position.interpolate({
+      inputRange: [isBottom, isAppearing],
+      outputRange: [0, -CARD_HEIGHT / 4],
+      extrapolate: 'clamp',
+    }),
+  );
+  const scale = position.interpolate({
+    inputRange: [isDisappearing, isTop, isBottom, isAppearing],
+    outputRange: [0.5, 1, 1, 0.5],
+    extrapolate: 'clamp',
+  });
+  const opacity = position.interpolate({
+    inputRange: [isDisappearing, isTop, isBottom, isAppearing],
+    outputRange: [0.5, 1, 1, 0.5],
+  });
   return (
-    <View style={Styles.wrapper}>
+    <Animated.View
+      style={[Styles.wrapper, { opacity, transform: [{ translateY }, { scale }] }]}
+      key={index}
+    >
       <View style={Styles.titleAirport}>
-        <Text style={Styles.textTitle}>{title}</Text>
-        <Text style={Styles.text}>{subtitle}</Text>
+        <Text style={Styles.textTitle}>{subtitle}</Text>
+        <Text style={Styles.text}>{title}</Text>
         <Text style={Styles.text}>Country code: {countryCode}</Text>
       </View>
       <View style={Styles.wrapperCordAndCode}>
@@ -37,6 +76,6 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
           <Text style={Styles.text}>{t('components:textForDetailsScreen')}</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </Animated.View>
   );
 };
