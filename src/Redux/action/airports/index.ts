@@ -14,14 +14,14 @@ export const airportsList: AirportsListType = (payload) => {
 
 export const requestSuccessAirportsList: RequestSuccessAirportsListType = (payload) => {
   return {
-    type: GetAirportsTypes.REQUEST_SUCCESS,
+    type: GetAirportsTypes.REQUEST_LIST_AIRPORTS_SUCCESS,
     payload,
   };
 };
 
 export const requestFailureAirportsList: RequestFailureAirportsListType = (payload) => {
   return {
-    type: GetAirportsTypes.REQUEST_FAILURE,
+    type: GetAirportsTypes.REQUEST_LIST_AIRPORTS_FAILURE,
     payload,
   };
 };

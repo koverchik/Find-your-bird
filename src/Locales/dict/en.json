@@ -32,5 +32,14 @@
   },
   "general": {
     "km": "km"
+  },
+  "detailsScreen": {
+    "continent": "Continent",
+    "country": "Country",
+    "fullName": "Full name",
+    "timeZone": "Time zone",
+    "code": "Code",
+    "website": "Website",
+    "links": "Links"
   }
 }

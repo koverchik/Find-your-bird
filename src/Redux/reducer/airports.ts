@@ -15,14 +15,14 @@ export const airports = (state = initialStateAirports, action: AirportsPayloadTy
         ...state,
         pending: true,
       };
-    case GetAirportsTypes.REQUEST_SUCCESS:
+    case GetAirportsTypes.REQUEST_LIST_AIRPORTS_SUCCESS:
       return {
         ...state,
         pending: false,
         airportsListData: action.payload.items,
         error: null,
       };
-    case GetAirportsTypes.REQUEST_FAILURE:
+    case GetAirportsTypes.REQUEST_LIST_AIRPORTS_FAILURE:
       return {
         ...state,
         pending: false,

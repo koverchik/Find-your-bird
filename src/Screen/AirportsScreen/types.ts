@@ -5,8 +5,8 @@ import { HomeStackScreens } from '../../Navigation/types';
 import { Coordinates } from '../../Redux/api/type';
 
 export type AirportsScreenProps = {
-  navigation: StackNavigationProp<RootStackParamList, HomeStackScreens.Details>;
-  route: RouteProp<RootStackParamList, HomeStackScreens.Details>;
+  navigation: StackNavigationProp<RootStackParamList, HomeStackScreens.Airports>;
+  route: RouteProp<RootStackParamList, HomeStackScreens.Airports>;
   radius: number;
   coordinates: Coordinates;
 };

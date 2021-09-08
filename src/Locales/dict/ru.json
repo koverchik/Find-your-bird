@@ -32,5 +32,14 @@
   },
   "general": {
     "km": "км"
+  },
+  "detailsScreen": {
+    "continent": "Континент",
+    "country": "Страна",
+    "fullName": "Полное название",
+    "timeZone": "Временная зона",
+    "code": "Код",
+    "website": "Сайт",
+    "links": "Ссылки"
   }
 }
