@@ -4,6 +4,9 @@ import { createStyles } from './style';
 import { ItemFlatListType } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
+import { HomeStackScreens } from '../../Navigation/types';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationPropNavigation } from '../../Screen/HomeScreen/type';
 
 export const MARGIN = 16;
 export const CARD_HEIGHT = 200 + MARGIN * 2;
@@ -51,6 +54,12 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
     inputRange: [isDisappearing, isTop, isBottom, isAppearing],
     outputRange: [0.5, 1, 1, 0.5],
   });
+  const navigation = useNavigation<StackNavigationPropNavigation>();
+
+  const onPress = () =>
+    navigation.navigate(HomeStackScreens.Details, {
+      iata: iata,
+    });
   return (
     <Animated.View
       style={[Styles.wrapper, { opacity, transform: [{ translateY }, { scale }] }]}
@@ -72,7 +81,7 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
         </View>
       </View>
       <View style={Styles.wrapperButton}>
-        <TouchableOpacity style={Styles.button}>
+        <TouchableOpacity style={Styles.button} onPress={onPress}>
           <Text style={Styles.text}>{t('components:textForDetailsScreen')}</Text>
         </TouchableOpacity>
       </View>
