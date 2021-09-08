@@ -18,3 +18,31 @@ export type AirportsListTypes = {
 export type ResponseItemsAirports = {
   items: AirportsListTypes[];
 };
+
+export type ResponseDetailsAirport = {
+  icao: string;
+  iata: string;
+  shortName: string;
+  fullName: string;
+  municipalityName: string;
+  location: {
+    lat: number;
+    lon: number;
+  };
+  country: {
+    code: string;
+    name: string;
+  };
+  continent: {
+    code: string;
+    name: string;
+  };
+  timeZone: string;
+  urls: {
+    webSite: string;
+    wikipedia: string;
+    twitter: string;
+    googleMaps: string;
+    flightRadar: string;
+  };
+};
