@@ -41,12 +41,14 @@ export const createStyles = (theme: Theme) => {
     headerLink: {
       fontSize: 18,
       fontWeight: 'bold',
+      color: theme.color.background,
     },
     wrapperPropsAndCode: {
       padding: 5,
       marginTop: 10,
       borderWidth: 1,
       borderRadius: 10,
+      borderColor: theme.color.background,
       width: '100%',
       maxHeight: 100,
       flexDirection: 'row',
@@ -60,7 +62,11 @@ export const createStyles = (theme: Theme) => {
       flex: 1,
       flexDirection: 'column',
     },
-    item: {},
+    activityIndicator: {
+      alignItems: 'center',
+      flex: 1,
+      flexDirection: 'column',
+    },
   });
   return styles;
 };
