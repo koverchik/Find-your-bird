@@ -1,11 +1,11 @@
-import React, { FC, useEffect, useState } from 'react';
-import { View, Text, Button, Linking, ActivityIndicator } from 'react-native';
+import React, { FC, useEffect } from 'react';
+import { View, Text, Linking, ActivityIndicator } from 'react-native';
 import { createStyles } from './style';
 import { DetailsScreenProps } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
-import { airportDetails } from '../../Redux/action/airportDetails';
+import { requestAirportDetails } from '../../Redux/action/airportDetails';
 import { getDetailsAirport } from '../../Redux/selectors';
 
 export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
@@ -13,7 +13,7 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(airportDetails(props.route.params.iata));
+    dispatch(requestAirportDetails(props.route.params.iata));
   }, []);
   const { pending, airportData } = useAppSelector(getDetailsAirport);
 

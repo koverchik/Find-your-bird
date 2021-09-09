@@ -28,7 +28,7 @@ export const airportDetails = (
       return {
         ...state,
         pending: false,
-        airportData: {},
+        airportData: null,
         error: action.payload,
       };
     default:

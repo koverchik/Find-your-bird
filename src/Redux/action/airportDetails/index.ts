@@ -1,11 +1,11 @@
 import {
-  RequestAirportDetailsType,
   GetAirportDetailsTypes,
+  RequestAirportDetailsType,
   RequestFailureAirportDetailsType,
   RequestSuccessAirportDetailsType,
 } from './types';
 
-export const airportDetails: RequestAirportDetailsType = (payload) => {
+export const requestAirportDetails: RequestAirportDetailsType = (payload) => {
   return {
     type: GetAirportDetailsTypes.REQUEST_DETAILS_AIRPORT,
     payload,

@@ -1,4 +1,3 @@
-import { initialDetailsAirportStateTypes } from '../reducer/types';
 import { RootState } from '../store';
 
 export const getAuth = (store: RootState) => {
