@@ -14,7 +14,7 @@ export type InitialStateAirportsTypes = {
   error: null | string;
 };
 
-export type initialDetailsAirportStateTypes = {
+export type InitialDetailsAirportStateTypes = {
   airportData: ResponseDetailsAirport | null;
   pending: boolean;
   error: null | string;

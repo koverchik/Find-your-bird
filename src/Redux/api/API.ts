@@ -20,8 +20,8 @@ export const apiCreate = (baseURL: string = BASE_URL) => {
     );
   };
 
-  const getDetailsAirport = (iata: string) => {
-    return instance.get<ResponseDetailsAirport>(`airports/iata/${iata}`);
+  const getDetailsAirport = (payload: string) => {
+    return instance.get<ResponseDetailsAirport>(`airports/iata/${payload}`);
   };
 
   return { getAirportsList, getDetailsAirport };

@@ -1,11 +1,11 @@
-import React, { FC, useEffect, useState } from 'react';
-import { View, Text, Button, Linking, ActivityIndicator } from 'react-native';
+import React, { FC, useEffect } from 'react';
+import { View, Text, Linking, ActivityIndicator } from 'react-native';
 import { createStyles } from './style';
 import { DetailsScreenProps } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
-import { airportDetails } from '../../Redux/action/airportDetails';
+import { requestAirportDetails } from '../../Redux/action/airportDetails';
 import { getDetailsAirport } from '../../Redux/selectors';
 
 export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
@@ -13,7 +13,7 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(airportDetails(props.route.params.iata));
+    dispatch(requestAirportDetails(props.route.params.iata));
   }, []);
   const { pending, airportData } = useAppSelector(getDetailsAirport);
 
@@ -55,21 +55,31 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
       </View>
       <Text style={Styles.headerLink}>{t('detailsScreen:links')}:</Text>
       <View style={Styles.wrapperLinks}>
-        <Text style={Styles.link} onPress={() => Linking.openURL(airportData?.urls.flightRadar)}>
-          Flight radar
-        </Text>
-        <Text style={Styles.link} onPress={() => Linking.openURL(airportData?.urls.wikipedia)}>
-          Wikipedia
-        </Text>
-        <Text style={Styles.link} onPress={() => Linking.openURL(airportData?.urls.googleMaps)}>
-          Google maps
-        </Text>
-        <Text style={Styles.link} onPress={() => Linking.openURL(airportData?.urls.webSite)}>
-          Website
-        </Text>
-        <Text style={Styles.link} onPress={() => Linking.openURL(airportData?.urls.twitter)}>
-          Twitter
-        </Text>
+        {!!airportData?.urls.flightRadar && (
+          <Text style={Styles.link} onPress={() => Linking.openURL(airportData.urls.flightRadar)}>
+            Flight radar
+          </Text>
+        )}
+        {!!airportData?.urls.wikipedia && (
+          <Text style={Styles.link} onPress={() => Linking.openURL(airportData.urls.wikipedia)}>
+            Wikipedia
+          </Text>
+        )}
+        {!!airportData?.urls.googleMaps && (
+          <Text style={Styles.link} onPress={() => Linking.openURL(airportData.urls.googleMaps)}>
+            Google maps
+          </Text>
+        )}
+        {!!airportData?.urls.webSite && (
+          <Text style={Styles.link} onPress={() => Linking.openURL(airportData.urls.webSite)}>
+            Website
+          </Text>
+        )}
+        {!!airportData?.urls.twitter && (
+          <Text style={Styles.link} onPress={() => Linking.openURL(airportData.urls.twitter)}>
+            Twitter
+          </Text>
+        )}
       </View>
     </View>
   );

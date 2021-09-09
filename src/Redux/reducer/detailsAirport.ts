@@ -1,7 +1,7 @@
 import { AirportDetailsActionsType, GetAirportDetailsTypes } from '../action/airportDetails/types';
-import { initialDetailsAirportStateTypes } from './types';
+import { InitialDetailsAirportStateTypes } from './types';
 
-export const initialDetailsAirportState: initialDetailsAirportStateTypes = {
+export const initialDetailsAirportState: InitialDetailsAirportStateTypes = {
   airportData: null,
   pending: false,
   error: null,
@@ -28,7 +28,7 @@ export const airportDetails = (
       return {
         ...state,
         pending: false,
-        airportData: {},
+        airportData: null,
         error: action.payload,
       };
     default:
