@@ -4,11 +4,11 @@ import { createStyles } from './style';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { AppDispatch } from '../../Redux/store';
 import { useDispatch } from 'react-redux';
-import { uploadIcon } from '../../Redux/action/auth/index';
+import { uploadIcon } from '../../Redux/action/auth';
 import { useAppSelector } from '../../Redux/hooks';
 import { getAuth } from '../../Redux/selectors';
 import { launchImageLibrary } from 'react-native-image-picker';
-import { SVGAvatar } from '../SVGAvatar/index';
+import { SVGAvatar } from '../SVGAvatar';
 import { AvatarProps } from './type';
 
 export const Avatar: FC<AvatarProps> = (props) => {

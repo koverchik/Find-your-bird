@@ -12,7 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { rootSaga } from './sagas/index';
+import { rootSaga } from './sagas';
 import { rootReducer } from './reducer';
 
 const persistConfig = {
@@ -39,7 +39,7 @@ export const store = configureStore({
   reducer: persistedReducer,
 });
 
-export const persister = persistStore(store);
+export const persist = persistStore(store);
 
 export type AppDispatch = typeof store.dispatch;
 

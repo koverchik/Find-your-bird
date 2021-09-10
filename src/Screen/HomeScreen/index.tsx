@@ -7,8 +7,8 @@ import { HomeScreenProps, StackNavigationPropNavigation } from './type';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
-import { IconMarker } from '../../Components/Marker/index';
-import { SliderCustom } from '../../Components/Slider/index';
+import { IconMarker } from '../../Components/Marker';
+import { SliderCustom } from '../../Components/Slider';
 import Geolocation from 'react-native-geolocation-service';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {

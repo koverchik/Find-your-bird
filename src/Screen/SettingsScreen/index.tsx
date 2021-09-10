@@ -3,7 +3,7 @@ import { SettingsScreenProps } from './type';
 import { DEFAULT_LIGHT_THEME_ID } from '../../Theme/DefaultLight.theme';
 import { useTheme } from '../../Theme/Theme.context';
 import { useTranslation } from 'react-i18next';
-import { signOut } from '../../Redux/action/auth/index';
+import { signOut } from '../../Redux/action/auth';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 import { getAuth } from '../../Redux/selectors';
 import { SettingsScreenView } from './settingsScreenView';
