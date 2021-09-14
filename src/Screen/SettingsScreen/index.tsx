@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { signOut } from '@redux/action/auth';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { getAuth } from '@redux/selectors';
-import { SettingsScreenView } from './settingsScreenView';
+import { SettingsScreenView } from './SettingsScreenView';
 
 export const SettingsScreen: FC<SettingsScreenProps> = () => {
   const { theme, toggleTheme } = useTheme();

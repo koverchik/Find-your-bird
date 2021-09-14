@@ -38,7 +38,9 @@ export const Auth: FC = () => {
       return { ...profile, [field]: text };
     });
   };
+
   const disabledButton = profile.lastName || profile.firstName ? false : true;
+
   return (
     <View style={Styles.container}>
       <SafeAreaView>
