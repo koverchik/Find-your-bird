@@ -18,5 +18,9 @@
     "metro.config.js",
     "jest.config.js",
     "__tests__/**/*-test.ts"
-  ]
+  ],
+  "baseUrl": ".",
+  "paths": {
+    "appSrc/*": ["src/*"]
+  }
 }

@@ -2,7 +2,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { TabNavigatorParamList } from '../../Navigation/RootStackPrams';
 import { TabNavigationScreen } from '../../Navigation/types';
-import { InitialStateType } from '@redux/reducer/types';
+import { InitialStateAuthType } from '@redux/reducer/types';
 
 export type SettingsScreenProps = {
   navigation: StackNavigationProp<TabNavigatorParamList, TabNavigationScreen.SettingsTab>;
@@ -11,9 +11,9 @@ export type SettingsScreenProps = {
 
 export type SettingsScreenViewProps = {
   buttonLogOut: string;
-  email: InitialStateType['email'];
-  firstName: InitialStateType['firstName'];
-  lastName: InitialStateType['lastName'];
+  email: InitialStateAuthType['email'];
+  firstName: InitialStateAuthType['firstName'];
+  lastName: InitialStateAuthType['lastName'];
   theme: string;
   themeName: string;
   onPress: () => void;
