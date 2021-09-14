@@ -4,9 +4,9 @@ import { createStyles } from './style';
 import { DetailsScreenProps } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
-import { requestAirportDetails } from '../../Redux/action/airportDetails';
-import { getDetailsAirport } from '../../Redux/selectors';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
+import { requestAirportDetails } from '@redux/action/airportDetails';
+import { getDetailsAirport } from '@redux/selectors';
 
 export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);

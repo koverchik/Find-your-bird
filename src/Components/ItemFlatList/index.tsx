@@ -6,7 +6,7 @@ import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { HomeStackScreens } from '../../Navigation/types';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigationPropNavigation } from '../../Screen/HomeScreen/type';
+import { StackNavigationPropNavigation } from '@screen/HomeScreen/type';
 
 export const MARGIN = 16;
 export const CARD_HEIGHT = 200 + MARGIN * 2;

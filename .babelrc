@@ -21,7 +21,8 @@
           "@assets": "./assets",
           "@root": "./src",
           "@components": "./src/Components",
-          "@redux": "./src/Redux"
+          "@redux": "./src/Redux",
+          "@theme": "./src/Theme"
         }
       }
     ]

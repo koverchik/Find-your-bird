@@ -2,7 +2,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { TabNavigatorParamList } from '../../Navigation/RootStackPrams';
 import { TabNavigationScreen } from '../../Navigation/types';
-import { InitialStateType } from '../../Redux/reducer/types';
+import { InitialStateType } from '@redux/reducer/types';
 
 export type SettingsScreenProps = {
   navigation: StackNavigationProp<TabNavigatorParamList, TabNavigationScreen.SettingsTab>;

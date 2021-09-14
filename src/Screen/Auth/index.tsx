@@ -3,10 +3,10 @@ import { View, Text, TouchableOpacity, SafeAreaView, TextInput, Alert } from 're
 import { createStyles } from './style';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import { SignInPayloadType } from '../../Redux/action/auth/types';
+import { SignInPayloadType } from '@redux/action/auth/types';
 import { regex } from '../../Constants/regex';
-import { useAppDispatch } from '../../Redux/hooks';
-import { signIn } from '../../Redux/action/auth';
+import { useAppDispatch } from '@redux/hooks';
+import { signIn } from '@redux/action/auth';
 
 export const Auth: FC = () => {
   const Styles = useThemeAwareObject(createStyles);

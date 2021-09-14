@@ -9,11 +9,11 @@ import {
 import { createStyles } from './style';
 import { AirportsScreenProps } from './types';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
-import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
-import { getAirports } from '../../Redux/selectors';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
+import { getAirports } from '@redux/selectors';
 import { ItemFlatList } from '../../Components/ItemFlatList';
-import { AirportsListTypes } from '../../Redux/api/type';
-import { airportsList } from '../../Redux/action/airports';
+import { AirportsListTypes } from '@redux/api/type';
+import { airportsList } from '@redux/action/airports';
 
 export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);

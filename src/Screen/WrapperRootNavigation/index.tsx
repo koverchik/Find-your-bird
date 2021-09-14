@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { RootNavigation } from '../../Navigation/RootNavigation';
 import { DEFAULT_LIGHT_THEME } from '../../Theme/DefaultLight.theme';
 import { ThemeProvider } from '../../Theme/Theme.context';
-import { getAuth } from '../../Redux/selectors';
+import { getAuth } from '@redux/selectors';
 import { Auth } from '../Auth';
-import { useAppSelector } from '../../Redux/hooks';
+import { useAppSelector } from '@redux/hooks';
 
 export const WrapperRootNavigation: FC = () => {
   const { loggedIn: loggedIn } = useAppSelector(getAuth);
