@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Theme } from '../../Theme/Theme.interface';
 
 export const createStyles = (theme: Theme) => {

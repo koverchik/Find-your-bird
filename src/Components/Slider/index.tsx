@@ -1,5 +1,5 @@
-import React, { FC, useState } from 'react';
-import { View, Animated, Text } from 'react-native';
+import React, { FC } from 'react';
+import { View, Text } from 'react-native';
 import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 import { SliderProps } from './type';

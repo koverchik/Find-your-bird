@@ -1,4 +1,3 @@
-import { Region } from 'react-native-maps';
 import { Coordinates } from '../Redux/api/type';
 
 export type RootStackParamList = {

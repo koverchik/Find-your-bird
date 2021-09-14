@@ -1,5 +1,4 @@
 import { StyleSheet, ViewStyle } from 'react-native';
-
 import { Theme } from '../../Theme/Theme.interface';
 
 type DetailsStyles = {

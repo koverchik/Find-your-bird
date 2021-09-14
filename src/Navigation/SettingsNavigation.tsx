@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SettingsScreen } from '../Screen/SettingsScreen';
@@ -13,7 +13,7 @@ type SettingsStackParamList = {
 };
 const Stack = createStackNavigator<SettingsStackParamList>();
 
-export const SettingsNavigation = () => {
+export const SettingsNavigation: FC = () => {
   const { theme } = useTheme();
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
