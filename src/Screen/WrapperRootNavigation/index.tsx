@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { RootNavigation } from '../../Navigation/RootNavigation';
-import { DEFAULT_LIGHT_THEME } from '../../Theme/DefaultLight.theme';
-import { ThemeProvider } from '../../Theme/Theme.context';
+import { RootNavigation } from '@navigation/RootNavigation';
+import { DEFAULT_LIGHT_THEME } from '@theme/DefaultLight.theme';
+import { ThemeProvider } from '@theme/Theme.context';
 import { getAuth } from '@redux/selectors';
 import { Auth } from '../Auth';
 import { useAppSelector } from '@redux/hooks';

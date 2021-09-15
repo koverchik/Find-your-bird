@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, TextInput, Alert } from 'react-native';
 import { createStyles } from './style';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { SignInPayloadType } from '@redux/action/auth/types';
 import { regex } from '../../Constants/regex';
@@ -18,6 +18,7 @@ export const Auth: FC = () => {
     lastName: '',
     email: '',
   });
+
   const dispatch = useAppDispatch();
 
   const onPressLogIn = () => {

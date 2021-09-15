@@ -1,7 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
-import { RootStackParamList } from '../../Navigation/RootStackPrams';
-import { HomeStackScreens } from '../../Navigation/types';
+import { RootStackParamList } from '@navigation/RootStackPrams';
+import { HomeStackScreens } from '@navigation/types';
 import { Coordinates } from '@redux/api/type';
 
 export type AirportsScreenProps = {

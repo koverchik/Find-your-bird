@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import { createStyles } from './style';
 import { AirportsScreenProps } from './types';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { getAirports } from '@redux/selectors';
-import { ItemFlatList } from '../../Components/ItemFlatList';
+import { ItemFlatList } from '@root/Components/ItemFlatList';
 import { AirportsListTypes } from '@redux/api/type';
 import { airportsList } from '@redux/action/airports';
 

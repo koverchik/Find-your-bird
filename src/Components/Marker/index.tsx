@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 
 export const IconMarker: FC = () => {

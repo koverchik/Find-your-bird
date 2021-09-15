@@ -1,7 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
-import { TabNavigatorParamList } from '../../Navigation/RootStackPrams';
-import { TabNavigationScreen } from '../../Navigation/types';
+import { TabNavigatorParamList } from '@navigation/RootStackPrams';
+import { TabNavigationScreen } from '@navigation/types';
 import { InitialStateAuthType } from '@redux/reducer/types';
 
 export type SettingsScreenProps = {

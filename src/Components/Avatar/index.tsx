@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { createStyles } from './style';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { AppDispatch } from '@redux/store';
 import { useDispatch } from 'react-redux';
 import { uploadIcon } from '@redux/action/auth';

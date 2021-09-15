@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { View, Text, Linking, ActivityIndicator } from 'react-native';
 import { createStyles } from './style';
 import { DetailsScreenProps } from './types';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { requestAirportDetails } from '@redux/action/airportDetails';
@@ -12,9 +12,11 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(requestAirportDetails(props.route.params.iata));
   }, []);
+
   const { pending, airportData } = useAppSelector(getDetailsAirport);
 
   if (pending) {
@@ -22,6 +24,7 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
       <ActivityIndicator size="large" color={Styles.link.color} style={Styles.activityIndicator} />
     );
   }
+  
   return (
     <View style={Styles.container}>
       <Text style={Styles.textTitle}>{airportData?.shortName}</Text>

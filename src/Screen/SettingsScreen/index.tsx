@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { SettingsScreenProps } from './type';
-import { DEFAULT_LIGHT_THEME_ID } from '../../Theme/DefaultLight.theme';
-import { useTheme } from '../../Theme/Theme.context';
+import { DEFAULT_LIGHT_THEME_ID } from '@theme/DefaultLight.theme';
+import { useTheme } from '@theme/Theme.context';
 import { useTranslation } from 'react-i18next';
 import { signOut } from '@redux/action/auth';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';

@@ -1,14 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { createStyles } from './style';
-import { HomeStackScreens } from '../../Navigation/types';
+import { HomeStackScreens } from '@navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { HomeScreenProps, StackNavigationPropNavigation } from './type';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
-import { IconMarker } from '../../Components/Marker';
-import { SliderCustom } from '../../Components/Slider';
+import { IconMarker } from '@root/Components/Marker';
+import { SliderCustom } from '@root/Components/Slider';
 import Geolocation from 'react-native-geolocation-service';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {

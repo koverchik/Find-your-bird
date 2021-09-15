@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { View, Text, Switch, TouchableOpacity } from 'react-native';
-import { Avatar } from '../../Components/Avatar';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { Avatar } from '@root/Components/Avatar';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 import { SettingsScreenViewProps } from './type';
 

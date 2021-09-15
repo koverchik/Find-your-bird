@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
 import { createStyles } from './style';
 import { ItemFlatListType } from './types';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import { HomeStackScreens } from '../../Navigation/types';
+import { HomeStackScreens } from '@navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationPropNavigation } from '@screen/HomeScreen/type';
 
