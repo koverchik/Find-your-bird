@@ -39,7 +39,7 @@ export const Auth: FC = () => {
     });
   };
 
-  const disabledButton = profile.lastName || profile.firstName ? false : true;
+  const disabledButton = !(profile.lastName || profile.firstName);
 
   return (
     <View style={Styles.container}>
