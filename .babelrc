@@ -20,7 +20,9 @@
           "@screen": "./src/Screen",
           "@assets": "./assets",
           "@root": "./src",
-          "@components": "./src/Components"
+          "@components": "./src/Components",
+          "@redux": "./src/Redux",
+          "@theme": "./src/Theme"
         }
       }
     ]

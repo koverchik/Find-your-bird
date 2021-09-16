@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
-import { View, Animated, Text } from 'react-native';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import React, { FC } from 'react';
+import { View, Text } from 'react-native';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 import { SliderProps } from './type';
 import Slider from '@react-native-community/slider';

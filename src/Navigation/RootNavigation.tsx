@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { SettingsNavigation } from './SettingsNavigation';
 import { HomeNavigation } from './HomeNavigation';
 import { TabNavigationScreen } from './types';
 import { TabNavigatorParamList } from './RootStackPrams';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
-import { useTheme } from '../Theme/Theme.context';
+import { useTheme } from '@theme/Theme.context';
 import { TabBarIcon } from './tabBarIcon';
 import { useTranslation } from 'react-i18next';
 import { useFlipper, useReduxDevToolsExtension } from '@react-navigation/devtools';
+import { View } from 'react-native';
 
 const Tab = createMaterialBottomTabNavigator<TabNavigatorParamList>();
 
-export const RootNavigation = () => {
+export const RootNavigation: FC = () => {
   const navigationRef = useNavigationContainerRef();
 
   useFlipper(navigationRef);
@@ -26,6 +27,7 @@ export const RootNavigation = () => {
 
   return (
     <NavigationContainer ref={navigationRef}>
+      <View />
       <Tab.Navigator
         initialRouteName={TabNavigationScreen.HomeTab}
         activeColor={theme.color.onPrimary}

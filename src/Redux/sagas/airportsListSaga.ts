@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios';
-
 import { call, CallEffect, put, PutEffect } from 'redux-saga/effects';
 import { requestFailureAirportsList, requestSuccessAirportsList } from '../action/airports';
 import { ListAirportsResultRequestType, ListAirportsType } from '../action/airports/types';

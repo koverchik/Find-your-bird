@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { DetailsScreen } from '../Screen/DetailsScreen';
-import { AirportsScreen } from '../Screen/AirportsScreen';
+import { DetailsScreen } from '@screen/DetailsScreen';
+import { AirportsScreen } from '@screen/AirportsScreen';
 import { createStyles } from './style';
-import { HomeScreen } from '../Screen/HomeScreen';
+import { HomeScreen } from '@screen/HomeScreen';
 import { HomeStackScreens } from './types';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './RootStackPrams';
-import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
-import { useTheme } from '../Theme/Theme.context';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
+import { useTheme } from '@theme/Theme.context';
 import { useTranslation } from 'react-i18next';
 
 const Stack = createStackNavigator<RootStackParamList>();

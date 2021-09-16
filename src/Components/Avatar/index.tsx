@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { createStyles } from './style';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
-import { AppDispatch } from '../../Redux/store';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
+import { AppDispatch } from '@redux/store';
 import { useDispatch } from 'react-redux';
-import { uploadIcon } from '../../Redux/action/auth';
-import { useAppSelector } from '../../Redux/hooks';
-import { getAuth } from '../../Redux/selectors';
+import { uploadIcon } from '@redux/action/auth';
+import { useAppSelector } from '@redux/hooks';
+import { getAuth } from '@redux/selectors';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { SVGAvatar } from '../SVGAvatar';
 import { AvatarProps } from './type';

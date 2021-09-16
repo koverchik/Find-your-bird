@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, TextInput, Alert } from 'react-native';
 import { createStyles } from './style';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import { SignInPayloadType } from '../../Redux/action/auth/types';
+import { SignInPayloadType } from '@redux/action/auth/types';
 import { regex } from '../../Constants/regex';
-import { useAppDispatch } from '../../Redux/hooks';
-import { signIn } from '../../Redux/action/auth';
+import { useAppDispatch } from '@redux/hooks';
+import { signIn } from '@redux/action/auth';
 
 export const Auth: FC = () => {
   const Styles = useThemeAwareObject(createStyles);
@@ -18,6 +18,7 @@ export const Auth: FC = () => {
     lastName: '',
     email: '',
   });
+
   const dispatch = useAppDispatch();
 
   const onPressLogIn = () => {
@@ -38,7 +39,9 @@ export const Auth: FC = () => {
       return { ...profile, [field]: text };
     });
   };
-  const disabledButton = profile.lastName || profile.firstName ? false : true;
+
+  const disabledButton = !(profile.lastName || profile.firstName);
+
   return (
     <View style={Styles.container}>
       <SafeAreaView>

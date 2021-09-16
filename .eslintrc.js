@@ -27,5 +27,19 @@ module.exports = {
   },
   settings: {
     'import/extensions': ['.ts', '.tsx'],
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@navigation', './src/Navigation'],
+          ['@screen', './src/Screen'],
+          ['@assets', './assets'],
+          ['@root', './src'],
+          ['@components', './src/Components'],
+          ['@redux', './src/Redux'],
+          ['@theme', './src/Theme'],
+        ],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+      },
+    },
   },
 };

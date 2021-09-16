@@ -1,23 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { useThemeAwareObject } from '../../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 
-export const IconMarker = () => {
+export const IconMarker: FC = () => {
   const Styles = useThemeAwareObject(createStyles);
 
   return (
-    <Svg
-      height={40}
-      viewBox="0 0 512 512"
-      width={40}
-      style={[
-        Styles.container,
-        {
-          transform: [{ translateY: -40 }, { translateX: -20 }],
-        },
-      ]}
-    >
+    <Svg height={40} viewBox="0 0 512 512" width={40} style={Styles.container}>
       <Path
         d="M256.08 56c84.87 0 153.81 68.94 153.81 153.96 0 77.06-87.02 195.03-153.2 246.04-85.33-69.24-154.58-167.75-154.58-246.04C102.11 124.94 171.05 56 256.08 56zm74.79 150.8c0-41.34-33.521-74.86-74.87-74.86-41.35 0-74.86 33.52-74.86 74.86 0 41.35 33.51 74.87 74.86 74.87s74.87-33.52 74.87-74.87z"
         fill="#ff7979"

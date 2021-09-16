@@ -3,7 +3,7 @@ import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { TabNavigationScreen, TabBarIconProps } from './types';
 import React, { FC } from 'react';
-import { useTheme } from '../Theme/Theme.context';
+import { useTheme } from '@theme/Theme.context';
 
 export const TabBarIcon: FC<TabBarIconProps> = (props) => {
   const { theme } = useTheme();

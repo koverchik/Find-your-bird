@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Theme } from '../../Theme/Theme.interface';
+import { Theme } from '@theme/Theme.interface';
 
 export const createStyles = (theme: Theme) => {
   const styles = StyleSheet.create({
@@ -35,7 +35,6 @@ export const createStyles = (theme: Theme) => {
       alignItems: 'center',
       padding: 10,
       marginTop: 20,
-
       backgroundColor: theme.color.surface,
     },
     button: {

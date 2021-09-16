@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SettingsScreen } from '../Screen/SettingsScreen';
+import { SettingsScreen } from '@screen/SettingsScreen';
 import { SettingsStackScreens } from './types';
-import { useThemeAwareObject } from '../Theme/ThemeAwareObject.hook';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
-import { useTheme } from '../Theme/Theme.context';
+import { useTheme } from '@theme/Theme.context';
 import { useTranslation } from 'react-i18next';
 
 type SettingsStackParamList = {
@@ -13,7 +13,7 @@ type SettingsStackParamList = {
 };
 const Stack = createStackNavigator<SettingsStackParamList>();
 
-export const SettingsNavigation = () => {
+export const SettingsNavigation: FC = () => {
   const { theme } = useTheme();
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
