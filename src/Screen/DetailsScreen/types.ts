@@ -8,3 +8,4 @@ export type DetailsScreenProps = {
   route: RouteProp<RootStackParamList, HomeStackScreens.Details>;
   iata: string;
 };
+export type itemLinks = {link: string, name: string}

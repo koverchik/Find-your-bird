@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-
 import { Theme } from '@theme/Theme.interface';
 
 export const createStyles = (theme: Theme) => {
@@ -8,6 +7,5 @@ export const createStyles = (theme: Theme) => {
       backgroundColor: theme.color.background,
     },
   });
-
   return styles;
 };

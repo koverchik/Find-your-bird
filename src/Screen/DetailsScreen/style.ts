@@ -34,7 +34,7 @@ export const createStyles = (theme: Theme) => {
       alignItems: 'center',
     },
     link: {
-      color: theme.color.bright,
+      color: theme.color.onPrimary,
       fontSize: 14,
       margin: 5,
     },
