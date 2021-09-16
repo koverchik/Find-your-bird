@@ -24,12 +24,6 @@ module.exports = {
         noUselessIndex: true,
       },
     ],
-    'no-unneeded-ternary': [
-      1,
-      {
-        defaultAssignment: false,
-      },
-    ],
   },
   settings: {
     'import/extensions': ['.ts', '.tsx'],
