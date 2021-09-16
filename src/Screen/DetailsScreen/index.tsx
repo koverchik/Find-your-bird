@@ -33,7 +33,7 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
 
   const renderItem: ListRenderItem<itemLinks> = ({item}) => {
        return (
-        <TouchableOpacity  onPress={() => Linking.openURL(item.link)}>
+        <TouchableOpacity onPress={() => Linking.openURL(item.link)}>
           <Text style={Styles.link}>{item.name}</Text>
         </TouchableOpacity>
     );
@@ -81,7 +81,7 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
       <FlatList
           data={linksAirports}
           renderItem={renderItem}
-          keyExtractor={(item) => item.key}
+          keyExtractor={(item) => item.name}
       />
       </View>
     </View>
