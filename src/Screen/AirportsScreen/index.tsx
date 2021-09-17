@@ -17,10 +17,12 @@ import { ItemFlatList } from '@root/Components/ItemFlatList';
 import { AirportsListTypes } from '@redux/api/type';
 import { airportsList } from '@redux/action/airports';
 import { SVGFind } from '@components/SVGFind';
+import { useTranslation } from 'react-i18next';
 
 export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(airportsList(props.route.params));
@@ -49,7 +51,7 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
     return (
       <View style={Styles.emptyResult}>
         <SVGFind color={Styles.textEmptyResult.color} />
-        <Text style={Styles.textEmptyResult}>Empty</Text>
+        <Text style={Styles.textEmptyResult}>{t('alert:messages:empty')}</Text>
       </View>
     );
   };
