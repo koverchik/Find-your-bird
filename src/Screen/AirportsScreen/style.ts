@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Theme } from '@theme/Theme.interface';
+import { height } from '@components/ItemFlatList';
 
 export const createStyles = (theme: Theme) => {
   const styles = StyleSheet.create({
@@ -19,6 +20,15 @@ export const createStyles = (theme: Theme) => {
       alignItems: 'center',
       flex: 1,
       flexDirection: 'column',
+    },
+    emptyResult: {
+      flex: 1,
+      height: height - 90,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    textEmptyResult: {
+      color: theme.color.background,
     },
   });
   return styles;

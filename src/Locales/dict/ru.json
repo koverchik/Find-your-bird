@@ -27,7 +27,8 @@
     "messages": {
       "errorFirstName": "Введите имя",
       "errorLastName": "Введите фамилию",
-      "errorEmail": "Укажите адрес почты в формате: example@example.ex"
+      "errorEmail": "Укажите адрес почты в формате: example@example.ex",
+      "empty": "Ничего не найдено"
     }
   },
   "general": {

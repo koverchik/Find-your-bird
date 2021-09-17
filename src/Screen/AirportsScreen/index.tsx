@@ -5,6 +5,8 @@ import {
   Animated,
   FlatListProps,
   SafeAreaView,
+  Text,
+  View,
 } from 'react-native';
 import { createStyles } from './style';
 import { AirportsScreenProps } from './types';
@@ -14,6 +16,7 @@ import { getAirports } from '@redux/selectors';
 import { ItemFlatList } from '@root/Components/ItemFlatList';
 import { AirportsListTypes } from '@redux/api/type';
 import { airportsList } from '@redux/action/airports';
+import { SVGNotFound } from '@components/SVGNotFound';
 
 export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
@@ -28,7 +31,14 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const onScroll = Animated.event([{ nativeEvent: { contentOffset: { y } } }], {
     useNativeDriver: true,
   });
-
+  const emptyComponent = () => {
+    return (
+      <View style={Styles.emptyResult}>
+        <SVGNotFound color={Styles.textEmptyResult.color} />
+        <Text style={Styles.textEmptyResult}>Empty</Text>
+      </View>
+    );
+  };
   if (pending) {
     return (
       <ActivityIndicator
@@ -62,6 +72,7 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
     <SafeAreaView style={Styles.container}>
       <Animated.FlatList
         bounces={false}
+        ListEmptyComponent={emptyComponent}
         data={airportsListData}
         renderItem={renderItem}
         keyExtractor={keyExtractor}

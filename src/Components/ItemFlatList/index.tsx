@@ -10,8 +10,8 @@ import { StackNavigationPropNavigation } from '@screen/HomeScreen/type';
 
 export const MARGIN = 16;
 export const CARD_HEIGHT = 200 + MARGIN * 2;
-const { height: wHeight } = Dimensions.get('window');
-const height = wHeight - 64;
+export const { height: wHeight } = Dimensions.get('window');
+export const height = wHeight - 64;
 
 export const ItemFlatList: FC<ItemFlatListType> = ({
   title,
