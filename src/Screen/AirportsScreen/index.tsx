@@ -39,6 +39,9 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
       </View>
     );
   };
+
+  const contentContainerStyleFlatList = !airportsListData.length && { flex: 1 };
+
   if (pending) {
     return (
       <ActivityIndicator
@@ -71,6 +74,7 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   return (
     <SafeAreaView style={Styles.container}>
       <Animated.FlatList
+        contentContainerStyle={contentContainerStyleFlatList}
         bounces={false}
         ListEmptyComponent={emptyComponent}
         data={airportsListData}

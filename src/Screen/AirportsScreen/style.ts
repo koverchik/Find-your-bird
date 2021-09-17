@@ -23,7 +23,6 @@ export const createStyles = (theme: Theme) => {
     },
     emptyResult: {
       flex: 1,
-      height: height - 90,
       alignItems: 'center',
       justifyContent: 'center',
     },
