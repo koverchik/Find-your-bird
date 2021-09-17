@@ -13,7 +13,7 @@ export type DetailsScreenProps = {
 
 export type DetailsScreenViewProps = {
   airportData: InitialDetailsAirportStateTypes['airportData'];
-  linksAboutAirport: () => ItemLinks[];
+  linksAboutAirport: ItemLinks[];
   renderItem: ListRenderItem<ItemLinks>;
 };
 

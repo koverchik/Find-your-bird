@@ -30,9 +30,10 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   }, []);
 
   const renderItem: ListRenderItem<ItemLinks> = ({ item }) => {
+    const { link, name } = item;
     return (
-      <TouchableOpacity onPress={() => Linking.openURL(item.link)}>
-        <Text style={Styles.link}>{item.name}</Text>
+      <TouchableOpacity onPress={() => Linking.openURL(link)}>
+        <Text style={Styles.link}>{name}</Text>
       </TouchableOpacity>
     );
   };
@@ -57,7 +58,7 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   return (
     <DetailsScreenView
       airportData={airportData}
-      linksAboutAirport={linksAboutAirport}
+      linksAboutAirport={linksAboutAirport()}
       renderItem={renderItem}
     />
   );
