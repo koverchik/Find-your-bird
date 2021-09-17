@@ -17,10 +17,12 @@ import { ItemFlatList } from '@root/Components/ItemFlatList';
 import { AirportsListTypes } from '@redux/api/type';
 import { airportsList } from '@redux/action/airports';
 import { SVGNotFound } from '@components/SVGNotFound';
+import { useTheme } from '@theme/Theme.context';
 
 export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
   const dispatch = useAppDispatch();
+  const { theme } = useTheme();
 
   useEffect(() => {
     dispatch(airportsList(props.route.params));
@@ -34,7 +36,7 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
   const emptyComponent = () => {
     return (
       <View style={Styles.emptyResult}>
-        <SVGNotFound color={Styles.textEmptyResult.color} />
+        <SVGNotFound color={theme.color.background} />
         <Text style={Styles.textEmptyResult}>Empty</Text>
       </View>
     );

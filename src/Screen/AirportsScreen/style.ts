@@ -1,9 +1,16 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 import { Theme } from '@theme/Theme.interface';
-import { height } from '@components/ItemFlatList';
+
+type DetailsStyles = {
+  container: ViewStyle;
+  wrapper: ViewStyle;
+  activityIndicator: ViewStyle;
+  emptyResult: ViewStyle;
+  textEmptyResult: Text;
+};
 
 export const createStyles = (theme: Theme) => {
-  const styles = StyleSheet.create({
+  const styles: DetailsStyles = StyleSheet.create({
     container: {
       flex: 1,
     },
