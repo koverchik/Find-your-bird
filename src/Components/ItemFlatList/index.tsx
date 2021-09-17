@@ -10,8 +10,8 @@ import { StackNavigationPropNavigation } from '@screen/HomeScreen/type';
 
 export const MARGIN = 16;
 export const CARD_HEIGHT = 200 + MARGIN * 2;
-export const { height: wHeight } = Dimensions.get('window');
-export const height = wHeight - 64;
+const { height: wHeight } = Dimensions.get('window');
+const HEIGHT = wHeight;
 
 export const ItemFlatList: FC<ItemFlatListType> = ({
   title,
@@ -28,8 +28,9 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
   const position = Animated.subtract(index * CARD_HEIGHT, y);
   const isDisappearing = -CARD_HEIGHT;
   const isTop = 0;
-  const isBottom = height - CARD_HEIGHT;
-  const isAppearing = height;
+  const isBottom = HEIGHT - CARD_HEIGHT;
+  const isAppearing = HEIGHT;
+
   const translateY = Animated.add(
     Animated.add(
       y,
