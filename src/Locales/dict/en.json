@@ -27,7 +27,8 @@
     "messages": {
       "errorFirstName": "Enter first name",
       "errorLastName": "Enter last name",
-      "errorEmail": "Enter your email address in the format: example@example.ex"
+      "errorEmail": "Enter your email address in the format: example@example.ex",
+      "empty": "Empty"
     }
   },
   "general": {

@@ -1,7 +1,15 @@
-import React, {FC, useEffect, useState} from 'react';
-import {View, Text, Linking, ActivityIndicator, FlatList, TouchableOpacity, ListRenderItem} from 'react-native';
+import React, { FC, useEffect, useState } from 'react';
+import {
+  View,
+  Text,
+  Linking,
+  ActivityIndicator,
+  FlatList,
+  TouchableOpacity,
+  ListRenderItem,
+} from 'react-native';
 import { createStyles } from './style';
-import {DetailsScreenProps, itemLinks} from './types';
+import { DetailsScreenProps, itemLinks } from './types';
 import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
@@ -10,7 +18,6 @@ import { getDetailsAirport } from '@redux/selectors';
 import { createArrayLinks } from '@screen/DetailsScreen/helper';
 
 export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
-
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -23,19 +30,19 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
 
   useEffect(() => {
     if (airportData != null) {
-      const list: itemLinks[]= [];
+      const list: itemLinks[] = [];
       createArrayLinks(airportData['urls']).forEach(function (value, key) {
-        list.push({link: value, name: key[0]});
+        list.push({ link: value, name: key[0] });
       });
       setLinksAirports(list);
     }
   }, [airportData]);
 
-  const renderItem: ListRenderItem<itemLinks> = ({item}) => {
-       return (
-        <TouchableOpacity onPress={() => Linking.openURL(item.link)}>
-          <Text style={Styles.link}>{item.name}</Text>
-        </TouchableOpacity>
+  const renderItem: ListRenderItem<itemLinks> = ({ item }) => {
+    return (
+      <TouchableOpacity onPress={() => Linking.openURL(item.link)}>
+        <Text style={Styles.link}>{item.name}</Text>
+      </TouchableOpacity>
     );
   };
 
@@ -77,12 +84,8 @@ export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
         </View>
       </View>
       <Text style={Styles.headerLink}>{t('detailsScreen:links')}:</Text>
-        <View style={Styles.wrapperLinks}>
-      <FlatList
-          data={linksAirports}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.name}
-      />
+      <View style={Styles.wrapperLinks}>
+        <FlatList data={linksAirports} renderItem={renderItem} keyExtractor={(item) => item.name} />
       </View>
     </View>
   );

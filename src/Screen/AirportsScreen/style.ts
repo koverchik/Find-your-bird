@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Theme } from '@theme/Theme.interface';
+import { height } from '@components/ItemFlatList';
 
 export const createStyles = (theme: Theme) => {
   const styles = StyleSheet.create({
@@ -16,9 +17,18 @@ export const createStyles = (theme: Theme) => {
       justifyContent: 'space-between',
     },
     activityIndicator: {
-      alignItems: 'center',
       flex: 1,
+      alignItems: 'center',
       flexDirection: 'column',
+    },
+    emptyResult: {
+      flex: 1,
+      height: height,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    textEmptyResult: {
+      color: theme.color.background,
     },
   });
   return styles;
