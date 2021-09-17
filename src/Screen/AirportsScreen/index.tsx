@@ -42,7 +42,7 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
     );
   };
 
-  const contentContainerStyleFlatList = !airportsListData.length && { flex: 1 };
+  const contentContainerStyleFlatList = !airportsListData.length && Styles.container;
 
   if (pending) {
     return (
