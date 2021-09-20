@@ -1,8 +1,16 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 import { Theme } from '@theme/Theme.interface';
 
+type DetailsStyles = {
+  container: ViewStyle;
+  wrapper: ViewStyle;
+  activityIndicator: ViewStyle;
+  emptyResult: ViewStyle;
+  textEmptyResult: Text;
+};
+
 export const createStyles = (theme: Theme) => {
-  const styles = StyleSheet.create({
+  const styles: DetailsStyles = StyleSheet.create({
     container: {
       flex: 1,
     },
@@ -19,6 +27,14 @@ export const createStyles = (theme: Theme) => {
       alignItems: 'center',
       flex: 1,
       flexDirection: 'column',
+    },
+    emptyResult: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    textEmptyResult: {
+      color: theme.color.background,
     },
   });
   return styles;

@@ -9,7 +9,7 @@ type DetailsStyles = {
 };
 
 export const createStyles = (theme: Theme) => {
-  const styles = StyleSheet.create<DetailsStyles>({
+  const styles: DetailsStyles = StyleSheet.create({
     container: {
       position: 'absolute',
       top: 0,
