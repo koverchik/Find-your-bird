@@ -10,10 +10,14 @@ export enum HomeStackScreens {
 export enum SettingsStackScreens {
   Settings = 'Settings',
 }
+export enum FavoriteStackScreens {
+  Favorite = 'Favorite',
+}
 
 export enum TabNavigationScreen {
   HomeTab = 'HomeTab',
   SettingsTab = 'SettingsTab',
+  FavoriteTab = 'FavoriteTab',
 }
 
 export type TabBarIconProps = {

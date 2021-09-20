@@ -55,6 +55,13 @@ export const RootNavigation: FC = () => {
             tabBarLabel: t('title:SettingsScreen'),
           }}
         />
+        <Tab.Screen
+          name={TabNavigationScreen.FavoriteTab}
+          component={SettingsNavigation}
+          options={{
+            tabBarLabel: t('title:FavoriteAirportsScreen'),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
