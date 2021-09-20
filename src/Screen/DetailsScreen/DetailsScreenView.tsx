@@ -4,6 +4,9 @@ import { createStyles } from './style';
 import { DetailsScreenViewProps } from './types';
 import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { useTheme } from '@theme/Theme.context';
 
 export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
   airportData,
@@ -12,9 +15,16 @@ export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
 }) => {
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   return (
     <View style={Styles.container}>
+      <FontAwesomeIcon
+        icon={faStar}
+        color={theme.color.onPrimary}
+        style={Styles.favoriteIcon}
+        size={25}
+      />
       <Text style={Styles.textTitle}>{airportData?.shortName}</Text>
       <View style={Styles.titleAirport}>
         <Text style={Styles.text}>

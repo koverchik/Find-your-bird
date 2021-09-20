@@ -18,6 +18,13 @@ export const createStyles = (theme: Theme) => {
       flexDirection: 'column',
       alignItems: 'center',
     },
+    wrapperTitleAirport: {
+      flex: 1,
+    },
+    iconFavoriteStar: {
+      flex: 1,
+      alignSelf: 'flex-end',
+    },
     wrapperCordAndCode: {
       flex: 1,
       flexDirection: 'row',
