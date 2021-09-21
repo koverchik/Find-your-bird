@@ -12,6 +12,7 @@ import { TabBarIcon } from './tabBarIcon';
 import { useTranslation } from 'react-i18next';
 import { useFlipper, useReduxDevToolsExtension } from '@react-navigation/devtools';
 import { View } from 'react-native';
+import { FavoriteAirportsScreen } from '@screen/FavoriteAirportsScreen';
 
 const Tab = createMaterialBottomTabNavigator<TabNavigatorParamList>();
 
@@ -57,7 +58,7 @@ export const RootNavigation: FC = () => {
         />
         <Tab.Screen
           name={TabNavigationScreen.FavoriteTab}
-          component={SettingsNavigation}
+          component={FavoriteAirportsScreen}
           options={{
             tabBarLabel: t('title:FavoriteAirportsScreen'),
           }}
