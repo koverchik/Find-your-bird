@@ -21,5 +21,5 @@ export type InitialDetailsAirportStateTypes = {
 };
 
 export type InitialFavoriteAirports = {
-  favoriteAirports: [];
+  favoriteAirports: AirportsListTypes[];
 };

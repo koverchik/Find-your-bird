@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { useTheme } from '@theme/Theme.context';
 import { useAppDispatch } from '@redux/hooks';
 import { addFavoriteAirport } from '@redux/action/favoriteAirpots';
+import { AirportsListTypes } from '@redux/api/type';
 
 export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
   airportData,
@@ -21,7 +22,21 @@ export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
   const dispatch = useAppDispatch();
 
   const addFavoriteAirportOnPress = () => {
-    dispatch(addFavoriteAirport('string'));
+    if (airportData) {
+      const airport: AirportsListTypes = {
+        icao: airportData['icao'],
+        iata: airportData['iata'],
+        name: airportData['fullName'],
+        shortName: airportData['country']['name'],
+        municipalityName: airportData['municipalityName'],
+        location: {
+          lat: airportData['location']['lat'],
+          lon: airportData['location']['lon'],
+        },
+        countryCode: airportData['country']['code'],
+      };
+      dispatch(addFavoriteAirport(airport));
+    }
   };
 
   return (

@@ -18,6 +18,7 @@ import { getDetailsAirport } from '@redux/selectors';
 import { createArrayLinks } from '@screen/DetailsScreen/helper';
 import { DetailsScreenView } from '@screen/DetailsScreen/DetailsScreenView';
 import { InitialDetailsAirportStateTypes } from '@redux/reducer/types';
+import { AirportsListTypes } from '@redux/api/type';
 
 export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);

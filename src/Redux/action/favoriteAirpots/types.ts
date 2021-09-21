@@ -1,3 +1,5 @@
+import { AirportsListTypes } from '@redux/api/type';
+
 export enum FavoriteAirportsTypes {
   GET_FAVORITE_AIRPORTS = 'GET_FAVORITE_AIRPORTS',
   ADD_FAVORITE_AIRPORT = 'GET_FAVORITE_AIRPORT',
@@ -6,7 +8,7 @@ export enum FavoriteAirportsTypes {
 
 export type AddFavoriteAirportsType = {
   type: FavoriteAirportsTypes.ADD_FAVORITE_AIRPORT;
-  payload: string;
+  payload: AirportsListTypes;
 };
 
 export type GetFavoriteAirportsType = {
@@ -14,14 +16,14 @@ export type GetFavoriteAirportsType = {
   payload: [];
 };
 
-export type AddFavoriteAirportsActionType = (payload: string) => {
+export type AddFavoriteAirportsActionType = (payload: AirportsListTypes) => {
   type: FavoriteAirportsTypes.ADD_FAVORITE_AIRPORT;
-  payload: string;
+  payload: AirportsListTypes;
 };
 
-export type AddFavoriteAirportsActionSuccessType = (payload: string) => {
+export type AddFavoriteAirportsActionSuccessType = (payload: AirportsListTypes) => {
   type: FavoriteAirportsTypes.ADD_FAVORITE_AIRPORT_SUCCESS;
-  payload: string;
+  payload: AirportsListTypes;
 };
 
 export type FavoriteAirportsActionsType = AddFavoriteAirportsType | GetFavoriteAirportsType;

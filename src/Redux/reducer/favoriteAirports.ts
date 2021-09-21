@@ -14,10 +14,9 @@ export const favoriteAirports = (
 ) => {
   switch (action.type) {
     case FavoriteAirportsTypes.ADD_FAVORITE_AIRPORT:
-      console.log('ADD_FAVORITE_AIRPORT');
       return {
         ...state,
-        favoriteAirports: [],
+        favoriteAirports: [...state.favoriteAirports, action.payload],
       };
     case FavoriteAirportsTypes.GET_FAVORITE_AIRPORTS:
       console.log('GET_FAVORITE_AIRPORTS');
