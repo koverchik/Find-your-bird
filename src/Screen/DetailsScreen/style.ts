@@ -24,6 +24,10 @@ export const createStyles = (theme: Theme) => {
       fontWeight: 'bold',
       color: theme.color.onPrimary,
     },
+    favoriteIcon: {
+      flex: 1,
+      alignSelf: 'flex-end',
+    },
     text: {
       color: theme.color.onPrimary,
     },

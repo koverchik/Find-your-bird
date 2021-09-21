@@ -15,7 +15,8 @@
     "HomeScreen": "Домашняя",
     "DetailsScreen": "Детали",
     "SettingsScreen": "Настройки",
-    "AirportsScreen": "Aэропорты"
+    "AirportsScreen": "Аэропорты",
+    "FavoriteAirportsScreen": "Лучшие"
   },
   "Inputs": {
     "FirstName": "Имя",

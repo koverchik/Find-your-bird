@@ -7,6 +7,9 @@ import { useTranslation } from 'react-i18next';
 import { HomeStackScreens } from '@navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationPropNavigation } from '@screen/HomeScreen/type';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from '@theme/Theme.context';
 
 export const MARGIN = 16;
 export const CARD_HEIGHT = 200 + MARGIN * 2;
@@ -30,6 +33,7 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
   const isTop = 0;
   const isBottom = HEIGHT - CARD_HEIGHT;
   const isAppearing = HEIGHT;
+  const { theme } = useTheme();
 
   const translateY = Animated.add(
     Animated.add(
@@ -66,10 +70,18 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
       style={[Styles.wrapper, { opacity, transform: [{ translateY }, { scale }] }]}
       key={index}
     >
-      <View style={Styles.titleAirport}>
-        <Text style={Styles.textTitle}>{subtitle}</Text>
-        <Text style={Styles.text}>{title}</Text>
-        <Text style={Styles.text}>Country code: {countryCode}</Text>
+      <View style={Styles.wrapperTitleAirport}>
+        <FontAwesomeIcon
+          icon={faStar}
+          color={theme.color.onPrimary}
+          style={Styles.iconFavoriteStar}
+          size={20}
+        />
+        <View style={Styles.titleAirport}>
+          <Text style={Styles.textTitle}>{subtitle}</Text>
+          <Text style={Styles.text}>{title}</Text>
+          <Text style={Styles.text}>Country code: {countryCode}</Text>
+        </View>
       </View>
       <View style={Styles.wrapperCordAndCode}>
         <View>

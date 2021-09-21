@@ -1,4 +1,4 @@
-import { Coordinates } from '../Redux/api/type';
+import { Coordinates } from '@redux/api/type';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -9,4 +9,5 @@ export type RootStackParamList = {
 export type TabNavigatorParamList = {
   HomeTab: undefined;
   SettingsTab: undefined;
+  FavoriteTab: undefined;
 };
