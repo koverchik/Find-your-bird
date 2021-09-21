@@ -11,12 +11,17 @@ export const TabBarIcon: FC<TabBarIconProps> = (props) => {
   const { route, focused } = props;
 
   let nameIcon;
-  if (route.name === TabNavigationScreen.HomeTab) {
-    nameIcon = faHome;
-  } else if (route.name === TabNavigationScreen.SettingsTab) {
-    nameIcon = faSlidersH;
-  } else {
-    nameIcon = faStar;
+
+  switch (route.name) {
+    case TabNavigationScreen.HomeTab:
+      nameIcon = faHome;
+      break;
+    case TabNavigationScreen.SettingsTab:
+      nameIcon = faSlidersH;
+      break;
+    default:
+      nameIcon = faStar;
+      break;
   }
 
   return (

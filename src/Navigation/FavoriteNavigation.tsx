@@ -1,16 +1,13 @@
 import React, { FC } from 'react';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import { FavoriteStackScreens } from './types';
+import { FavoriteStackParamList, FavoriteStackScreens } from './types';
 import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { createStyles } from './style';
 import { useTheme } from '@theme/Theme.context';
 import { useTranslation } from 'react-i18next';
 import { FavoriteAirportsScreen } from '@screen/FavoriteAirportsScreen';
 
-type FavoriteStackParamList = {
-  Favorite: undefined;
-};
 const Stack = createStackNavigator<FavoriteStackParamList>();
 
 export const SettingsNavigation: FC = () => {
