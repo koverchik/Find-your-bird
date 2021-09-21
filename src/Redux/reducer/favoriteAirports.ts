@@ -20,9 +20,17 @@ export const favoriteAirports = (
       };
     case FavoriteAirportsTypes.GET_FAVORITE_AIRPORTS:
       console.log('GET_FAVORITE_AIRPORTS');
+      return state;
+
+    case FavoriteAirportsTypes.DELETE_FAVORITE_AIRPORT:
+      const result = state.favoriteAirports.filter((item) => {
+        if (item.icao != action.payload.icao) {
+          return item;
+        }
+      });
       return {
         ...state,
-        favoriteAirports: [],
+        favoriteAirports: result,
       };
     default:
       return state;
