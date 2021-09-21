@@ -52,11 +52,13 @@ export const AirportsList: FC<AirportsListProps> = ({ pending, airportsListData 
   };
 
   const renderItem: ListRenderItem<AirportsListTypes> = ({ item, index }) => {
-    const { name, municipalityName, countryCode, iata, icao, location } = item;
+    const { name, municipalityName, countryCode, iata, icao, location, shortName } = item;
+
     return (
       <ItemFlatList
         index={index}
         title={name}
+        shortName={shortName}
         subtitle={municipalityName}
         countryCode={countryCode}
         location={location}

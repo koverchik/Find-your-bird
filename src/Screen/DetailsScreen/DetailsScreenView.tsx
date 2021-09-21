@@ -23,6 +23,7 @@ export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
         return item.icao == airportData['icao'];
       }
     });
+
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
   const { theme } = useTheme();

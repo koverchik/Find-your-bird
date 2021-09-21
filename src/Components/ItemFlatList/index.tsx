@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
 import { createStyles } from './style';
 import { ItemFlatListType } from './types';
@@ -10,6 +10,10 @@ import { StackNavigationPropNavigation } from '@screen/HomeScreen/type';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useTheme } from '@theme/Theme.context';
+import { AirportsListTypes } from '@redux/api/type';
+import { addFavoriteAirport, deleteFavoriteAirport } from '@redux/action/favoriteAirpots';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
+import { getFavoriteAirport } from '@redux/selectors';
 
 export const MARGIN = 16;
 export const CARD_HEIGHT = 200 + MARGIN * 2;
@@ -22,6 +26,7 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
   countryCode,
   location,
   icao,
+  shortName,
   iata,
   y,
   index,
@@ -34,6 +39,13 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
   const isBottom = HEIGHT - CARD_HEIGHT;
   const isAppearing = HEIGHT;
   const { theme } = useTheme();
+  const isActive = () =>
+    favoriteAirports.find((item) => {
+      return item.icao == icao;
+    });
+  const dispatch = useAppDispatch();
+  const { favoriteAirports } = useAppSelector(getFavoriteAirport);
+  const [isFavoriteAirport, setIsFavoriteAirport] = useState(!!isActive());
 
   const translateY = Animated.add(
     Animated.add(
@@ -65,18 +77,43 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
     navigation.navigate(HomeStackScreens.Details, {
       iata: iata,
     });
+
+  const addFavoriteAirportOnPress = () => {
+    const airport: AirportsListTypes = {
+      icao: icao,
+      iata: iata,
+      name: title,
+      shortName: shortName,
+      municipalityName: subtitle,
+      location: {
+        lat: location.lat,
+        lon: location.lon,
+      },
+      countryCode: countryCode,
+    };
+    if (favoriteAirports.find((item) => item.icao == airport.icao)) {
+      dispatch(deleteFavoriteAirport(airport));
+      setIsFavoriteAirport(false);
+    } else {
+      dispatch(addFavoriteAirport(airport));
+      setIsFavoriteAirport(true);
+    }
+  };
+
   return (
     <Animated.View
       style={[Styles.wrapper, { opacity, transform: [{ translateY }, { scale }] }]}
       key={index}
     >
       <View style={Styles.wrapperTitleAirport}>
-        <FontAwesomeIcon
-          icon={faStar}
-          color={theme.color.onPrimary}
-          style={Styles.iconFavoriteStar}
-          size={20}
-        />
+        <TouchableOpacity style={{ width: '100%' }} onPress={addFavoriteAirportOnPress}>
+          <FontAwesomeIcon
+            icon={faStar}
+            color={isFavoriteAirport ? theme.color.background : theme.color.surface}
+            style={Styles.iconFavoriteStar}
+            size={25}
+          />
+        </TouchableOpacity>
         <View style={Styles.titleAirport}>
           <Text style={Styles.textTitle}>{subtitle}</Text>
           <Text style={Styles.text}>{title}</Text>
