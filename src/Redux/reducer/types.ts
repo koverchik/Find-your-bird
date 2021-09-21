@@ -19,3 +19,7 @@ export type InitialDetailsAirportStateTypes = {
   pending: boolean;
   error: null | string;
 };
+
+export type InitialFavoriteAirports = {
+  favoriteAirports: [];
+};
