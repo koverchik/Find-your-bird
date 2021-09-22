@@ -10,6 +10,7 @@ import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
 import { IconMarker } from '@root/Components/Marker';
 import { SliderCustom } from '@root/Components/Slider';
 import Geolocation from 'react-native-geolocation-service';
+import Config from 'react-native-config';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
