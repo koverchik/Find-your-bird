@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { HomeStackScreens } from '@navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationPropNavigation } from '@screen/HomeScreen/type';
-import { useTheme } from '@theme/Theme.context';
 import { AirportsListTypes } from '@redux/api/type';
 import { addFavoriteAirport, deleteFavoriteAirport } from '@redux/action/favoriteAirpots';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
