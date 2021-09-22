@@ -5,7 +5,6 @@ import { AirportsList } from '@components/AirportsList';
 
 export const FavoriteAirportsScreen = () => {
   const { favoriteAirports } = useAppSelector(getFavoriteAirport);
-  const pending = false;
 
-  return <AirportsList pending={pending} airportsListData={favoriteAirports} />;
+  return <AirportsList airportsListData={favoriteAirports} />;
 };

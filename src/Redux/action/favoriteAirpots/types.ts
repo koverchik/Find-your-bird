@@ -4,7 +4,7 @@ export enum FavoriteAirportsTypes {
   GET_FAVORITE_AIRPORTS = 'GET_FAVORITE_AIRPORTS',
   ADD_FAVORITE_AIRPORT = 'GET_FAVORITE_AIRPORT',
   ADD_FAVORITE_AIRPORT_SUCCESS = 'ADD_FAVORITE_AIRPORT_SUCCESS',
-  DELETE_FAVORITE_AIRPORT = 'DELETE_FAVORITE_AIRPORT',
+  FILTERED_FAVORITE_AIRPORT = 'FILTERED_FAVORITE_AIRPORT',
   DELETE_FAVORITE_AIRPORT_ACTION = 'DELETE_FAVORITE_AIRPORT_ACTION',
 }
 
@@ -19,7 +19,7 @@ export type GetFavoriteAirportsType = {
 };
 
 export type DeleteFavoriteAirportsType = {
-  type: FavoriteAirportsTypes.DELETE_FAVORITE_AIRPORT;
+  type: FavoriteAirportsTypes.FILTERED_FAVORITE_AIRPORT;
   payload: AirportsListTypes;
 };
 
@@ -29,7 +29,7 @@ export type DeleteFavoriteAirportsActionType = (payload: AirportsListTypes) => {
 };
 
 export type DeleteFavoriteAirportType = (payload: AirportsListTypes) => {
-  type: FavoriteAirportsTypes.DELETE_FAVORITE_AIRPORT;
+  type: FavoriteAirportsTypes.FILTERED_FAVORITE_AIRPORT;
   payload: AirportsListTypes;
 };
 

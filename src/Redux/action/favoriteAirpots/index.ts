@@ -22,7 +22,7 @@ export const addFavoriteAirportAction: AddFavoriteAirportsActionSuccessType = (p
 
 export const deleteFavoriteAirport: DeleteFavoriteAirportType = (payload) => {
   return {
-    type: FavoriteAirportsTypes.DELETE_FAVORITE_AIRPORT,
+    type: FavoriteAirportsTypes.FILTERED_FAVORITE_AIRPORT,
     payload,
   };
 };

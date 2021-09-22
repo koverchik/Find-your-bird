@@ -18,7 +18,7 @@ export const favoriteAirports = (
         ...state,
         favoriteAirports: [...state.favoriteAirports, action.payload],
       };
-    case FavoriteAirportsTypes.DELETE_FAVORITE_AIRPORT: {
+    case FavoriteAirportsTypes.FILTERED_FAVORITE_AIRPORT: {
       const result = state.favoriteAirports.filter((item) => {
         if (item.icao != action.payload.icao) {
           return item;

@@ -17,7 +17,7 @@ import { SVGNotFound } from '@components/SVGNotFound';
 import { useTheme } from '@theme/Theme.context';
 import { useTranslation } from 'react-i18next';
 
-export const AirportsList: FC<AirportsListProps> = ({ pending, airportsListData }) => {
+export const AirportsList: FC<AirportsListProps> = ({ pending = false, airportsListData }) => {
   const Styles = useThemeAwareObject(createStyles);
   const { theme } = useTheme();
   const { t } = useTranslation();

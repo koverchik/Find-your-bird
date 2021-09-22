@@ -7,13 +7,12 @@ import { useTranslation } from 'react-i18next';
 import { HomeStackScreens } from '@navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationPropNavigation } from '@screen/HomeScreen/type';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useTheme } from '@theme/Theme.context';
 import { AirportsListTypes } from '@redux/api/type';
 import { addFavoriteAirport, deleteFavoriteAirport } from '@redux/action/favoriteAirpots';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { getFavoriteAirport } from '@redux/selectors';
+import { Star } from '@components/Star';
 
 export const MARGIN = 16;
 export const CARD_HEIGHT = 200 + MARGIN * 2;
@@ -38,7 +37,6 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
   const isTop = 0;
   const isBottom = HEIGHT - CARD_HEIGHT;
   const isAppearing = HEIGHT;
-  const { theme } = useTheme();
   const isActive = () =>
     favoriteAirports.find((item) => {
       return item.icao == icao;
@@ -80,16 +78,16 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
 
   const addFavoriteAirportOnPress = () => {
     const airport: AirportsListTypes = {
-      icao: icao,
-      iata: iata,
+      icao,
+      iata,
       name: title,
-      shortName: shortName,
+      shortName,
       municipalityName: subtitle,
       location: {
         lat: location.lat,
         lon: location.lon,
       },
-      countryCode: countryCode,
+      countryCode,
     };
     if (favoriteAirports.find((item) => item.icao == airport.icao)) {
       dispatch(deleteFavoriteAirport(airport));
@@ -106,14 +104,10 @@ export const ItemFlatList: FC<ItemFlatListType> = ({
       key={index}
     >
       <View style={Styles.wrapperTitleAirport}>
-        <TouchableOpacity style={{ width: '100%' }} onPress={addFavoriteAirportOnPress}>
-          <FontAwesomeIcon
-            icon={faStar}
-            color={isFavoriteAirport ? theme.color.background : theme.color.surface}
-            style={Styles.iconFavoriteStar}
-            size={25}
-          />
-        </TouchableOpacity>
+        <Star
+          addFavoriteAirportOnPress={addFavoriteAirportOnPress}
+          isFavoriteAirport={isFavoriteAirport}
+        />
         <View style={Styles.titleAirport}>
           <Text style={Styles.textTitle}>{subtitle}</Text>
           <Text style={Styles.text}>{title}</Text>

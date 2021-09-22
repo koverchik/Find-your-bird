@@ -1,16 +1,14 @@
 import React, { FC, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { createStyles } from './style';
 import { DetailsScreenViewProps } from './types';
 import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { useTheme } from '@theme/Theme.context';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { addFavoriteAirport, deleteFavoriteAirport } from '@redux/action/favoriteAirpots';
 import { AirportsListTypes } from '@redux/api/type';
 import { getFavoriteAirport } from '@redux/selectors';
+import { Star } from '@components/Star';
 
 export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
   airportData,
@@ -26,7 +24,6 @@ export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
 
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
-  const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const { favoriteAirports } = useAppSelector(getFavoriteAirport);
   const [isFavoriteAirport, setIsFavoriteAirport] = useState(!!isActive());
@@ -58,14 +55,10 @@ export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
 
   return (
     <View style={Styles.container}>
-      <TouchableOpacity style={{ width: '100%' }} onPress={addFavoriteAirportOnPress}>
-        <FontAwesomeIcon
-          icon={faStar}
-          color={isFavoriteAirport ? theme.color.background : theme.color.surface}
-          size={25}
-          style={Styles.favoriteIcon}
-        />
-      </TouchableOpacity>
+      <Star
+        addFavoriteAirportOnPress={addFavoriteAirportOnPress}
+        isFavoriteAirport={isFavoriteAirport}
+      />
       <Text style={Styles.textTitle}>{airportData?.shortName}</Text>
       <View style={Styles.titleAirport}>
         <Text style={Styles.text}>
