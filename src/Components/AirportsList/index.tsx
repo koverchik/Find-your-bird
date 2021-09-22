@@ -17,7 +17,7 @@ import { SVGNotFound } from '@components/SVGNotFound';
 import { useTheme } from '@theme/Theme.context';
 import { useTranslation } from 'react-i18next';
 
-export const AirportsList: FC<AirportsListProps> = ({ pending, airportsListData }) => {
+export const AirportsList: FC<AirportsListProps> = ({ pending = false, airportsListData }) => {
   const Styles = useThemeAwareObject(createStyles);
   const { theme } = useTheme();
   const { t } = useTranslation();
@@ -52,11 +52,13 @@ export const AirportsList: FC<AirportsListProps> = ({ pending, airportsListData 
   };
 
   const renderItem: ListRenderItem<AirportsListTypes> = ({ item, index }) => {
-    const { name, municipalityName, countryCode, iata, icao, location } = item;
+    const { name, municipalityName, countryCode, iata, icao, location, shortName } = item;
+
     return (
       <ItemFlatList
         index={index}
         title={name}
+        shortName={shortName}
         subtitle={municipalityName}
         countryCode={countryCode}
         location={location}

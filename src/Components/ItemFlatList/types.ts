@@ -8,6 +8,7 @@ export type ItemFlatListType = {
     lat: number;
     lon: number;
   };
+  shortName: string;
   icao: string;
   iata: string;
   y: Animated.Value;

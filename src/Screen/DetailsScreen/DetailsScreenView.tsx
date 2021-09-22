@@ -1,29 +1,64 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { createStyles } from './style';
 import { DetailsScreenViewProps } from './types';
 import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
 import { useTranslation } from 'react-i18next';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { useTheme } from '@theme/Theme.context';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
+import { addFavoriteAirport, deleteFavoriteAirport } from '@redux/action/favoriteAirpots';
+import { AirportsListTypes } from '@redux/api/type';
+import { getFavoriteAirport } from '@redux/selectors';
+import { Star } from '@components/Star';
 
 export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
   airportData,
   linksAboutAirport,
   renderItem,
 }) => {
+  const isActive = () => {
+    return favoriteAirports.find((item) => {
+      if (airportData) {
+        return item.icao == airportData['icao'];
+      }
+    });
+  };
+
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();
-  const { theme } = useTheme();
+  const dispatch = useAppDispatch();
+  const { favoriteAirports } = useAppSelector(getFavoriteAirport);
+  const [isFavoriteAirport, setIsFavoriteAirport] = useState(!!isActive());
+
+  const addFavoriteAirportOnPress = () => {
+    if (airportData) {
+      const airport: AirportsListTypes = {
+        icao: airportData['icao'],
+        iata: airportData['iata'],
+        name: airportData['fullName'],
+        shortName: airportData['country']['name'],
+        municipalityName: airportData['municipalityName'],
+        location: {
+          lat: airportData['location']['lat'],
+          lon: airportData['location']['lon'],
+        },
+        countryCode: airportData['country']['code'],
+      };
+
+      if (favoriteAirports.find((item) => item.icao == airport.icao)) {
+        dispatch(deleteFavoriteAirport(airport));
+        setIsFavoriteAirport(false);
+      } else {
+        dispatch(addFavoriteAirport(airport));
+        setIsFavoriteAirport(true);
+      }
+    }
+  };
 
   return (
     <View style={Styles.container}>
-      <FontAwesomeIcon
-        icon={faStar}
-        color={theme.color.onPrimary}
-        style={Styles.favoriteIcon}
-        size={25}
+      <Star
+        addFavoriteAirportOnPress={addFavoriteAirportOnPress}
+        isFavoriteAirport={isFavoriteAirport}
       />
       <Text style={Styles.textTitle}>{airportData?.shortName}</Text>
       <View style={Styles.titleAirport}>

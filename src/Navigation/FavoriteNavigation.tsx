@@ -10,7 +10,7 @@ import { FavoriteAirportsScreen } from '@screen/FavoriteAirportsScreen';
 
 const Stack = createStackNavigator<FavoriteStackParamList>();
 
-export const SettingsNavigation: FC = () => {
+export const FavoriteNavigation: FC = () => {
   const { theme } = useTheme();
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();

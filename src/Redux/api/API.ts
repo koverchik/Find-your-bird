@@ -1,16 +1,17 @@
 import axios from 'axios';
 import { MapCircleProps } from 'react-native-maps';
 import { Coordinates, ResponseDetailsAirport, ResponseItemsAirports } from './type';
+import Config from 'react-native-config';
 
 const BASE_URL = 'https://aerodatabox.p.rapidapi.com/';
-const X_REPAID_API_KEY = '2bb16f0062msh25be2f08b8ac2eap15e7f2jsn2bb2739b0907';
 
 export const apiCreate = (baseURL: string = BASE_URL) => {
+
   const instance = axios.create({
     baseURL,
     headers: {
       'x-rapidapi-host': 'aerodatabox.p.rapidapi.com',
-      'x-rapidapi-key': X_REPAID_API_KEY,
+      'x-rapidapi-key': Config.API_KEY,
     },
   });
 

@@ -11,7 +11,7 @@ import { useTheme } from '@theme/Theme.context';
 import { TabBarIcon } from './tabBarIcon';
 import { useTranslation } from 'react-i18next';
 import { useFlipper, useReduxDevToolsExtension } from '@react-navigation/devtools';
-import { View } from 'react-native';
+import { FavoriteNavigation } from '@navigation/FavoriteNavigation';
 
 const Tab = createMaterialBottomTabNavigator<TabNavigatorParamList>();
 
@@ -27,7 +27,6 @@ export const RootNavigation: FC = () => {
 
   return (
     <NavigationContainer ref={navigationRef}>
-      <View />
       <Tab.Navigator
         initialRouteName={TabNavigationScreen.HomeTab}
         activeColor={theme.color.onPrimary}
@@ -57,7 +56,7 @@ export const RootNavigation: FC = () => {
         />
         <Tab.Screen
           name={TabNavigationScreen.FavoriteTab}
-          component={SettingsNavigation}
+          component={FavoriteNavigation}
           options={{
             tabBarLabel: t('title:FavoriteAirportsScreen'),
           }}

@@ -5,6 +5,7 @@ export enum GetAirportDetailsTypes {
   REQUEST_DETAILS_AIRPORT_SUCCESS = 'REQUEST_DETAILS_AIRPORT_SUCCESS',
   REQUEST_DETAILS_AIRPORT_FAILURE = 'REQUEST_DETAILS_AIRPORT_FAILURE',
 }
+
 export type RequestAirportDetailsType = (payload: string) => {
   type: GetAirportDetailsTypes.REQUEST_DETAILS_AIRPORT;
   payload: string;
