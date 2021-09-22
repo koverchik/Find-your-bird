@@ -15,12 +15,13 @@ export const DetailsScreenView: FC<DetailsScreenViewProps> = ({
   linksAboutAirport,
   renderItem,
 }) => {
-  const isActive = () =>
-    favoriteAirports.find((item) => {
+  const isActive = () => {
+    return favoriteAirports.find((item) => {
       if (airportData) {
         return item.icao == airportData['icao'];
       }
     });
+  };
 
   const Styles = useThemeAwareObject(createStyles);
   const { t } = useTranslation();

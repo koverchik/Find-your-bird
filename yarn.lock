@@ -7031,6 +7031,11 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
+"react-native-config@^1.4.4":
+  "integrity" "sha512-bu47sJHn/HrB7COAWBI8DieAhrbFLINHFE2HBCcVkDu0Y5ScrMs6vL+jhIm+pMSgxouseLhXG8h7xYYpxE38PA=="
+  "resolved" "https://registry.npmjs.org/react-native-config/-/react-native-config-1.4.4.tgz"
+  "version" "1.4.4"
+
 "react-native-flipper@^0.103.0":
   "integrity" "sha512-F49O8FAPLt9BsuKQYre3ATJ8oaghc9xJu/S4WFhKqAboesFoUyB3i8EAkBFbXEgA1+Foolct3QTWQLc7KTI/tA=="
   "resolved" "https://registry.npmjs.org/react-native-flipper/-/react-native-flipper-0.103.0.tgz"
@@ -7161,7 +7166,7 @@
     "escape-string-regexp" "2.0.0"
     "invariant" "2.2.4"
 
-"react-native-windows@^0.62.0":
+"react-native-windows@^0.62.0", "react-native-windows@>=0.61":
   "integrity" "sha512-kYM+VczfDRNhs8vifa/D5ibSIGWDkVHZ8J2913HR8lPkz/qx5Tmnfq0IOj0KOMNN1ZDx4/I1PsTvfpxgOeIbvQ=="
   "resolved" "https://registry.npmjs.org/react-native-windows/-/react-native-windows-0.62.22.tgz"
   "version" "0.62.22"
