@@ -10,10 +10,12 @@ import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
 import { IconMarker } from '@root/Components/Marker';
 import { SliderCustom } from '@root/Components/Slider';
 import Geolocation from 'react-native-geolocation-service';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
   const Styles = useThemeAwareObject(createStyles);
+
 
   const onPress = () =>
     navigation.navigate(HomeStackScreens.Airports, {
