@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, TextInput, Alert } from 'react-native';
 import { createStyles } from './style';
 import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { SignInPayloadType } from '@redux/action/auth/types';
 import { regex } from '../../Constants/regex';
 import { useAppDispatch } from '@redux/hooks';
-import { signIn } from '@redux/action/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 export const Auth: FC = () => {
   const Styles = useThemeAwareObject(createStyles);
@@ -21,16 +21,31 @@ export const Auth: FC = () => {
 
   const dispatch = useAppDispatch();
 
-  const onPressLogIn = () => {
-    if (regex.email.test(profile.email)) {
-      dispatch(signIn(profile));
-    } else if (profile.lastName != '' && profile.firstName != '') {
-      Alert.alert(`${t('alert:titleError')}`, `${t('alert:messages:errorEmail')}`, [
-        {
-          text: `${t('components:buttonClose')}`,
-          style: 'cancel',
-        },
-      ]);
+  useEffect(() => {
+    GoogleSignin.configure({
+      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+      offlineAccess: true,
+      webClientId: '771438214894-2h7b0m86gum18rp4plp3t0ascv66gduj.apps.googleusercontent.com',
+    });
+  }, []);
+
+  const onPressLogIn = async () => {
+    // if (regex.email.test(profile.email)) {
+    //   dispatch(signIn(profile));
+    // } else if (profile.lastName != '' && profile.firstName != '') {
+    //   Alert.alert(`${t('alert:titleError')}`, `${t('alert:messages:errorEmail')}`, [
+    //     {
+    //       text: `${t('components:buttonClose')}`,
+    //       style: 'cancel',
+    //     },
+    //   ]);
+    // }
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      console.log(userInfo);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -70,7 +85,7 @@ export const Auth: FC = () => {
             : Styles.buttonActive
         }
         onPress={onPressLogIn}
-        disabled={disabledButton}
+        // disabled={disabledButton}
       >
         <Text style={Styles.text}>{t('components:buttonLogIn')}</Text>
       </TouchableOpacity>
