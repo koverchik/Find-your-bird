@@ -7,10 +7,27 @@ import { SignInPayloadType } from '@redux/action/auth/types';
 import { regex } from '../../Constants/regex';
 import { useAppDispatch } from '@redux/hooks';
 import { signIn } from '@redux/action/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { Button } from 'react-native';
+import auth from '@react-native-firebase/auth';
+
+GoogleSignin.configure({
+  webClientId: '771438214894-mh5cg0ieru1t6652pmfc8jambcmfq7kk.apps.googleusercontent.com',
+});
 
 export const Auth: FC = () => {
   const Styles = useThemeAwareObject(createStyles);
+  async function onGoogleButtonPress() {
+    // Get the users ID token
+    const { idToken } = await GoogleSignin.signIn();
+    console.log(idToken);
 
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(googleCredential);
+  }
   const { t } = useTranslation();
 
   const [profile, onChangeProfile] = React.useState<SignInPayloadType>({
@@ -74,6 +91,10 @@ export const Auth: FC = () => {
       >
         <Text style={Styles.text}>{t('components:buttonLogIn')}</Text>
       </TouchableOpacity>
+      <Button
+        title="Google Sign-In"
+        onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
+      />
     </View>
   );
 };
