@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "392035646425",
+    "project_id": "lasttryreactnative",
+    "storage_bucket": "lasttryreactnative.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392035646425:android:a6c8b0597f002fcc9737c8",
+        "android_client_info": {
+          "package_name": "com.awesomeproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392035646425-g5r9j53rl403co7rdpupb0bpgognnn0c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.awesomeproject",
+            "certificate_hash": "9b165e983f62603f146d432e25b7dad1ac4345a2"
+          }
+        },
+        {
+          "client_id": "392035646425-gltf5eidvjf01eu1g94mlgqp5j26s7hu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCzEvjBXYO2wNDs8AoVRXbfUgdISjnQf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392035646425-gltf5eidvjf01eu1g94mlgqp5j26s7hu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
