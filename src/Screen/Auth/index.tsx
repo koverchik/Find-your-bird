@@ -14,14 +14,6 @@ import { Button } from 'react-native';
 export const Auth: FC = () => {
   const Styles = useThemeAwareObject(createStyles);
 
-  const { t } = useTranslation();
-
-  const [profile, onChangeProfile] = React.useState<SignInPayloadType>({
-    firstName: '',
-    lastName: '',
-    email: '',
-  });
-
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: '392035646425-gltf5eidvjf01eu1g94mlgqp5j26s7hu.apps.googleusercontent.com',
@@ -29,26 +21,6 @@ export const Auth: FC = () => {
   });
 
   const dispatch = useAppDispatch();
-
-  const onPressLogIn = () => {
-    if (regex.email.test(profile.email)) {
-      dispatch(signIn(profile));
-    } else if (profile.lastName != '' && profile.firstName != '') {
-      Alert.alert(`${t('alert:titleError')}`, `${t('alert:messages:errorEmail')}`, [
-        {
-          text: `${t('components:buttonClose')}`,
-          style: 'cancel',
-        },
-      ]);
-    }
-  };
-
-  const getFieldFirstName = (field: string) => (text: string) => {
-    onChangeProfile(() => {
-      return { ...profile, [field]: text };
-    });
-  };
-  const disabledButton = !(profile.lastName || profile.firstName);
 
   const onGoogleButtonPress = async () => {
     try {
@@ -75,41 +47,6 @@ export const Auth: FC = () => {
 
   return (
     <View style={Styles.container}>
-      {/* <SafeAreaView>
-        <TextInput
-          style={Styles.input}
-          onChangeText={getFieldFirstName('firstName')}
-          value={profile.firstName}
-          placeholder={t('Inputs:FirstName')}
-        />
-        <TextInput
-          style={Styles.input}
-          onChangeText={getFieldFirstName('lastName')}
-          value={profile.lastName}
-          placeholder={t('Inputs:LastName')}
-        />
-        <TextInput
-          style={Styles.input}
-          onChangeText={getFieldFirstName('email')}
-          value={profile.email}
-          placeholder={t('Inputs:Email')}
-        />
-      </SafeAreaView> */}
-      {/* <TouchableOpacity
-        style={
-          profile.lastName != '' && profile.firstName != ''
-            ? Styles.buttonDisable
-            : Styles.buttonActive
-        }
-        onPress={onPressLogIn}
-        disabled={disabledButton}
-      >
-        <Text style={Styles.text}>{t('components:buttonLogIn')}</Text>
-      </TouchableOpacity> */}
-      {/* <Button
-        title="Google Sign-In"
-        onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
-      /> */}
       <GoogleSigninButton
         style={Styles.buttonGoogle}
         size={GoogleSigninButton.Size.Standard}
