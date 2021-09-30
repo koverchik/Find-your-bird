@@ -20,6 +20,7 @@ export const auth = (state = initialStateAuth, action: AuthActionType) => {
         lastName: action.payload.lastName,
         email: action.payload.email,
         userIcon: action.payload.photo,
+        idToken: action.payload.idToken,
         loggedIn: true,
       };
     case AuthTypes.SING_OUT:

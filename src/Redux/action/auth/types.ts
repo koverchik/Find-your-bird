@@ -28,6 +28,7 @@ export type SignInPayloadType = {
   firstName: string | null;
   lastName: string | null;
   email: string;
+  idToken: string | null;
   photo: string | null;
 };
 

@@ -2,6 +2,9 @@ import { GeoCoordinates } from 'react-native-geolocation-service';
 
 export type Coordinates = Pick<GeoCoordinates, 'latitude' | 'longitude'>;
 
+export enum NamesErrors {
+  TokenInvalid = 'auth/invalid-credential',
+}
 export type AirportsListTypes = {
   icao: string;
   iata: string;

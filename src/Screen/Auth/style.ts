@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle, Button } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 import { Theme } from '@theme/Theme.interface';
 
 type DetailsStyles = {
