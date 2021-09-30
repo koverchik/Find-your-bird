@@ -8,7 +8,7 @@ import { regex } from '../../Constants/regex';
 import { useAppDispatch } from '@redux/hooks';
 import { signIn } from '@redux/action/auth';
 import auth from '@react-native-firebase/auth';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import { Button } from 'react-native';
 
 export const Auth: FC = () => {
@@ -20,6 +20,12 @@ export const Auth: FC = () => {
     firstName: '',
     lastName: '',
     email: '',
+  });
+
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: '392035646425-gltf5eidvjf01eu1g94mlgqp5j26s7hu.apps.googleusercontent.com',
+    });
   });
 
   const dispatch = useAppDispatch();
@@ -43,36 +49,33 @@ export const Auth: FC = () => {
     });
   };
   const disabledButton = !(profile.lastName || profile.firstName);
+
   const onGoogleButtonPress = async () => {
     try {
       const { idToken } = await GoogleSignin.signIn();
-
       // Create a Google credential with the token
       const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      const data = await GoogleSignin.getCurrentUser();
 
+      if (data != null) {
+        const dataUser = {
+          firstName: data.user.givenName,
+          lastName: data.user.familyName,
+          email: data.user.email,
+          photo: data.user.photo,
+        };
+        dispatch(signIn(dataUser));
+      }
       // Sign-in the user with the credential
       return auth().signInWithCredential(googleCredential);
     } catch (e) {
       Alert.alert('', JSON.stringify(e));
     }
   };
-  useEffect(() => {
-    GoogleSignin.configure({
-      webClientId: '392035646425-gltf5eidvjf01eu1g94mlgqp5j26s7hu.apps.googleusercontent.com',
-    });
-  });
-  const signOut = async () => {
-    await GoogleSignin.signOut();
-    console.log('sign out');
-  };
 
-  const userInfo = async () => {
-    const user = await GoogleSignin.getCurrentUser();
-    console.log('userInfo', user);
-  };
   return (
     <View style={Styles.container}>
-      <SafeAreaView>
+      {/* <SafeAreaView>
         <TextInput
           style={Styles.input}
           onChangeText={getFieldFirstName('firstName')}
@@ -91,8 +94,8 @@ export const Auth: FC = () => {
           value={profile.email}
           placeholder={t('Inputs:Email')}
         />
-      </SafeAreaView>
-      <TouchableOpacity
+      </SafeAreaView> */}
+      {/* <TouchableOpacity
         style={
           profile.lastName != '' && profile.firstName != ''
             ? Styles.buttonDisable
@@ -102,15 +105,18 @@ export const Auth: FC = () => {
         disabled={disabledButton}
       >
         <Text style={Styles.text}>{t('components:buttonLogIn')}</Text>
-      </TouchableOpacity>
-      <Button
+      </TouchableOpacity> */}
+      {/* <Button
         title="Google Sign-In"
         onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
+      /> */}
+      <GoogleSigninButton
+        style={Styles.buttonGoogle}
+        size={GoogleSigninButton.Size.Standard}
+        color={GoogleSigninButton.Color.Light}
+        onPress={onGoogleButtonPress}
+        // disabled={this.state.isSigninInProgress}
       />
-      <View style={{ height: 50 }} />
-      <Button title="Google Sign Out" onPress={signOut} />
-      <View style={{ height: 50 }} />
-      <Button title="User Info" onPress={userInfo} />
     </View>
   );
 };

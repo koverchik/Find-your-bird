@@ -24,7 +24,12 @@ export type UploadImagesAction = {
   payload: string;
 };
 
-export type SignInPayloadType = { firstName: string; lastName: string; email: string };
+export type SignInPayloadType = {
+  firstName: string | null;
+  lastName: string | null;
+  email: string;
+  photo: string | null;
+};
 
 export type AuthActionType = SignInAction | SignOutAction | UploadImagesAction;
 

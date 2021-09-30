@@ -5,6 +5,7 @@ export type InitialStateAuthType = {
   firstName: string;
   email: string;
   userIcon: string;
+  idToken: string;
   loggedIn: boolean;
 };
 

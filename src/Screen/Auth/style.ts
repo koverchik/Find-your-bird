@@ -1,10 +1,11 @@
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle, Button } from 'react-native';
 import { Theme } from '@theme/Theme.interface';
 
 type DetailsStyles = {
   container: ViewStyle;
   buttonDisable: ViewStyle;
   buttonActive: ViewStyle;
+  buttonGoogle: ViewStyle;
   text: Text;
   input: Text;
 };
@@ -20,6 +21,10 @@ export const createStyles = (theme: Theme) => {
     },
     text: {
       color: theme.color.onPrimary,
+    },
+    buttonGoogle: {
+      width: 192,
+      height: 48,
     },
     buttonDisable: {
       margin: 30,

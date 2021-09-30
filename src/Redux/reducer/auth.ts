@@ -7,6 +7,7 @@ export const initialStateAuth: InitialStateAuthType = {
   firstName: '',
   email: '',
   userIcon: '',
+  idToken: '',
   loggedIn: false,
 };
 
@@ -18,6 +19,7 @@ export const auth = (state = initialStateAuth, action: AuthActionType) => {
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         email: action.payload.email,
+        userIcon: action.payload.photo,
         loggedIn: true,
       };
     case AuthTypes.SING_OUT:
