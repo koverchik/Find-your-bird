@@ -4,22 +4,26 @@ import { Theme } from '@theme/Theme.interface';
 type DetailsStyles = {
   container: ViewStyle;
   button: ViewStyle;
+  text: Text;
 };
 
 export const createStyles = (theme: Theme) => {
   const styles: DetailsStyles = StyleSheet.create({
     container: {
-      justifyContent: 'flex-end',
+      flex: 1,
       alignItems: 'center',
     },
     button: {
-      margin: 40,
-      padding: 15,
+      flex: 1,
       backgroundColor: theme.color.bright,
-      width: 150,
-      position: 'absolute',
-      bottom: -20,
-      left: 90,
+      justifyContent: 'center',
+      margin: 10,
+      width: 160,
+      maxHeight: 45,
+    },
+    text: {
+      color: 'white',
+      alignSelf: 'center',
     },
   });
   return styles;
