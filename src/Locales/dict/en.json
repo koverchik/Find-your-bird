@@ -16,7 +16,8 @@
     "DetailsScreen": "Details",
     "SettingsScreen": "Settings",
     "AirportsScreen": "Airports",
-    "FavoriteAirportsScreen": "Favorite"
+    "FavoriteAirportsScreen": "Favorite",
+    "VideoScreen": "Video"
   },
   "Inputs": {
     "FirstName": "First name",

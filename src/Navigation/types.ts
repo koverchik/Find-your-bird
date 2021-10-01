@@ -5,6 +5,7 @@ export enum HomeStackScreens {
   Home = 'Home',
   Details = 'Details',
   Airports = 'Airports',
+  Video = 'Video',
 }
 
 export enum SettingsStackScreens {
@@ -14,10 +15,15 @@ export enum FavoriteStackScreens {
   Favorite = 'Favorite',
 }
 
+export enum VideoStackScreens {
+  Video = 'Video',
+}
+
 export enum TabNavigationScreen {
   HomeTab = 'HomeTab',
   SettingsTab = 'SettingsTab',
   FavoriteTab = 'FavoriteTab',
+  VideoTab = 'VideoTab',
 }
 
 export type TabBarIconProps = {
@@ -26,4 +32,8 @@ export type TabBarIconProps = {
 };
 export type FavoriteStackParamList = {
   Favorite: undefined;
+};
+
+export type VideoStackParamList = {
+  Video: undefined;
 };
