@@ -18,30 +18,8 @@ export const WrapperRootNavigation: FC = () => {
     GoogleSignin.configure({
       webClientId: '392035646425-gltf5eidvjf01eu1g94mlgqp5j26s7hu.apps.googleusercontent.com',
     });
-    (async () => {
-      if (idToken) {
-        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
-        const data = await GoogleSignin.getCurrentUser();
-        if (data != null) {
-          const dataUser = {
-            firstName: data.user.givenName,
-            lastName: data.user.familyName,
-            email: data.user.email,
-            photo: data.user.photo,
-            idToken: data.idToken,
-          };
-          dispatch(signIn(dataUser));
-        }
-        auth()
-          .signInWithCredential(googleCredential)
-          .catch((e) => {
-            if (e.code === NamesErrors.TokenInvalid) {
-              dispatch(signOut());
-            }
-          });
-      }
-    })();
+    dispatch(signIn());
   }, []);
 
   return loggedIn ? (

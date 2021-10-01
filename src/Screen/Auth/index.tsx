@@ -11,26 +11,8 @@ export const Auth: FC = () => {
   const Styles = useThemeAwareObject(createStyles);
   const dispatch = useAppDispatch();
 
-  const onGoogleButtonPress = async () => {
-    try {
-      const { idToken } = await GoogleSignin.signIn();
-      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-      const data = await GoogleSignin.getCurrentUser();
-      if (data != null) {
-        const dataUser = {
-          firstName: data.user.givenName,
-          lastName: data.user.familyName,
-          email: data.user.email,
-          photo: data.user.photo,
-          idToken: data.idToken,
-        };
-        dispatch(signIn(dataUser));
-      }
-      auth().signInWithCredential(googleCredential);
-    } catch (error) {
-      console.dir(error);
-    }
+  const onGoogleButtonPress = () => {
+    dispatch(signIn());
   };
 
   return (

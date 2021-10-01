@@ -13,7 +13,7 @@ export const initialStateAuth: InitialStateAuthType = {
 
 export const auth = (state = initialStateAuth, action: AuthActionType) => {
   switch (action.type) {
-    case AuthTypes.SING_IN:
+    case AuthTypes.SING_IN_SUCCESS:
       return {
         ...state,
         firstName: action.payload.firstName,
