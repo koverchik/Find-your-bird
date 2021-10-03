@@ -5,6 +5,7 @@ type DetailsStyles = {
   container: ViewStyle;
   button: ViewStyle;
   text: Text;
+  videoWrapper: ViewStyle;
 };
 
 export const createStyles = (theme: Theme) => {
@@ -24,6 +25,15 @@ export const createStyles = (theme: Theme) => {
     text: {
       color: 'white',
       alignSelf: 'center',
+    },
+    videoWrapper: {
+      borderColor: 'black',
+      borderWidth: 3,
+      position: 'absolute',
+      top: 150,
+      left: 0,
+      bottom: 0,
+      right: 0,
     },
   });
   return styles;

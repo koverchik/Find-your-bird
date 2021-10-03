@@ -7,7 +7,6 @@ import { createStyles } from './style';
 import { useTheme } from '@theme/Theme.context';
 import { useTranslation } from 'react-i18next';
 import { VideoScreen } from '@screen/VideoScreen';
-import { FavoriteAirportsScreen } from '@screen/FavoriteAirportsScreen';
 
 const Stack = createStackNavigator<VideoStackParamList>();
 
