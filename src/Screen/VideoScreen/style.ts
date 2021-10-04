@@ -4,7 +4,11 @@ import { Theme } from '@theme/Theme.interface';
 type DetailsStyles = {
   container: ViewStyle;
   button: ViewStyle;
+  item: ViewStyle;
+  flatList: ViewStyle;
   text: Text;
+  buttonDownload: ViewStyle;
+  textItem: Text;
   videoWrapper: ViewStyle;
 };
 
@@ -22,10 +26,36 @@ export const createStyles = (theme: Theme) => {
       width: 160,
       maxHeight: 45,
     },
+    buttonDownload: {
+      width: 100,
+      justifyContent: 'center',
+      backgroundColor: theme.color.bright,
+      alignItems: 'center',
+      height: '90%',
+    },
+    flatList: {
+      flex: 1,
+      width: '90%',
+      alignItems: 'stretch',
+    },
+    item: {
+      backgroundColor: theme.color.primary,
+      margin: 10,
+      padding: 5,
+      height: 50,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
     text: {
       color: 'white',
       alignSelf: 'center',
     },
+    textItem: {
+      color: theme.color.onPrimary,
+      alignSelf: 'center',
+    },
+
     videoWrapper: {
       borderColor: 'black',
       borderWidth: 3,

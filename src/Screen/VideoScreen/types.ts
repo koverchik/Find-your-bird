@@ -7,3 +7,10 @@ export type VideoScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, HomeStackScreens.Video>;
   route: RouteProp<RootStackParamList, HomeStackScreens.Video>;
 };
+
+export type propsVideo = {
+  id: string;
+  title: string;
+  uri: string;
+  pathLocal: string | null;
+};
