@@ -7,14 +7,10 @@ import Video from 'react-native-video';
 import RNFS from 'react-native-fs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { useTheme } from '@root/Theme/Theme.context';
-import { faStar, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export const VideoScreen: FC<VideoScreenProps> = () => {
-  const { theme } = useTheme();
-  const [isVideo, setIsVideo] = useState(false);
-  const [patchVideo, setPatchVideo] = useState<string>();
-
-  let DATA: propsVideo[] = [
+  let DATA = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
       title: 'First Item',
@@ -28,7 +24,14 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
       pathLocal: null,
     },
   ];
+  const { theme } = useTheme();
+  const [isVideo, setIsVideo] = useState(false);
+  const [patchVideo, setPatchVideo] = useState<string>();
+  const [dataList, setDataList] = useState<propsVideo[]>(DATA);
+
   const onPressOpen = (patch) => {
+    console.log(patch);
+
     setPatchVideo(patch);
     setIsVideo(true);
   };
@@ -40,16 +43,18 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
     const LOCAL_PATH_TO_VIDEO = `file://${RNFS.ExternalDirectoryPath}/mood-pixel-${timestamp}.mp4`;
     RNFS.downloadFile({
       fromUrl: uri,
+      progress: (res) => {
+        console.log(res);
+      },
       toFile: LOCAL_PATH_TO_VIDEO,
     }).promise.then((response) => {
       if (response.statusCode == 200) {
         setPatchVideo(LOCAL_PATH_TO_VIDEO);
         setIsVideo(true);
-        DATA = DATA.map((itemArray) => {
+        const result = dataList.map((itemArray) => {
           return itemArray.id === id ? { ...itemArray, pathLocal: LOCAL_PATH_TO_VIDEO } : itemArray;
         });
-        console.log(DATA);
-
+        setDataList(result);
         console.log('FILES UPLOADED!'); // response.statusCode, response.headers, response.body
       } else {
         console.log('SERVER ERROR');
@@ -71,7 +76,7 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
       <TouchableOpacity
         style={Styles.item}
         onPress={() => {
-          pathLocal == null ? onPressOpen(pathLocal) : onPressOpen(uri);
+          pathLocal == null ? onPressOpen(uri) : onPressOpen(pathLocal);
         }}
       >
         <Text style={Styles.textItem}>{title}</Text>
@@ -86,7 +91,7 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
         onPress={() => {
           onPressDownloadFile(uri, id);
         }}
-        disabled={pathLocal !== null}
+        disabled={pathLocal != null}
       >
         <Text style={Styles.text}>Download</Text>
       </TouchableOpacity>
@@ -96,18 +101,11 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
   const renderItem = ({ item }) => (
     <Item title={item.title} pathLocal={item.pathLocal} uri={item.uri} id={item.id} />
   );
-  // console.log(DATA);
 
   return (
     <View style={Styles.container}>
-      {/* <TouchableOpacity onPress={onPressDownloadFile} style={Styles.button}>
-        <Text style={Styles.text}>Download</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onPressOpen} style={Styles.button}>
-        <Text style={Styles.text}>Open</Text>
-      </TouchableOpacity> */}
       <SafeAreaView style={Styles.flatList}>
-        <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item) => item.id} />
+        <FlatList data={dataList} renderItem={renderItem} keyExtractor={(item) => item.id} />
       </SafeAreaView>
       {isVideo ? (
         <Video
