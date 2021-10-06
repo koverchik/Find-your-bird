@@ -8,8 +8,11 @@ import RNFS from 'react-native-fs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { useTheme } from '@root/Theme/Theme.context';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { CircularProgress } from '@root/Components/CircularProgress';
 
 export const VideoScreen: FC<VideoScreenProps> = () => {
+  const [progress, setProgress] = useState(0);
+
   let DATA = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -29,26 +32,28 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
   const [patchVideo, setPatchVideo] = useState<string>();
   const [dataList, setDataList] = useState<propsVideo[]>(DATA);
 
-  const onPressOpen = (patch) => {
+  const onPressOpen = (patch: propsVideo['uri']) => {
     console.log(patch);
-
     setPatchVideo(patch);
     setIsVideo(true);
   };
 
   const videoPlayer = React.useRef(null);
 
-  const onPressDownloadFile = (uri, id) => {
+  const onPressDownloadFile = (uri: propsVideo['uri'], id: propsVideo['id']) => {
     const timestamp = Date.now();
     const LOCAL_PATH_TO_VIDEO = `file://${RNFS.ExternalDirectoryPath}/mood-pixel-${timestamp}.mp4`;
     RNFS.downloadFile({
       fromUrl: uri,
       progress: (res) => {
-        console.log(res);
+        const bytesWrittenPersent = Math.round((res.bytesWritten * 100) / res.contentLength);
+        setProgress(bytesWrittenPersent);
+        console.log(bytesWrittenPersent);
       },
       toFile: LOCAL_PATH_TO_VIDEO,
     }).promise.then((response) => {
       if (response.statusCode == 200) {
+        setProgress(100);
         setPatchVideo(LOCAL_PATH_TO_VIDEO);
         setIsVideo(true);
         const result = dataList.map((itemArray) => {
@@ -71,7 +76,7 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
     console.log(e);
   };
 
-  const Item = ({ title, pathLocal, uri, id }) => (
+  const Item = ({ title, pathLocal, uri, id }: propsVideo) => (
     <View style={Styles.item}>
       <TouchableOpacity
         style={Styles.item}
@@ -119,6 +124,8 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
           style={Styles.videoWrapper}
         />
       ) : null}
+
+      <CircularProgress progress={progress} />
     </View>
   );
 };
