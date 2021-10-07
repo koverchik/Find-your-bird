@@ -9,20 +9,24 @@ type DetailsStyles = {
   coverIndicator: ViewStyle;
 };
 
+const SIZE_CIRCULAR_PROGRESS = 30;
+
 export const createStyles = (theme: Theme) => {
   const styles: DetailsStyles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
+      maxHeight: SIZE_CIRCULAR_PROGRESS,
+      maxWidth: SIZE_CIRCULAR_PROGRESS,
     },
     circle: {
-      width: 150,
-      height: 150,
-      borderRadius: 150 / 2,
-      borderWidth: 150 / 10,
+      width: SIZE_CIRCULAR_PROGRESS,
+      height: SIZE_CIRCULAR_PROGRESS,
+      borderRadius: SIZE_CIRCULAR_PROGRESS / 2,
+      borderWidth: SIZE_CIRCULAR_PROGRESS / 10,
     },
     emptyCircle: {
-      borderColor: theme.color.primary,
+      borderColor: theme.color.surface,
       justifyContent: 'center',
       alignItems: 'center',
       transform: [{ rotate: '-45deg' }],
@@ -36,8 +40,8 @@ export const createStyles = (theme: Theme) => {
     },
     coverIndicator: {
       position: 'absolute',
-      borderLeftColor: theme.color.primary,
-      borderTopColor: theme.color.primary,
+      borderLeftColor: theme.color.surface,
+      borderTopColor: theme.color.surface,
       borderRightColor: 'transparent',
       borderBottomColor: 'transparent',
     },

@@ -23,3 +23,10 @@ export type InitialDetailsAirportStateTypes = {
 export type InitialFavoriteAirports = {
   favoriteAirports: AirportsListTypes[];
 };
+
+export type VideoItem = {
+  id: string;
+  title: string;
+  uri: string;
+  pathLocal: string | null;
+};
