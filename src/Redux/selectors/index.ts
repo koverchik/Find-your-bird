@@ -15,3 +15,7 @@ export const getDetailsAirport = (store: RootState) => {
 export const getFavoriteAirport = (store: RootState) => {
   return store.favoriteAirports;
 };
+
+export const getVideo = (store: RootState) => {
+  return store.video;
+};

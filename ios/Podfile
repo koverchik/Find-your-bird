@@ -16,6 +16,10 @@ target 'AwesomeProject' do
 
   pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
 
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
   target 'AwesomeProjectTests' do
     inherit! :complete
     # Pods for testing
