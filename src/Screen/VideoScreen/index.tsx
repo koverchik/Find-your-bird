@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { VideoScreenProps } from './types';
+import { propsVideo, VideoScreenProps } from './types';
 import { FlatList, SafeAreaView, View } from 'react-native';
 import { createStyles } from './style';
 import { useThemeAwareObject } from '@root/Theme/ThemeAwareObject.hook';
@@ -7,6 +7,7 @@ import Video from 'react-native-video';
 import { useAppSelector } from '@redux/hooks';
 import { getVideo } from '@root/Redux/selectors';
 import { RenderItemVideo } from '@root/Components/RenderItemVideo';
+import { ListRenderItem } from 'react-native';
 
 export const VideoScreen: FC<VideoScreenProps> = () => {
   const Styles = useThemeAwareObject(createStyles);
@@ -24,7 +25,7 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
 
   const videoPlayer = React.useRef(null);
 
-  const renderItem = ({ item }) => (
+  const renderItem: ListRenderItem<propsVideo> = ({ item }) => (
     <RenderItemVideo
       title={item.title}
       pathLocal={item.pathLocal}
