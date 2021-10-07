@@ -44,6 +44,7 @@ export const VideoScreen: FC<VideoScreenProps> = () => {
           source={{
             uri: patchVideo,
           }}
+          resizeMode="contain"
           ref={videoPlayer}
           controls={true}
           style={Styles.videoWrapper}
