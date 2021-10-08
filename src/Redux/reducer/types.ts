@@ -8,6 +8,13 @@ export type InitialStateAuthType = {
   idToken: string;
   loggedIn: boolean;
 };
+export type StateAuthType = {
+  lastName: string;
+  firstName: string;
+  email: string;
+  userIcon: string;
+  idToken: string;
+};
 
 export type InitialStateAirportsTypes = {
   airportsListData: AirportsListTypes[];

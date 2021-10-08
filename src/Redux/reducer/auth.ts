@@ -19,7 +19,7 @@ export const auth = (state = initialStateAuth, action: AuthActionType) => {
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         email: action.payload.email,
-        userIcon: action.payload.photo,
+        userIcon: action.payload.userIcon,
         idToken: action.payload.idToken,
         loggedIn: true,
       };

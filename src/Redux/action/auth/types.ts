@@ -12,7 +12,6 @@ export enum AuthTypes {
 
 export type SignInAction = {
   type: AuthTypes.SING_IN;
-  payload?: SignInGooglePayloadType;
 };
 
 export type SignInActionSuccess = {
@@ -34,15 +33,16 @@ export type SignInPayloadType = {
   lastName: string | null;
   email: string;
   idToken: string | null;
-  photo: string | null;
-};
-export type SignInGooglePayloadType = {
-  idToken: string | null;
+  userIcon: string | null;
 };
 
-export type AuthActionType = SignInActionSuccess | SignOutAction | UploadImagesAction;
+export type AuthActionType =
+  | SignInActionSuccess
+  | SignOutAction
+  | UploadImagesAction
+  | SignInAction;
 
-export type SingInActionType = (payload?: SignInGooglePayloadType) => SignInAction;
+export type SingInActionType = () => SignInAction;
 
 export type SignOutType = () => SignOutAction;
 

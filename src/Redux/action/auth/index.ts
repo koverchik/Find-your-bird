@@ -9,10 +9,9 @@ import {
 } from './types';
 import { AuthTypes } from './types';
 
-export const signIn: SingInActionType = (payload) => {
+export const signIn: SingInActionType = () => {
   return {
     type: AuthTypes.SING_IN,
-    payload,
   };
 };
 

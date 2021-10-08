@@ -7,7 +7,6 @@ import { signOut } from '@redux/action/auth';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { getAuth } from '@redux/selectors';
 import { SettingsScreenView } from './SettingsScreenView';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 export const SettingsScreen: FC<SettingsScreenProps> = () => {
   const { theme, toggleTheme } = useTheme();
@@ -35,8 +34,6 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
 
   const onPressGoOut = async () => {
     dispatch(signOut());
-    await GoogleSignin.signOut();
-    console.log('sign out');
   };
 
   return (
