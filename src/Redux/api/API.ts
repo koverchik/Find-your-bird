@@ -2,7 +2,7 @@ import axios from 'axios';
 import { MapCircleProps } from 'react-native-maps';
 import { Coordinates, ResponseDetailsAirport, ResponseItemsAirports } from './type';
 import Config from 'react-native-config';
-import { timeExpToken } from '../sagas/helpers';
+import { timeExpToken } from './helpers';
 import { store } from '../store';
 import { tokenRefresh } from '../action/auth';
 

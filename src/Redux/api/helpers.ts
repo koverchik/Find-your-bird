@@ -1,21 +1,6 @@
 import { User } from '@react-native-google-signin/google-signin';
 import jwt_decode from 'jwt-decode';
-
-type JWT_Token = {
-  aud: string;
-  azp: string;
-  email: string;
-  email_verified: boolean;
-  exp: number;
-  family_name: string;
-  given_name: string;
-  iat: number;
-  iss: string;
-  locale: string;
-  name: string;
-  picture: string;
-  sub: string;
-};
+import { JWT_Token } from './type';
 
 export function timeExpToken(idToken: User['idToken']): boolean {
   let refresh = true;
