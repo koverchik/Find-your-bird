@@ -30,6 +30,12 @@ export const auth = (state = initialStateAuth, action: AuthActionType) => {
         ...state,
         userIcon: action.payload,
       };
+    case AuthTypes.REFRESH_TOKEN_SUCCESS: {
+      return {
+        ...state,
+        idToken: action.payload,
+      };
+    }
     default:
       return state;
   }

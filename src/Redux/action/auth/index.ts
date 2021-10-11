@@ -1,9 +1,11 @@
 import {
+  RefreshTokenSuccessType,
   SignInPayloadType,
   SignInSuccessType,
   SignOutSuccessType,
   SignOutType,
   SingInActionType,
+  TokenRefreshType,
   UploadIconSuccessType,
   UploadIconType,
 } from './types';
@@ -12,6 +14,12 @@ import { AuthTypes } from './types';
 export const signIn: SingInActionType = () => {
   return {
     type: AuthTypes.SING_IN,
+  };
+};
+
+export const tokenRefresh: TokenRefreshType = () => {
+  return {
+    type: AuthTypes.REFRESH_TOKEN,
   };
 };
 
@@ -31,6 +39,13 @@ export const signOut: SignOutType = () => {
 export const signOutSuccess: SignOutSuccessType = () => {
   return {
     type: AuthTypes.SING_OUT_SUCCESS,
+  };
+};
+
+export const refreshTokenSuccess: RefreshTokenSuccessType = (payload: string) => {
+  return {
+    type: AuthTypes.REFRESH_TOKEN_SUCCESS,
+    payload,
   };
 };
 

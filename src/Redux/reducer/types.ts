@@ -1,19 +1,13 @@
+import { User } from '@react-native-google-signin/google-signin';
 import { AirportsListTypes, ResponseDetailsAirport } from '../api/type';
 
 export type InitialStateAuthType = {
-  lastName: string;
-  firstName: string;
-  email: string;
-  userIcon: string;
-  idToken: string;
-  loggedIn: boolean;
-};
-export type StateAuthType = {
-  lastName: string;
-  firstName: string;
-  email: string;
-  userIcon: string;
-  idToken: string;
+  lastName: string | null;
+  firstName: string | null;
+  email: string | null;
+  userIcon: string | null;
+  idToken: User['idToken'];
+  loggedIn: boolean | null;
 };
 
 export type InitialStateAirportsTypes = {
