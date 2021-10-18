@@ -2,11 +2,13 @@ import axios from 'axios';
 import { MapCircleProps } from 'react-native-maps';
 import { Coordinates, ResponseDetailsAirport, ResponseItemsAirports } from './type';
 import Config from 'react-native-config';
+import { timeExpToken } from './helpers';
+import { store } from '../store';
+import { tokenRefresh } from '../action/auth';
 
 const BASE_URL = 'https://aerodatabox.p.rapidapi.com/';
 
 export const apiCreate = (baseURL: string = BASE_URL) => {
-
   const instance = axios.create({
     baseURL,
     headers: {
@@ -14,6 +16,14 @@ export const apiCreate = (baseURL: string = BASE_URL) => {
       'x-rapidapi-key': Config.API_KEY,
     },
   });
+
+  instance.interceptors.request.use((config) => {
+    const { auth } = store.getState();
+    if (timeExpToken(auth.idToken)) {
+      store.dispatch(tokenRefresh());
+    }
+    return config;
+  }, undefined);
 
   const getAirportsList = (radius: MapCircleProps['radius'], coordinates: Coordinates) => {
     return instance.get<ResponseItemsAirports>(

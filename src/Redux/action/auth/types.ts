@@ -1,3 +1,4 @@
+import { User } from '@react-native-google-signin/google-signin';
 import { Coordinates } from '../../api/type';
 
 export enum AuthTypes {
@@ -8,10 +9,16 @@ export enum AuthTypes {
   UPLOAD_ICON = 'UPLOAD_ICON',
   UPLOAD_ICON_SUCCESS = 'UPLOAD_ICON_SUCCESS',
   REQUEST_LIST_AIRPORTS = 'REQUEST_LIST_AIRPORTS',
+  REFRESH_TOKEN = 'REFRESH_TOKEN',
+  REFRESH_TOKEN_SUCCESS = 'REFRESH_TOKEN_SUCCESS',
 }
 
 export type SignInAction = {
   type: AuthTypes.SING_IN;
+};
+
+export type SignInActionSuccess = {
+  type: AuthTypes.SING_IN_SUCCESS;
   payload: SignInPayloadType;
 };
 
@@ -24,13 +31,38 @@ export type UploadImagesAction = {
   payload: string;
 };
 
-export type SignInPayloadType = { firstName: string; lastName: string; email: string };
+export type RefreshTokenAction = {
+  type: AuthTypes.REFRESH_TOKEN_SUCCESS;
+  payload: string;
+};
 
-export type AuthActionType = SignInAction | SignOutAction | UploadImagesAction;
+export type RefreshTokenType = {
+  type: AuthTypes.REFRESH_TOKEN;
+};
 
-export type SingInActionType = (payload: SignInPayloadType) => SignInAction;
+export type SignInPayloadType = {
+  firstName: string | null;
+  lastName: string | null;
+  email: string | null;
+  userIcon: string | null;
+  idToken: User['idToken'];
+};
+
+export type AuthActionType =
+  | SignInActionSuccess
+  | SignOutAction
+  | UploadImagesAction
+  | SignInAction
+  | RefreshTokenType
+  | RefreshTokenAction;
+
+export type SingInActionType = () => SignInAction;
 
 export type SignOutType = () => SignOutAction;
+
+export type TokenRefreshType = () => {
+  type: AuthTypes.REFRESH_TOKEN;
+};
 
 export type SignInSuccessType = (payload: SignInPayloadType) => {
   type: AuthTypes.SING_IN_SUCCESS;
@@ -43,6 +75,11 @@ export type SignOutSuccessType = () => {
 
 export type UploadIconType = (payload: string) => {
   type: AuthTypes.UPLOAD_ICON;
+  payload: string;
+};
+
+export type RefreshTokenSuccessType = (payload: string) => {
+  type: AuthTypes.REFRESH_TOKEN_SUCCESS;
   payload: string;
 };
 

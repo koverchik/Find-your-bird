@@ -32,7 +32,7 @@ export const SettingsScreen: FC<SettingsScreenProps> = () => {
 
   const dispatch = useAppDispatch();
 
-  const onPressGoOut = () => {
+  const onPressGoOut = async () => {
     dispatch(signOut());
   };
 

@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga/effects';
+import { all, spawn, takeLatest } from 'redux-saga/effects';
 import { GetAirportsTypes } from '../action/airports/types';
 import { singOutSaga } from './singOutSaga';
 import { singInSaga } from './singInSaga';
@@ -10,13 +10,17 @@ import { airportDetailsSaga } from './airportDetailsSaga';
 import { FavoriteAirportsTypes } from '@redux/action/favoriteAirpots/types';
 import { favoriteAirportSaga } from '@redux/sagas/favoriteAirportSaga';
 import { deleteFavoriteAirportSaga } from '@redux/sagas/deleteFavoriteAirportSaga';
+import { refreshTokenSaga } from './refreshToken';
 
 export function* rootSaga() {
-  yield takeLatest(AuthTypes.SING_IN, singInSaga);
-  yield takeLatest(AuthTypes.SING_OUT, singOutSaga);
-  yield takeLatest(AuthTypes.UPLOAD_ICON, uploadIconSaga);
-  yield takeLatest(GetAirportsTypes.REQUEST_LIST_AIRPORTS, airportsListSaga);
-  yield takeLatest(GetAirportDetailsTypes.REQUEST_DETAILS_AIRPORT, airportDetailsSaga);
-  yield takeLatest(FavoriteAirportsTypes.ADD_FAVORITE_AIRPORT, favoriteAirportSaga);
-  yield takeLatest(FavoriteAirportsTypes.GET_FAVORITE_AIRPORTS, deleteFavoriteAirportSaga);
+  yield all([
+    takeLatest(AuthTypes.REFRESH_TOKEN, refreshTokenSaga),
+    takeLatest(AuthTypes.SING_IN, singInSaga),
+    takeLatest(AuthTypes.SING_OUT, singOutSaga),
+    takeLatest(AuthTypes.UPLOAD_ICON, uploadIconSaga),
+    takeLatest(GetAirportsTypes.REQUEST_LIST_AIRPORTS, airportsListSaga),
+    takeLatest(GetAirportDetailsTypes.REQUEST_DETAILS_AIRPORT, airportDetailsSaga),
+    takeLatest(FavoriteAirportsTypes.ADD_FAVORITE_AIRPORT, favoriteAirportSaga),
+    takeLatest(FavoriteAirportsTypes.GET_FAVORITE_AIRPORTS, deleteFavoriteAirportSaga),
+  ]);
 }

@@ -7,17 +7,20 @@ export const initialStateAuth: InitialStateAuthType = {
   firstName: '',
   email: '',
   userIcon: '',
+  idToken: '',
   loggedIn: false,
 };
 
 export const auth = (state = initialStateAuth, action: AuthActionType) => {
   switch (action.type) {
-    case AuthTypes.SING_IN:
+    case AuthTypes.SING_IN_SUCCESS:
       return {
         ...state,
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         email: action.payload.email,
+        userIcon: action.payload.userIcon,
+        idToken: action.payload.idToken,
         loggedIn: true,
       };
     case AuthTypes.SING_OUT:
@@ -27,6 +30,12 @@ export const auth = (state = initialStateAuth, action: AuthActionType) => {
         ...state,
         userIcon: action.payload,
       };
+    case AuthTypes.REFRESH_TOKEN_SUCCESS: {
+      return {
+        ...state,
+        idToken: action.payload,
+      };
+    }
     default:
       return state;
   }

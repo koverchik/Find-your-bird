@@ -1,13 +1,5 @@
-import React, { FC, useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  Linking,
-  ActivityIndicator,
-  FlatList,
-  TouchableOpacity,
-  ListRenderItem,
-} from 'react-native';
+import React, { FC, useEffect } from 'react';
+import { Text, Linking, ActivityIndicator, TouchableOpacity, ListRenderItem } from 'react-native';
 import { createStyles } from './style';
 import { DetailsScreenProps, ItemLinks } from './types';
 import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
@@ -17,12 +9,9 @@ import { requestAirportDetails } from '@redux/action/airportDetails';
 import { getDetailsAirport } from '@redux/selectors';
 import { createArrayLinks } from '@screen/DetailsScreen/helper';
 import { DetailsScreenView } from '@screen/DetailsScreen/DetailsScreenView';
-import { InitialDetailsAirportStateTypes } from '@redux/reducer/types';
-import { AirportsListTypes } from '@redux/api/type';
 
 export const DetailsScreen: FC<DetailsScreenProps> = (props) => {
   const Styles = useThemeAwareObject(createStyles);
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { pending, airportData } = useAppSelector(getDetailsAirport);
 
