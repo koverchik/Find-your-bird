@@ -6,17 +6,17 @@ You can use my app for finding airports near the select area.
 
 You can clone project in your computer
 
-> git clone https://github.com/koverchik/react-native-test.git
+    git clone https://github.com/koverchik/react-native-test.git
 
 You need to set up the development environment. You can use this [guide](https://reactnative.dev/docs/environment-setup)
 
 You need to run
 
-> npm install
+    npm install
 
-> npm run react-native start
+    npm run react-native start
 
-> npm run react-native run-android
+    npm run react-native run-android
 
 ## How to use my app
 
@@ -38,7 +38,7 @@ You can see airports in selected area. You can chose favorite airports and see o
 ![Screan_3](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161749.jpg)
 ![Screan_4](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161759.jpg)
 
-If you don't like white theme you can chose dark theme in profile.
+If you don't like white theme you can chose dark theme on "Profile" screan.
 
 ![Screan_4](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161808.jpg)
 ![Screan_5](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161813.jpg)
