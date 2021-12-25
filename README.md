@@ -6,7 +6,7 @@ You can use my app for finding airports near the select area.
 
 You can clone project in your computer
 
-< git clone https://github.com/koverchik/react-native-test.git >
+<git clone https://github.com/koverchik/react-native-test.git>
 
 You need to set up the development environment. You can use this [guide](https://reactnative.dev/docs/environment-setup)
 
