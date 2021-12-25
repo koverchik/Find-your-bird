@@ -12,9 +12,9 @@ You need to set up the development environment. You can use this [guide](https:/
 
 You need to run
 
-< npm install >
-< npm run react-native start >
-< npm run react-native run-android >
+> npm install
+> npm run react-native start
+> npm run react-native run-android
 
 ## How to use my app
 
