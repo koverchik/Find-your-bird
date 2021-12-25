@@ -24,12 +24,21 @@ You need to run
 
 You need to add last name, first name and e-mail.
 
+![Screan_1](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161705.jpg)
+
 ### Second step.
 
 You can pull the slider and select an area after than you need to press the button "Search".
 
+![Screan_2](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161730.jpg)
+
 ### Third step
 
 You can see airports in selected area. You can chose favorite airports and see on screen "Favorite".
+![Screan_3](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161749.jpg)
+![Screan_4](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161759.jpg)
 
 If you don't like white theme you can chose dark theme in profile.
+
+![Screan_4](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161808.jpg)
+![Screan_5](https://github.com/koverchik/react-native-test/blob/description/screenshots/Screenshot_20211225-161813.jpg)
