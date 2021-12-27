@@ -4,7 +4,7 @@ You can use my app for finding airports near the select area.
 
 ## How to install
 
-You can clone project in your computer
+You can clone project on your computer
 
     git clone https://github.com/koverchik/react-native-test.git
 
