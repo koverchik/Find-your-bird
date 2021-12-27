@@ -2,7 +2,7 @@
 
 You can use my app for finding airports near the select area.
 
-## How install
+## How to install
 
 You can clone project in your computer
 
