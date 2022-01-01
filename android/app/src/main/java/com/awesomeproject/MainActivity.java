@@ -1,4 +1,4 @@
-package com.awesomeproject;
+package com.findyourbird;
 
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen;
