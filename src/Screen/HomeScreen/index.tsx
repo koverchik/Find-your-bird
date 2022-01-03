@@ -1,15 +1,16 @@
-import React, { FC, useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { createStyles } from './style';
 import { HomeStackScreens } from '@navigation/types';
 import { useNavigation } from '@react-navigation/native';
-import { HomeScreenProps, StackNavigationPropNavigation } from './type';
-import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
-import { useTranslation } from 'react-i18next';
-import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
 import { IconMarker } from '@root/Components/Marker';
 import { SliderCustom } from '@root/Components/Slider';
+import { useThemeAwareObject } from '@theme/ThemeAwareObject.hook';
+import React, { FC, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Text, TouchableOpacity, View } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
+import MapView, { Circle, PROVIDER_GOOGLE } from 'react-native-maps';
+import { requestLocationPermission } from './helper';
+import { createStyles } from './style';
+import { HomeScreenProps, StackNavigationPropNavigation } from './type';
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigation = useNavigation<StackNavigationPropNavigation>();
@@ -34,6 +35,7 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
   });
 
   useEffect(() => {
+    requestLocationPermission();
     Geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
