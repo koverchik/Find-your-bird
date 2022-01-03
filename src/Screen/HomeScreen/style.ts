@@ -33,13 +33,10 @@ export const createStyles = (theme: Theme) => {
       bottom: 0,
     },
     button: {
-      margin: 40,
+      margin: 20,
       padding: 15,
-      backgroundColor: theme.color.bright,
       width: 150,
-      position: 'absolute',
-      bottom: -20,
-      left: 90,
+      backgroundColor: theme.color.bright,
     },
   });
   return styles;
