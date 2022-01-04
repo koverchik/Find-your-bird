@@ -11,7 +11,7 @@ export const AirportsScreen: FC<AirportsScreenProps> = (props) => {
 
   useEffect(() => {
     dispatch(airportsList(props.route.params));
-  }, [favoriteAirports]);
+  }, []);
 
   const { pending, airportsListData } = useAppSelector(getAirports);
 

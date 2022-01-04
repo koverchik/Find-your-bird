@@ -78,7 +78,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false,
+    enableHermes: true,
     entryFile: "index.js",
 
 ]
@@ -136,8 +136,8 @@ android {
         applicationId "com.findyourbird"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
-        versionName "5.0"
+        versionCode 7
+        versionName "1.7"
     }
     splits {
         abi {
