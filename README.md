@@ -3,7 +3,7 @@
 You can use my app for finding airports near the select area.
 
 ## How to install
-### The hard way
+
 You can clone project on your computer
 
     git clone https://github.com/koverchik/react-native-test.git
@@ -17,10 +17,6 @@ You need to run
     npm run react-native start
 
     npm run react-native run-android
-
-### The easy way
-
-You can install my app via [Google Play](https://play.google.com/store/apps/details?id=com.findyourbird) 
 
 ## How to use my app
 
